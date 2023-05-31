@@ -1,0 +1,97 @@
+---
+import SocialIconNav from './SocialIconNav.astro';
+---
+
+<section class="subscribe-section section-seperator">
+  <h1 class="form-header">Subscribe</h1>
+
+  <!-- TODO add netlify forms -->
+  <form class="subscribe-form" name="subscribe">
+    <ul class="form">
+      <li>
+        <input
+          type="text"
+          name="first-name"
+          placeholder="First Name"
+          class="form-input"
+          required
+        />
+      </li>
+      <li>
+        <input
+          type="text"
+          name="second-name"
+          placeholder="Surname"
+          class="form-input"
+          required
+        />
+      </li>
+      <li>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          class="form-input"
+          required
+        />
+      </li>
+      <li><button class="btn subscribe-btn">Subscribe</button></li>
+    </ul>
+  </form>
+
+  <SocialIconNav iconHeight="2.8rem" iconWidth="2.8rem" />
+</section>
+
+<style lang="css">
+  .subscribe-section {
+    padding: 9.8rem;
+    background-color: #090d16;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+  }
+
+  .form {
+    list-style: none;
+    margin-bottom: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .form-input {
+    padding: 1.4rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: 600;
+    width: 22rem;
+    border: none;
+  }
+
+  .form-input::placeholder {
+    color: rgba(9, 13, 22, 0.377);
+  }
+
+  .subscribe-btn {
+    padding: 1rem 4.8rem !important;
+    border: 0.2rem solid #f0f2e6 !important;
+
+    transition: all 0.3s;
+  }
+
+  .subscribe-btn:hover {
+    padding: 1rem 4.8rem;
+    color: #090d16;
+    background-color: #f0f2e6;
+    border: 0.2rem solid #f0f2e6;
+  }
+
+  .sub-icon {
+    height: 2rem;
+    width: 2rem;
+  }
+</style>

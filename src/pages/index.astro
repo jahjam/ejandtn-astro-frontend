@@ -1,8 +1,9 @@
 ---
+import Subscribe from '../components/Subscribe.astro';
 import { SITE_TITLE as title } from '../consts';
 import { SITE_DESCRIPTION as description } from '../consts';
 
-import Hero from '../components/Hero.astro';
+import Hero from '../features/Hero.astro';
 ---
 
 <!DOCTYPE html>
@@ -27,6 +28,8 @@ import Hero from '../components/Hero.astro';
   <body>
     <div class="container">
       <Hero />
+
+      <Subscribe />
     </div>
   </body>
 </html>

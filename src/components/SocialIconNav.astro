@@ -1,0 +1,96 @@
+---
+import { Icon } from 'astro-icon';
+
+type Props = {
+  iconHeight: string;
+  iconWidth: string;
+};
+
+const { iconHeight, iconWidth }: Props = Astro.props;
+---
+
+<ul class="nav-icons">
+  <li>
+    <a
+      class="icon-link"
+      href="https://www.facebook.com/EJANDTN"
+      target="_blank"
+      rel="noreferrer noopener"
+      ><Icon pack="ic" class="icon" name="baseline-facebook" /></a
+    >
+  </li>
+  <li>
+    <a
+      class="icon-link"
+      href="https://www.youtube.com/channel/UCL_coC_N5kLJ-AcbMh3I_fg"
+      target="_blank"
+      rel="noreferrer noopener"
+      ><Icon pack="bi" class="icon" name="youtube" /></a
+    >
+  </li>
+  <li>
+    <a
+      class="icon-link"
+      href="https://www.instagram.com/ejandtn/"
+      target="_blank"
+      rel="noreferrer noopener"
+      ><Icon pack="mdi" class="icon" name="instagram" /></a
+    >
+  </li>
+  <li>
+    <a
+      class="icon-link"
+      href="https://open.spotify.com/artist/7lw3bqd3rCmIYcpy6PnNor?si=LOx3w-k8QfG_Lh5FTb2_Jw"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      <Icon pack="mdi" class="icon" name="spotify" /></a
+    >
+  </li>
+  <li>
+    <a
+      class="icon-link"
+      href="https://music.apple.com/gb/artist/elijah-james-and-the-nightmares/1271334018"
+      target="_blank"
+      rel="noreferrer noopener"><Icon pack="mdi" class="icon" name="apple" /></a
+    >
+  </li>
+  <li>
+    <a
+      class="icon-link"
+      href="https://twitter.com/EJANDTN"
+      target="_blank"
+      rel="noreferrer noopener"
+      ><Icon pack="mdi" class="icon" name="twitter" /></a
+    >
+  </li>
+</ul>
+
+<style lang="css" define:vars={{ iconHeight, iconWidth }}>
+  .nav-icons {
+    list-style: none;
+
+    display: flex;
+    gap: 1.8rem;
+  }
+
+  [astro-icon] {
+    height: var(--iconHeight);
+    width: var(--iconWidth);
+    cursor: pointer;
+  }
+
+  .icon-link:link,
+  .icon-link:visited {
+    display: inline-block;
+    color: #f0f2e6;
+    transition: all 0.3s;
+  }
+
+  .icon-link:hover,
+  .icon-link:active {
+    color: #f0f2e6;
+
+    transform: scale(1.05);
+  }
+</style>
