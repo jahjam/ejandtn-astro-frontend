@@ -1,6 +1,8 @@
 ---
 import { SITE_TITLE as title } from '../consts';
 import { SITE_DESCRIPTION as description } from '../consts';
+
+import Hero from '../components/Hero.astro';
 ---
 
 <!DOCTYPE html>
@@ -24,7 +26,7 @@ import { SITE_DESCRIPTION as description } from '../consts';
   </head>
   <body>
     <div class="container">
-      <h1>EJANDTN</h1>
+      <Hero />
     </div>
   </body>
 </html>
@@ -62,6 +64,7 @@ import { SITE_DESCRIPTION as description } from '../consts';
   body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
+    color: #f0f2e6;
   }
 
   h1 {
@@ -81,5 +84,86 @@ import { SITE_DESCRIPTION as description } from '../consts';
 
   p {
     font-size: 1.2rem;
+  }
+
+  .container {
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  /*
+	****************************************
+	LINKS
+	****************************************
+	*/
+
+  .link:link,
+  .link:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+
+    transition: all 0.3s;
+  }
+
+  .link:hover,
+  .link:active {
+    text-decoration: none;
+    color: #6e95ce;
+    transform: scale(1.05);
+  }
+
+  /*
+	****************************************
+	DEFAULT STYLES
+	****************************************
+	*/
+
+  .section-seperator::after {
+    content: '';
+    width: 90%;
+    position: absolute;
+    bottom: 0;
+    border-bottom: 0.1rem solid rgba(240, 242, 230, 0.603);
+  }
+
+  .grid--2-cols {
+    display: grid;
+    gap: 3.6rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid--3-cols {
+    display: grid;
+    gap: 3.6rem;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  /*
+	****************************************
+	BUTTONS
+	****************************************
+	*/
+
+  .btn,
+  .btn:link,
+  .btn:active {
+    font-family: inherit;
+    font-size: 2rem;
+    padding: 1.2rem;
+    border: none;
+    background-color: transparent;
+    color: #f0f2e6;
+    border-bottom: 0.2rem solid #f0f2e6;
+    cursor: pointer;
+
+    position: relative;
+
+    transition: all 0.3s;
+  }
+
+  .btn:hover,
+  .btn:visited {
+    transform: scale(1.05);
   }
 </style>
