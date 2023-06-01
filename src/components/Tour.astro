@@ -1,0 +1,92 @@
+---
+import da from 'date-fns/locale/da';
+import GigCard from './GigCard.astro';
+
+type GigAttributes = {
+  venue: string;
+  date: string;
+  doors: string;
+  ticket_url: string;
+  city: string;
+  country: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+};
+
+type Gig = {
+  id: number;
+  attributes: GigAttributes;
+};
+
+// TODO fetch tours from backend
+const API = import.meta.env.API;
+const res = await fetch(`${API}/gigs`);
+const { data }: { data: Gig[] } = await res.json();
+---
+
+<section class="tour-section section-seperator" id="tour">
+  <h1 class="tour-header">Tour</h1>
+
+  <div class="gig-cards">
+    {
+      data.length ? (
+        data.map(gig => {
+          const { venue, date, ticket_url, city, country }: GigAttributes =
+            gig.attributes;
+
+          return (
+            <GigCard
+              date={new Date(date)}
+              venue={venue}
+              country={country}
+              city={city}
+              ticketUrl={ticket_url}
+            />
+          );
+        })
+      ) : (
+        <span>No upcoming gigs... yet!</span>
+      )
+    }
+  </div>
+
+  <div class="message">
+    <span
+      >If you would like to recieve updates for when we are next playing a gig,
+      please subscribe to our mailing list!
+    </span>
+    <button class="btn">Subscribe</button>
+  </div>
+</section>
+
+<style lang="css">
+  .tour-section {
+    padding: 6.4rem 9.8rem 6.4rem 9.8rem;
+    background-color: var(--dark-color);
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  .gig-cards {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .message {
+    padding: 2rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+</style>

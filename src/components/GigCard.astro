@@ -1,0 +1,66 @@
+---
+import { format } from 'date-fns';
+
+type Props = {
+  date: Date;
+  venue: string;
+  country: string;
+  city: string;
+  ticketUrl: string;
+};
+
+const { date, venue, country, city, ticketUrl }: Props = Astro.props;
+
+const formattedDate = format(date, 'MMM do, yyyy');
+---
+
+<div class="container">
+  <div class="left">
+    <span>{formattedDate}</span>
+    <span>{venue}</span>
+  </div>
+
+  <div class="center">
+    <span>{city}, {country}</span>
+  </div>
+
+  <a class="link end" href={ticketUrl}>Tickets</a>
+</div>
+
+<style>
+  .container {
+    height: 8rem;
+    width: 100%;
+
+    padding: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .left > span:nth-child(1) {
+    font-weight: 700;
+  }
+
+  .left > span:nth-child(2) {
+    font-size: 1.4rem;
+  }
+
+  .link {
+    width: 12rem;
+    border: var(--border);
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .link:hover,
+  .link:active {
+    border: 0.2rem solid var(--primary-color);
+  }
+</style>
