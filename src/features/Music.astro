@@ -43,21 +43,25 @@ import { albums } from '../data/albums';
   import { openModal, overlayClosesModal, xClosesModal } from '../utils';
 
   const [...modals] = document.querySelectorAll('.modal-body');
-  const modalContainer = document.querySelector('.album-modal');
+  const modalContainer: HTMLElement = document.querySelector('.album-modal');
   const [...albums] = document.querySelectorAll('.art-box');
   const closeModal = document.querySelectorAll('.close-modal');
 
   albums.forEach(album =>
-    album.addEventListener('click', e =>
-      openModal(e, modals, modalContainer, album)
+    album.addEventListener('click', () =>
+      openModal(modals as HTMLElement[], modalContainer, album as HTMLElement)
     )
   );
 
   closeModal.forEach(close =>
-    close.addEventListener('click', () => xClosesModal(modalContainer, modals))
+    close.addEventListener('click', () =>
+      xClosesModal(modalContainer, modals as HTMLElement[])
+    )
   );
 
-  modalContainer.addEventListener('click', e => overlayClosesModal(e, modals));
+  modalContainer.addEventListener('click', e =>
+    overlayClosesModal(e, modals as HTMLElement[], modalContainer)
+  );
 </script>
 
 <style lang="css">

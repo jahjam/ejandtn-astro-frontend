@@ -1,5 +1,4 @@
 ---
-import { Album } from '../data/albums';
 import { Icon } from 'astro-icon';
 
 type Props = Album;
@@ -80,9 +79,9 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
     background-color: #090d16;
     overflow-y: auto;
 
-    /* opacity: 0;
+    opacity: 0;
     pointer-events: none;
-    transition: opacity 1s ease-in-out; */
+    transition: opacity 1s ease-in-out;
   }
 
   .modal-header {
@@ -110,12 +109,14 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
   }
 
   .close-modal {
+    height: 4rem;
+    width: 4rem;
     cursor: pointer;
   }
 
   [astro-icon] {
-    height: 4rem;
-    width: 4rem;
+    height: 100%;
+    width: 100%;
     cursor: pointer;
   }
 
