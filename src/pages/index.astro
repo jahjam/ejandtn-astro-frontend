@@ -5,6 +5,7 @@ import { SITE_TITLE as title } from '../consts';
 import { SITE_DESCRIPTION as description } from '../consts';
 
 import Hero from '../features/Hero.astro';
+import Music from '../features/Music.astro';
 ---
 
 <!DOCTYPE html>
@@ -33,12 +34,17 @@ import Hero from '../features/Hero.astro';
       <Subscribe />
 
       <Tour />
+
+      <Music />
     </div>
   </body>
 </html>
+
 <style is:global>
   :root {
     --primary-color: #6e95ce;
+
+    --grey-color: #f0f2e66b;
 
     --light-color: #f0f2e6;
     --dark-color: #090d16;
@@ -173,5 +179,18 @@ import Hero from '../features/Hero.astro';
   .btn:hover,
   .btn:visited {
     transform: scale(1.05);
+  }
+
+  .nodisplay {
+    display: none;
+  }
+
+  .nooverflow {
+    overflow: hidden !important;
+  }
+
+  .opacity {
+    opacity: 1;
+    pointer-events: auto;
   }
 </style>

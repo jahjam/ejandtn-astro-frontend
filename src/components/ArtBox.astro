@@ -1,0 +1,55 @@
+---
+type Props = {
+  img: string;
+  albumTitle: string;
+  albumDate: string;
+  releaseDate: string;
+};
+
+const { img, albumTitle, albumDate, releaseDate } = Astro.props;
+---
+
+<div class="art-box" id={`art-box-${releaseDate}`}>
+  <img
+    class="album-artwork"
+    src={img}
+    alt=`Elijah James And The Nightmares Album Art of ${albumTitle}`
+  />
+  <span class="album-title">{albumTitle}</span>
+  <span class="album-date">{albumDate}</span>
+</div>
+
+<script define:vars={{ releaseDate }}>
+  const artBox = document.getElementById(`art-box-${releaseDate}`);
+
+  artBox.dataset.id = releaseDate;
+</script>
+
+<style>
+  .art-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8rem;
+    cursor: pointer;
+  }
+
+  .album-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .music-section-desc {
+    text-align: center;
+    margin-top: -2rem;
+  }
+
+  .album-date {
+    font-size: 1.4rem;
+  }
+
+  .album-artwork {
+    width: 100%;
+    box-shadow: 2px 2px 12px -1px hsla(0, 0%, 0%, 0.774);
+  }
+</style>

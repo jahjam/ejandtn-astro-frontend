@@ -1,0 +1,97 @@
+---
+import AlbumModal from '../components/AlbumModal.astro';
+import ArtBox from '../components/ArtBox.astro';
+
+import { albums } from '../data/albums';
+---
+
+<section class="music-section section-seperator">
+  <h1 class="music-header">Music</h1>
+  <p class="music-section-desc">Click the artwork to find out more!</p>
+
+  <div class="album-gallery grid--3-cols">
+    {
+      albums.map(album => (
+        <ArtBox
+          img={album.img}
+          albumTitle={album.title}
+          albumDate={album.releaseDate}
+          releaseDate={album.releaseDate}
+        />
+      ))
+    }
+  </div>
+</section>
+
+<aside class="album-modal noopacity">
+  {
+    albums.map(album => (
+      <AlbumModal
+        img={album.img}
+        title={album.title}
+        releaseDate={album.releaseDate}
+        tracklist={album.tracklist}
+        about={album.about}
+        credits={album.credits}
+        links={album.links}
+      />
+    ))
+  }
+</aside>
+
+<script>
+  import { openModal, overlayClosesModal, xClosesModal } from '../utils';
+
+  const [...modals] = document.querySelectorAll('.modal-body');
+  const modalContainer = document.querySelector('.album-modal');
+  const [...albums] = document.querySelectorAll('.art-box');
+  const closeModal = document.querySelectorAll('.close-modal');
+
+  albums.forEach(album =>
+    album.addEventListener('click', e =>
+      openModal(e, modals, modalContainer, album)
+    )
+  );
+
+  closeModal.forEach(close =>
+    close.addEventListener('click', () => xClosesModal(modalContainer, modals))
+  );
+
+  modalContainer.addEventListener('click', e => overlayClosesModal(e, modals));
+</script>
+
+<style lang="css">
+  .music-section {
+    padding: 6.4rem 9.8rem 6.4rem 9.8rem;
+    background-color: var(--dark-color);
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+  }
+
+  .album-modal {
+    padding: 6rem;
+    background-color: var(--grey-color);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .album-gallery {
+    width: 100%;
+  }
+</style>
