@@ -43,6 +43,46 @@ import SocialIconNav from '../components/SocialIconNav.astro';
   </div>
 </header>
 
+<script>
+  const navLinks = document.querySelectorAll('.link-scroll');
+  const stickyNav = document.querySelector('.sticky-nav');
+  const stickyNavHeight = (document.querySelector('.sticky-nav') as HTMLElement)
+    .offsetHeight;
+
+  function scrollToElement(e) {
+    e.preventDefault();
+
+    const href = this.getAttribute('href');
+
+    if (href === '#') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+
+    const element = document.querySelector(href);
+
+    const elementPosition = element.getBoundingClientRect().top;
+
+    const scrollTo = elementPosition + window.pageYOffset - stickyNavHeight;
+
+    if (href !== '#' && href.startsWith('#')) {
+      window.scrollTo({
+        top: scrollTo,
+        behavior: 'smooth',
+      });
+    }
+
+    if (stickyNav.classList.contains('nav-open')) {
+      stickyNav.classList.toggle('nav-open');
+    }
+  }
+
+  navLinks.forEach(link => link.addEventListener('click', scrollToElement));
+</script>
+
 <style lang="css">
   header {
     height: 100vh;
