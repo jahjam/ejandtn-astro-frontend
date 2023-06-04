@@ -13,13 +13,14 @@ import SocialIconNav from '../components/SocialIconNav.astro';
         /></a
       >
       <ul class="nav-pages">
-        <a class="link link-scroll" href="#tour">Tour</a>
-        <a class="link link-scroll" href="#music">Music</a>
-        <a class="link link-scroll" href="#videos">Videos</a>
-        <a class="link link-scroll" href="#about">About</a>
-        <a class="link" href="#" target="_blank" rel="noreferrer noopener"
-          >Shop</a
-        >
+        <li><a class="link link-scroll" href="#tour">Tour</a></li>
+        <li><a class="link link-scroll" href="#music">Music</a></li>
+        <li><a class="link link-scroll" href="#videos">Videos</a></li>
+        <li><a class="link link-scroll" href="#about">About</a></li>
+        <li>
+          <a class="link" href="#" target="_blank" rel="noreferrer noopener"
+            >Shop</a>
+        </li>
       </ul>
 
       <SocialIconNav iconHeight="3.2rem" iconWidth="3.2rem" />
@@ -129,7 +130,7 @@ import SocialIconNav from '../components/SocialIconNav.astro';
     gap: 2rem;
   }
 
-  .nav-pages a {
+  .nav-pages li {
     font-size: 2rem;
     text-transform: uppercase;
     cursor: pointer;
