@@ -1,0 +1,53 @@
+---
+---
+
+<footer class="footer">
+  <img
+    src="/src/assets/ejandtn-logo.png"
+    alt="Elijah James And The Nightmares logo"
+    class="header-logo logo-footer"
+  />
+  <span
+    ><a
+      class="link"
+      href="https://github.com/dreamingOfSoy/ejandtn-astro-frontend"
+      target="_blank"
+      rel="noreferrer noopener"
+      >Built using Astro JavaScript by E. J. Mainwaring</a
+    ><br /><br />All Rights Reserved Elijah James And The Nightmares &copy; <span
+      class="copy-date">2022</span
+    ></span
+  >
+</footer>
+
+<script>
+  const copyrightDate = document.querySelector('.copy-date');
+
+  const date = new Date();
+  const year = date.getFullYear();
+  copyrightDate.textContent = year.toString();
+</script>
+
+<style>
+  .footer {
+    padding: 6.4rem 9.8rem 6.4rem 9.8rem;
+    background-color: #090d16;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .logo-footer {
+    height: 30%;
+    width: 30%;
+  }
+
+  footer span {
+    font-size: 1rem;
+    max-width: 40%;
+    text-align: end;
+  }
+</style>
