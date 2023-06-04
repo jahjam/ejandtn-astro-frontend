@@ -55,43 +55,6 @@ import StickyNav from '../components/StickyNav.astro';
   </body>
 </html>
 
-<script>
-  const stickyNav = document.querySelector('.sticky-nav');
-  const stickyNavHeight = (document.querySelector('.sticky-nav') as HTMLElement)
-    .offsetHeight;
-
-  function scrollToElement(e) {
-    e.preventDefault();
-
-    const href = this.getAttribute('href');
-
-    if (href === '#') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-      return;
-    }
-
-    const element = document.querySelector(href);
-
-    const elementPosition = element.getBoundingClientRect().top;
-
-    const scrollTo = elementPosition + window.pageYOffset - stickyNavHeight;
-
-    if (href !== '#' && href.startsWith('#')) {
-      window.scrollTo({
-        top: scrollTo,
-        behavior: 'smooth',
-      });
-    }
-
-    if (stickyNav.classList.contains('nav-open')) {
-      stickyNav.classList.toggle('nav-open');
-    }
-  }
-</script>
-
 <style is:global>
   :root {
     --primary-color: #6e95ce;
