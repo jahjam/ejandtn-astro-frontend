@@ -1,0 +1,70 @@
+---
+type Props = {
+  direction: string;
+};
+const { direction } = Astro.props;
+---
+
+<!-- TODO add netlify forms -->
+<form class="subscribe-form" name="subscribe" netlify>
+  <ul class="form">
+    <li>
+      <input
+        type="text"
+        name="first-name"
+        placeholder="First Name"
+        class="form-input"
+        required
+      />
+    </li>
+    <li>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        class="form-input"
+        required
+      />
+    </li>
+    <li><button class="btn subscribe-btn">Subscribe</button></li>
+  </ul>
+</form>
+
+<style lang="css" define:vars={{ direction }}>
+  .form {
+    list-style: none;
+    margin-bottom: 1.2rem;
+
+    display: flex;
+    flex-direction: var(--direction);
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .form-input {
+    padding: 1.4rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: 600;
+    width: 22rem;
+    border: none;
+  }
+
+  .form-input::placeholder {
+    color: rgba(9, 13, 22, 0.377);
+  }
+
+  .subscribe-btn {
+    padding: 1rem 4.8rem !important;
+    border: 0.2rem solid var(--light-color) !important;
+
+    transition: all 0.3s;
+  }
+
+  .subscribe-btn:hover {
+    padding: 1rem 4.8rem;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    border: 0.2rem solid var(--light-color);
+  }
+</style>
