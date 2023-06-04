@@ -28,7 +28,7 @@ const { data }: { data: Gig[] } = await res.json();
 
   <div class="gig-cards">
     {
-      data.length ? (
+      data?.length ? (
         data.map(gig => {
           const { venue, date, ticket_url, city, country }: GigAttributes =
             gig.attributes;
