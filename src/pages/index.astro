@@ -1,13 +1,16 @@
 ---
-import Subscribe from '../components/Subscribe.astro';
-import Tour from '../components/Tour.astro';
 import { SITE_TITLE as title } from '../consts';
 import { SITE_DESCRIPTION as description } from '../consts';
-import About from '../features/About.astro';
 
 import Hero from '../features/Hero.astro';
+import Subscribe from '../components/Subscribe.astro';
+import Tour from '../components/Tour.astro';
 import Music from '../features/Music.astro';
 import Video from '../features/Video.astro';
+import About from '../features/About.astro';
+import Links from '../features/Links.astro';
+import Footer from '../features/Footer.astro';
+import StickyNav from '../components/StickyNav.astro';
 ---
 
 <!DOCTYPE html>
@@ -33,6 +36,8 @@ import Video from '../features/Video.astro';
     <div class="container">
       <Hero />
 
+      <StickyNav />
+
       <Subscribe />
 
       <Tour />
@@ -42,9 +47,50 @@ import Video from '../features/Video.astro';
       <Video />
 
       <About />
+
+      <Links />
+
+      <Footer />
     </div>
   </body>
 </html>
+
+<script>
+  const stickyNav = document.querySelector('.sticky-nav');
+  const stickyNavHeight = (document.querySelector('.sticky-nav') as HTMLElement)
+    .offsetHeight;
+
+  function scrollToElement(e) {
+    e.preventDefault();
+
+    const href = this.getAttribute('href');
+
+    if (href === '#') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+
+    const element = document.querySelector(href);
+
+    const elementPosition = element.getBoundingClientRect().top;
+
+    const scrollTo = elementPosition + window.pageYOffset - stickyNavHeight;
+
+    if (href !== '#' && href.startsWith('#')) {
+      window.scrollTo({
+        top: scrollTo,
+        behavior: 'smooth',
+      });
+    }
+
+    if (stickyNav.classList.contains('nav-open')) {
+      stickyNav.classList.toggle('nav-open');
+    }
+  }
+</script>
 
 <style is:global>
   :root {
