@@ -16,5 +16,159 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
+    <style lang="css" is:global>
+      :root {
+        --primary-color: #6e95ce;
+
+        --grey-color: #f0f2e66b;
+
+        --light-color: #f0f2e6;
+        --dark-color: #090d16;
+
+        --border: 0.2rem solid var(--light-color);
+      }
+
+      *,
+      *::after,
+      *::before {
+        padding: 0;
+        margin: 0;
+        box-sizing: inherit;
+      }
+
+      *:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.4rem var(--primary-color);
+      }
+
+      html {
+        font-family: system-ui, sans-serif;
+        background-color: var(--light-color);
+
+        font-size: 62.5%;
+        box-sizing: border-box;
+
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.6rem;
+        color: var(--light-color);
+      }
+
+      h1 {
+        font-family: 'rockwell', sans-serif;
+        font-size: 3.6rem;
+      }
+
+      h2 {
+        font-family: 'rockwell', sans-serif;
+        font-size: 2.8rem;
+      }
+
+      h3 {
+        font-family: 'rockwell', sans-serif;
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      .container {
+        margin: 0 auto;
+        height: 100%;
+      }
+
+      /*
+	****************************************
+	LINKS
+	****************************************
+	*/
+
+      .link:link,
+      .link:visited {
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+
+        transition: all 0.3s;
+      }
+
+      .link:hover,
+      .link:active {
+        text-decoration: none;
+        color: var(--primary-color);
+        transform: scale(1.05);
+      }
+
+      /*
+	****************************************
+	DEFAULT STYLES
+	****************************************
+	*/
+
+      .section-seperator::after {
+        content: '';
+        width: 90%;
+        position: absolute;
+        bottom: 0;
+        border-bottom: 0.1rem solid rgba(240, 242, 230, 0.603);
+      }
+
+      .grid--2-cols {
+        display: grid;
+        gap: 3.6rem;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid--3-cols {
+        display: grid;
+        gap: 3.6rem;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      /*
+	****************************************
+	BUTTONS
+	****************************************
+	*/
+
+      .btn,
+      .btn:link,
+      .btn:active {
+        font-family: inherit;
+        font-size: 2rem;
+        padding: 1.2rem;
+        border: none;
+        background-color: transparent;
+        color: var(--light-color);
+        border-bottom: 0.2rem solid var(--light-color);
+        cursor: pointer;
+
+        position: relative;
+
+        transition: all 0.3s;
+      }
+
+      .btn:hover,
+      .btn:visited {
+        transform: scale(1.05);
+      }
+
+      .nodisplay {
+        display: none;
+      }
+
+      .nooverflow {
+        overflow: hidden !important;
+      }
+
+      .opacity {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    </style>
   </body>
 </html>
