@@ -18,7 +18,6 @@ type Gig = {
   attributes: GigAttributes;
 };
 
-// TODO fetch tours from backend
 const API = import.meta.env.API;
 const res = await fetch(`${API}/gigs`);
 const { data }: { data: Gig[] } = await res.json();
@@ -87,5 +86,17 @@ const { data }: { data: Gig[] } = await res.json();
     align-items: center;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  @media (max-width: 51em) {
+    .tour-section {
+      padding: 6.4rem 4rem;
+    }
+  }
+
+  @media (max-width: 29em) {
+    .tour-section {
+      padding: 6.4rem 2rem;
+    }
   }
 </style>
