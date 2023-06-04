@@ -33,8 +33,12 @@ import { Icon } from 'astro-icon';
     </li>
   </ul>
   <button class="btn-mobile-nav">
-    <Icon pack="ic" class="icon-mobile-nav" name="baseline-menu" />
-    <Icon pack="ic" class="icon-mobile-nav" name="baseline-close" />
+    <Icon pack="ic" class="icon-mobile-nav-menu" name="baseline-menu" />
+    <Icon
+      pack="ic"
+      class="icon-mobile-nav-close nodisplay"
+      name="baseline-close"
+    />
   </button>
 </nav>
 
@@ -44,6 +48,8 @@ import { Icon } from 'astro-icon';
     .offsetHeight;
   const header = document.querySelector('.hero');
   const btnMobNav = document.querySelector('.btn-mobile-nav');
+  const menuIcon = document.querySelector('.icon-mobile-nav-menu');
+  const closeIcon = document.querySelector('.icon-mobile-nav-close');
 
   const headerObserver = new IntersectionObserver(
     function (entries) {
@@ -59,12 +65,22 @@ import { Icon } from 'astro-icon';
 
   headerObserver.observe(header!);
 
-  btnMobNav.addEventListener('click', function () {
+  btnMobNav.addEventListener('click', () => {
     stickyNav.classList.toggle('nav-open');
+  });
+
+  menuIcon.addEventListener('click', () => {
+    menuIcon.classList.toggle('nodisplay');
+    closeIcon.classList.toggle('nodisplay');
+  });
+
+  closeIcon.addEventListener('click', () => {
+    menuIcon.classList.toggle('nodisplay');
+    closeIcon.classList.toggle('nodisplay');
   });
 </script>
 
-<style>
+<style lang="css">
   .display {
     transform: translateX(0) !important;
   }
@@ -127,9 +143,5 @@ import { Icon } from 'astro-icon';
     height: 4.8rem;
     width: 4.8rem;
     color: #f0f2e6;
-  }
-
-  .icon-mobile-nav[name='baseline-close'] {
-    display: none;
   }
 </style>
