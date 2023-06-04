@@ -21,13 +21,14 @@ const formattedDate = format(date, 'MMM do, yyyy');
   </div>
 
   <div class="center">
-    <span>{city}, {country}</span>
+    <span>{city},</span>
+    <span>{country}</span>
   </div>
 
   <a class="link end" href={ticketUrl}>Tickets</a>
 </div>
 
-<style>
+<style lang="css">
   .container {
     height: 8rem;
     width: 100%;
@@ -53,14 +54,42 @@ const formattedDate = format(date, 'MMM do, yyyy');
   }
 
   .link {
-    width: 12rem;
+    height: 5.4rem;
+    min-width: 12rem;
     border: var(--border);
     text-align: center;
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
+    line-height: 5rem;
   }
 
   .link:hover,
   .link:active {
     border: 0.2rem solid var(--primary-color);
+  }
+
+  @media (max-width: 51em) {
+    .container {
+      gap: 2rem;
+    }
+
+    .left > span:nth-child(1) {
+      font-size: 1.4rem;
+    }
+
+    .center span {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 35em) {
+    .link {
+      height: 4.4rem;
+      min-width: 8rem;
+      border: var(--border);
+      text-align: center;
+      line-height: 4rem;
+
+      font-size: 1.4rem;
+    }
   }
 </style>
