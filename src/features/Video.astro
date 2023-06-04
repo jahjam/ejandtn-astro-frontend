@@ -1,0 +1,138 @@
+---
+import { Icon } from 'astro-icon';
+import VideoBox from '../components/VideoBox.astro';
+import YouTubeModal from '../components/YouTubeModal.astro';
+import { videos } from '../data/videos';
+---
+
+<section class="video-section section-seperator" id="videos">
+  <h1 class="video-header">Videos</h1>
+  <div class="video-gallery grid--2-cols">
+    {
+      videos.map(video => (
+        <VideoBox title={video.title} img={video.url} id={video.id} />
+      ))
+    }
+  </div>
+</section>
+
+<aside class="video-modal">
+  <div class="video-body">
+    <div class="close-modal close-video-modal">
+      <Icon
+        pack="ic"
+        class="icon-mobile-nav close-video-icon"
+        name="baseline-close"
+      />
+    </div>
+    {videos.map(video => <YouTubeModal src={video.src} id={video.id} />)}
+  </div>
+</aside>
+
+<script>
+  import { openModal, overlayClosesModal, xClosesModal } from '../utils';
+
+  const [...videos] = document.querySelectorAll('.video-box');
+  const [...modals] = document.querySelectorAll('.video-container');
+  const videoContainer = document.querySelector('.video-modal');
+  const closeModal = document.querySelectorAll('.close-video-modal');
+
+  const pauseVideoWhenClose = () => {
+    const [...youtubeVid] = document.getElementsByTagName('iframe');
+
+    youtubeVid.forEach(vid => {
+      vid.contentWindow.postMessage(
+        '{"event":"command","func":"' + 'pauseVideo' + '","args":""}',
+        '*'
+      );
+    });
+  };
+
+  videos.forEach(video =>
+    video.addEventListener('click', () =>
+      openModal(
+        modals as HTMLElement[],
+        videoContainer as HTMLElement,
+        video as HTMLElement
+      )
+    )
+  );
+
+  videoContainer.addEventListener('click', e => {
+    pauseVideoWhenClose();
+    overlayClosesModal(
+      e as MouseEvent,
+      modals as HTMLElement[],
+      videoContainer as HTMLElement
+    );
+  });
+
+  closeModal.forEach(close => {
+    pauseVideoWhenClose();
+    close.addEventListener('click', () =>
+      xClosesModal(videoContainer as HTMLElement, modals as HTMLElement[])
+    );
+  });
+</script>
+
+<style>
+  .video-section {
+    padding: 6.4rem 9.8rem 6.4rem 9.8rem;
+    background-color: var(--dark-color);
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+  }
+
+  .video-gallery {
+    width: 100%;
+  }
+
+  .video-modal {
+    padding: 6rem;
+    background-color: #f0f2e66b;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .video-body {
+    width: auto;
+    height: auto;
+    position: relative;
+  }
+
+  .close-modal {
+    justify-self: flex-start;
+    cursor: pointer;
+  }
+
+  [astro-icon] {
+    height: 4rem;
+    position: absolute;
+    top: -4rem;
+    right: -4rem;
+    cursor: pointer;
+    background-color: #090d16;
+  }
+
+  .close-video-icon {
+    color: inherit;
+  }
+</style>

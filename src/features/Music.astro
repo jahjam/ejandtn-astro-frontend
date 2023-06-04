@@ -23,7 +23,7 @@ import { albums } from '../data/albums';
   </div>
 </section>
 
-<aside class="album-modal noopacity">
+<aside class="album-modal">
   {
     albums.map(album => (
       <AlbumModal
@@ -85,6 +85,8 @@ import { albums } from '../data/albums';
     top: 0;
     left: 0;
     z-index: 1000;
+
+    cursor: pointer;
 
     display: flex;
     align-items: center;

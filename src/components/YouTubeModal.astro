@@ -1,0 +1,44 @@
+---
+import { YouTube } from '@astro-community/astro-embed-youtube';
+
+type Props = {
+  src: string;
+  id: number;
+};
+
+const { src, id } = Astro.props;
+---
+
+<div class="video-container" id={`modal-${id}`}>
+  <YouTube
+    params="enablejsapi=1&version=3&playerapiid=ytplayer"
+    id={src}
+    class="youtube-video"
+  />
+</div>
+
+<script define:vars={{ id }}>
+  const modal = document.getElementById(`modal-${id}`);
+
+  modal.dataset.id = id;
+</script>
+
+<style>
+  .video-container {
+    width: 75rem;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .youtube-video {
+    height: 95%;
+    width: 95%;
+  }
+</style>
