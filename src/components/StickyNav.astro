@@ -38,9 +38,35 @@ import { Icon } from 'astro-icon';
   </button>
 </nav>
 
+<script>
+  const stickyNav = document.querySelector('.sticky-nav');
+  const stickyNavHeight = (document.querySelector('.sticky-nav') as HTMLElement)
+    .offsetHeight;
+  const header = document.querySelector('.hero');
+  const btnMobNav = document.querySelector('.btn-mobile-nav');
+
+  const headerObserver = new IntersectionObserver(
+    function (entries) {
+      const [entry] = entries;
+      entry.isIntersecting === false
+        ? stickyNav.classList.add('display')
+        : stickyNav.classList.remove('display');
+    },
+    { root: null, threshold: 0, rootMargin: `-${stickyNavHeight}px` }
+  );
+
+  console.log(headerObserver);
+
+  headerObserver.observe(header!);
+
+  btnMobNav.addEventListener('click', function () {
+    stickyNav.classList.toggle('nav-open');
+  });
+</script>
+
 <style>
   .display {
-    transform: translateX(0);
+    transform: translateX(0) !important;
   }
 
   .sticky-nav {
@@ -60,10 +86,6 @@ import { Icon } from 'astro-icon';
     justify-content: space-between;
   }
 
-  .display {
-    transform: translateX(0);
-  }
-
   .sticky-nav-logo {
     width: 24rem;
     cursor: pointer;
@@ -77,6 +99,19 @@ import { Icon } from 'astro-icon';
   .sticky-nav-link:hover,
   .sticky-nav-link:active {
     color: #6e95ce;
+  }
+
+  .nav-pages {
+    list-style: none;
+
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-pages li {
+    font-size: 2rem;
+    text-transform: uppercase;
+    cursor: pointer;
   }
 
   /* MOBILE NAV */
