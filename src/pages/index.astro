@@ -11,49 +11,30 @@ import About from '../features/About.astro';
 import Links from '../features/Links.astro';
 import Footer from '../features/Footer.astro';
 import StickyNav from '../components/StickyNav.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+<BaseLayout title={title} description={description}>
+  <div class="container">
+    <Hero />
 
-    <link rel="stylesheet" href="https://use.typekit.net/jmg5pxd.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+    <StickyNav />
 
-    <title>{title}</title>
-  </head>
-  <body>
-    <div class="container">
-      <Hero />
+    <Subscribe />
 
-      <StickyNav />
+    <Tour />
 
-      <Subscribe />
+    <Music />
 
-      <Tour />
+    <Video />
 
-      <Music />
+    <About />
 
-      <Video />
+    <Links />
 
-      <About />
-
-      <Links />
-
-      <Footer />
-    </div>
-  </body>
-</html>
+    <Footer />
+  </div>
+</BaseLayout>
 
 <style is:global>
   :root {
