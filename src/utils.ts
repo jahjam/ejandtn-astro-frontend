@@ -20,11 +20,11 @@ function show(
   enableScroll(document.querySelector('html'));
   modal.classList.add('opacity');
   modal.classList.remove('nodisplay');
-  modalContainer.classList.toggle('opacity');
+  modalContainer.classList.add('opacity');
 }
 
 function hide(modalContainer: HTMLElement, arr: HTMLElement[]) {
-  modalContainer.classList.toggle('opacity');
+  modalContainer.classList.remove('opacity');
 
   arr.forEach(el => {
     if (el.classList.contains('opacity')) {
