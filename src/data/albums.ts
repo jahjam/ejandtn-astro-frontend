@@ -1,5 +1,46 @@
 export const albums: Album[] = [
   {
+    img: '/src/assets/album-art/HBTTL-cover.png',
+    title: 'The Hellish Bending Towards The Light',
+    releaseDate: '07/06/2023',
+    tracklist: {
+      1: "The Coroner's Report",
+      2: 'Man In The Diner',
+      3: 'This Love',
+      4: 'Out Of The Woodwork',
+      5: 'Sara',
+      6: 'Grown Now',
+      7: 'Feet First',
+      8: 'Another Sunny Day',
+      9: 'Starry-Eyed Kid (With My Head In The Clouds)',
+      10: 'My Very Own Time Machine',
+      11: 'I Wish',
+    },
+    about:
+      "This album was never meant to be made. It was cobbled together in desperation due to another album I was working on proving close to impossible to make over the last three years (2020, 2021, 2022). That said, I'm happy with how it turned out. It's got no bells or whistles, but the things it has got, whatever they may be, it's got in spades. Call it what you will. I call it The Hellish Bending Towards The Light.",
+    credits: {
+      writtenBy: 'Elijah James',
+      arrangedBy: 'Elijah James',
+      producedBy: 'Elijah James',
+      mixedBy: 'Tom Roach',
+      masteredBy: 'Tom Woodhead',
+      recordedAt: ['AMS&V'],
+      personel: [
+        'Sophie Bernine - Backing Vocals',
+        'Gareth Dawson - Percussion',
+        'Emily Vanlint - Violin/Viola',
+      ],
+      albumArtDesignedBy: 'Elijah James',
+      albumArtBy: 'Jason Patrick Marsden',
+    },
+    links: {
+      spotify:
+        'https://open.spotify.com/album/1gpje4oT9maxNYrfcgDmEr?si=g7rKM2yDS46yM8UngbukeA',
+      bandcamp:
+        'https://goldenbelieversrecords.bandcamp.com/album/the-hellish-bending-towards-the-light',
+    },
+  },
+  {
     img: '/src/assets/album-art/Ep-cover-1-reduce.jpg',
     title: "It's Too Late Now To Say: Two Songs EP",
     releaseDate: '26/06/2020',
@@ -80,10 +121,10 @@ export const albums: Album[] = [
     links: {
       spotify:
         'https://open.spotify.com/album/0gOW60VIibKDlsZPhSnqaa?si=cPFJEyqZR2KkkEoJjEH-eA',
-      bandcamp:
-        'https://goldenbelieversrecords.bandcamp.com/album/the-hellish-bending-towards-the-light',
+      bandcamp: 'https://ejandtn.bandcamp.com/album/because-im-a-giant',
     },
   },
+
   {
     img: '/src/assets/album-art/EJANDTN-EP-COVER-1-reduce.jpg',
     title: 'Live From Elevator Studios EP',
