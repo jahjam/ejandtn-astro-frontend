@@ -9,7 +9,7 @@ type Props = {
 const { img, albumTitle, albumDate, releaseDate } = Astro.props;
 ---
 
-<div class="art-box" id={`art-box-${releaseDate}`}>
+<div class="art-box" id={`art-box-${releaseDate}`} tabindex="0">
   <img
     class="album-artwork"
     src={img}

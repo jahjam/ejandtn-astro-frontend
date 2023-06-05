@@ -17,7 +17,7 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
         ><button class="btn album-modal-btn">Buy</button></a
       >
     </div>
-    <div class="close-modal">
+    <div class="close-modal" tabindex="0">
       <Icon pack="ic" class="icon-mobile-nav" name="baseline-close" />
     </div>
   </div>
@@ -78,6 +78,8 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
     height: 100%;
     background-color: #090d16;
     overflow-y: auto;
+
+    cursor: default;
 
     opacity: 0;
     pointer-events: none;
