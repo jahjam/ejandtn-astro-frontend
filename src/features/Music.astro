@@ -47,17 +47,33 @@ import { albums } from '../data/albums';
   const [...albums] = document.querySelectorAll('.art-box');
   const closeModal = document.querySelectorAll('.close-modal');
 
-  albums.forEach(album =>
+  albums.forEach(album => {
     album.addEventListener('click', () =>
       openModal(modals as HTMLElement[], modalContainer, album as HTMLElement)
-    )
-  );
+    );
 
-  closeModal.forEach(close =>
+    album.addEventListener('keypress', (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        openModal(
+          modals as HTMLElement[],
+          modalContainer,
+          album as HTMLElement
+        );
+      }
+    });
+  });
+
+  closeModal.forEach(close => {
     close.addEventListener('click', () =>
       xClosesModal(modalContainer, modals as HTMLElement[])
-    )
-  );
+    );
+
+    close.addEventListener('keypress', (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        xClosesModal(modalContainer, modals as HTMLElement[]);
+      }
+    });
+  });
 
   modalContainer.addEventListener('click', e =>
     overlayClosesModal(e, modals as HTMLElement[], modalContainer)

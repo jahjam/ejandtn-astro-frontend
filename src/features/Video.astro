@@ -20,6 +20,7 @@ import { videos } from '../data/videos';
   <div class="video-body">
     <div class="close-modal close-video-modal">
       <Icon
+        tabindex="0"
         pack="ic"
         class="icon-mobile-nav close-video-icon"
         name="baseline-close"
@@ -48,15 +49,25 @@ import { videos } from '../data/videos';
     });
   };
 
-  videos.forEach(video =>
+  videos.forEach(video => {
     video.addEventListener('click', () =>
       openModal(
         modals as HTMLElement[],
         videoContainer as HTMLElement,
         video as HTMLElement
       )
-    )
-  );
+    );
+
+    video.addEventListener('keypress', (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        openModal(
+          modals as HTMLElement[],
+          videoContainer as HTMLElement,
+          video as HTMLElement
+        );
+      }
+    });
+  });
 
   videoContainer.addEventListener('click', e => {
     pauseVideoWhenClose();
@@ -72,6 +83,12 @@ import { videos } from '../data/videos';
     close.addEventListener('click', () =>
       xClosesModal(videoContainer as HTMLElement, modals as HTMLElement[])
     );
+
+    close.addEventListener('keypress', (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        xClosesModal(videoContainer as HTMLElement, modals as HTMLElement[]);
+      }
+    });
   });
 </script>
 
