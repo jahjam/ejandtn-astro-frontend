@@ -80,6 +80,8 @@ export const albums: Album[] = [
     links: {
       spotify:
         'https://open.spotify.com/album/0gOW60VIibKDlsZPhSnqaa?si=cPFJEyqZR2KkkEoJjEH-eA',
+      bandcamp:
+        'https://goldenbelieversrecords.bandcamp.com/album/the-hellish-bending-towards-the-light',
     },
   },
   {
@@ -116,6 +118,7 @@ export const albums: Album[] = [
     links: {
       spotify:
         'https://open.spotify.com/album/3tYznPxjejZKTrqkzk6Jrd?si=iB2fQf-9THS06evI6Q7BDA',
+      bandcamp: 'https://ejandtn.bandcamp.com/album/live-from-elevator-studios',
     },
   },
 ];
