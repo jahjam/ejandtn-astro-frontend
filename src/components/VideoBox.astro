@@ -29,6 +29,12 @@ const { img, title, id } = Astro.props;
     width: 100%;
     position: relative;
     cursor: pointer;
+
+    transition: all 0.2s linear;
+  }
+
+  .video-box:hover {
+    transform: scale(105%);
   }
 
   .video-thumb {

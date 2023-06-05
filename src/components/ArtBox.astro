@@ -32,6 +32,12 @@ const { img, albumTitle, albumDate, releaseDate } = Astro.props;
     align-items: center;
     gap: 1.8rem;
     cursor: pointer;
+
+    transition: all 0.2s linear;
+  }
+
+  .art-box:hover {
+    transform: scale(105%);
   }
 
   .album-title {
