@@ -18,12 +18,16 @@ const { title, description } = Astro.props;
     <slot />
     <style lang="css" is:global>
       :root {
-        --primary-color: #6e95ce;
+        /* 
+        past colours
+        --primary-color: #6e95ce; */
+        --primary-color: #c62f3b;
 
         --grey-color: #f0f2e66b;
 
         --light-color: #f0f2e6;
         --dark-color: #090d16;
+        --dark-color-transparent: rgba(0, 0, 0, 0.5);
 
         --border: 0.2rem solid var(--light-color);
       }
@@ -43,7 +47,7 @@ const { title, description } = Astro.props;
 
       html {
         font-family: system-ui, sans-serif;
-        background-color: var(--light-color);
+        background-color: var(--dark-color);
 
         font-size: 62.5%;
         box-sizing: border-box;
@@ -158,7 +162,7 @@ const { title, description } = Astro.props;
       }
 
       .nodisplay {
-        display: none;
+        display: none !important;
       }
 
       .nooverflow {
