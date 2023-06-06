@@ -34,7 +34,9 @@ import SocialIconNav from '../components/SocialIconNav.astro';
       <div class="header-container-inner">
         <div class="header-text">
           New album <br />
-          'The Hellish Bending <br /> Towards The Light' <br />
+          <span class="album-title-hero"
+            >'The Hellish Bending <br /> Towards The Light' <br /></span
+          >
           Out Now
         </div>
         <a class="link-scroll" href="#music"
@@ -99,7 +101,7 @@ import SocialIconNav from '../components/SocialIconNav.astro';
         rgba(34, 34, 34, 0.3),
         rgba(34, 34, 34, 0.3)
       ),
-      url(../assets/Because-im-a-giantai-art-only-2-reduce.jpg);
+      url(../assets/THBTTL-banner-web.jpg);
     background-position: center center;
     background-size: cover;
   }
@@ -120,6 +122,10 @@ import SocialIconNav from '../components/SocialIconNav.astro';
     cursor: pointer;
 
     margin-bottom: -0.4rem;
+  }
+
+  .album-title-hero {
+    color: var(--primary-color);
   }
 
   .main-nav {
@@ -156,6 +162,8 @@ import SocialIconNav from '../components/SocialIconNav.astro';
     line-height: 3.2rem;
     text-transform: uppercase;
     text-align: center;
+
+    color: var(--primary-color);
   }
 
   .listen-btn {
