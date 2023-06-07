@@ -1,6 +1,11 @@
+import THBTTL_ALBUM_ART from '../assets/album-art/the-hellish-bending-towards-the-light-album-art-reduce.jpg';
+import BIAG_ALBUM_ART from '../assets/album-art/Because-im-a-giant-1-Web-reduce.jpg';
+import LFES_ALBUM_ART from '../assets/album-art/EJANDTN-EP-COVER-1-reduce.jpg';
+import ITLNTS_ALBUM_ART from '../assets/album-art/Ep-cover-1-reduce.jpg';
+
 export const albums: Album[] = [
   {
-    img: '/the-hellish-bending-towards-the-light-album-art-reduce.jpg',
+    img: `${THBTTL_ALBUM_ART}`,
     title: 'The Hellish Bending Towards The Light',
     releaseDate: '07/06/2023',
     tracklist: {
@@ -41,7 +46,7 @@ export const albums: Album[] = [
     },
   },
   {
-    img: '/Ep-cover-1-reduce.jpg',
+    img: `${ITLNTS_ALBUM_ART}`,
     title: "It's Too Late Now To Say: Two Songs EP",
     releaseDate: '26/06/2020',
     tracklist: {
@@ -69,7 +74,7 @@ export const albums: Album[] = [
     },
   },
   {
-    img: '/Because-im-a-giant-1-Web-reduce.jpg',
+    img: `${BIAG_ALBUM_ART}`,
     title: "Because I'm A Giant LP",
     releaseDate: '06/09/2019',
     tracklist: {
@@ -126,7 +131,7 @@ export const albums: Album[] = [
   },
 
   {
-    img: '/EJANDTN-EP-COVER-1-reduce.jpg',
+    img: `${LFES_ALBUM_ART}`,
     title: 'Live From Elevator Studios EP',
     releaseDate: '26/06/2020',
     tracklist: {
