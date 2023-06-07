@@ -14,7 +14,7 @@ export const videos = [
   {
     id: 4,
     title: "Because I'm A Giant",
-    url: '/src/assets/youtube-art/BIAG-thumb-reduce.jpg',
+    url: 'BIAG-thumb-reduce.jpg',
     src: 'https://www.youtube.com/embed/EEPCzYCF-pU?enablejsapi=1&version=3&playerapiid=ytplayer',
   },
   {

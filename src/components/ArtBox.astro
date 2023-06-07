@@ -12,7 +12,7 @@ const { img, albumTitle, albumDate, releaseDate } = Astro.props;
 <div class="art-box" id={`art-box-${releaseDate}`} tabindex="0">
   <img
     class="album-artwork"
-    src={`.../assets/album-art/${img}`}
+    src={`/src/assets/album-art/${img}`}
     alt=`Elijah James And The Nightmares Album Art of ${albumTitle}`
   />
   <span class="album-title">{albumTitle}</span>
