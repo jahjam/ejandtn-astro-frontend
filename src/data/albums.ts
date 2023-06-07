@@ -1,6 +1,6 @@
 export const albums: Album[] = [
   {
-    img: '/src/assets/album-art/HBTTL-cover.png',
+    img: '/src/assets/album-art/the-hellish-bending-towards-the-light-album-art-reduce.jpg',
     title: 'The Hellish Bending Towards The Light',
     releaseDate: '07/06/2023',
     tracklist: {

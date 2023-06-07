@@ -2,13 +2,13 @@ export const videos = [
   {
     id: 6,
     title: "The Coroner's Report Single",
-    url: '/src/assets/youtube-art/coroners-report-thumb.png',
+    url: '/src/assets/youtube-art/coroners-report-thumb-reduce.jpg',
     src: 'https://www.youtube.com/watch?v=N_la7QV3F9o',
   },
   {
     id: 5,
     title: 'Man In The Diner Single',
-    url: '/src/assets/youtube-art/man-in-the-diner-thumb.png',
+    url: '/src/assets/youtube-art/man-in-the-diner-thumb-reduce.jpg',
     src: 'https://www.youtube.com/watch?v=hVJwG3kjplA',
   },
   {
