@@ -39,8 +39,7 @@ export const albums: Album[] = [
       albumArtBy: 'Jason Patrick Marsden',
     },
     links: {
-      spotify:
-        'https://open.spotify.com/album/1gpje4oT9maxNYrfcgDmEr?si=g7rKM2yDS46yM8UngbukeA',
+      smartLink: 'https://ditto.fm/the-hellish-bending-towards-the-light',
       bandcamp:
         'https://goldenbelieversrecords.bandcamp.com/album/the-hellish-bending-towards-the-light',
     },
@@ -67,8 +66,7 @@ export const albums: Album[] = [
       albumArtBy: 'Elijah James',
     },
     links: {
-      spotify:
-        'https://open.spotify.com/album/6jgcFTST9whuJQIryyfe18?si=kfwrQinzSe2VRxYf2M1yDw',
+      smartLink: 'https://ditto.fm/its-too-late-now-to-say-two-songs',
       bandcamp:
         'https://ejandtn.bandcamp.com/album/its-too-late-now-to-say-two-songs',
     },
@@ -124,8 +122,7 @@ export const albums: Album[] = [
       albumArtBy: 'Jonathon Tottey',
     },
     links: {
-      spotify:
-        'https://open.spotify.com/album/0gOW60VIibKDlsZPhSnqaa?si=cPFJEyqZR2KkkEoJjEH-eA',
+      smartLink: 'https://ditto.fm/because-im-a-giant',
       bandcamp: 'https://ejandtn.bandcamp.com/album/because-im-a-giant',
     },
   },
@@ -162,8 +159,7 @@ export const albums: Album[] = [
       albumArtBy: 'Elijah James',
     },
     links: {
-      spotify:
-        'https://open.spotify.com/album/3tYznPxjejZKTrqkzk6Jrd?si=iB2fQf-9THS06evI6Q7BDA',
+      smartLink: 'https://ditto.fm/live-from-elevator-studios',
       bandcamp: 'https://ejandtn.bandcamp.com/album/live-from-elevator-studios',
     },
   },

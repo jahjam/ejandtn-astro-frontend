@@ -13,6 +13,7 @@ declare type Credits = {
 declare type Link = {
   spotify?: string;
   bandcamp?: string;
+  smartLink?: string;
 };
 
 declare type Album = {
