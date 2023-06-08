@@ -5,11 +5,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 import SubscribeForm from '../components/SubscribeForm.astro';
 import { Icon } from 'astro-icon';
+import LOGO from '../assets/ejandtn-logo.png';
 ---
 
 <BaseLayout title={title} description={description}>
   <main>
-    <img src="/src/assets/ejandtn-logo.png" alt="EJANDTN logo" />
+    <img src={`${LOGO}`} alt="EJANDTN logo" />
     <a href="/" class="link"
       ><Icon pack="cil" name="arrow-left" />Back to EJANDTN Website</a
     >
