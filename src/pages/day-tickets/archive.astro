@@ -5,9 +5,9 @@ import {
   DAY_TICKETS_ARCHIVE_DESCRIPTION,
 } from '../../consts';
 import { sortTicketsByDateFn } from '../../utils';
-import DayTicket from '../../layouts/DayTicket.astro';
 import Header from '../../components/day-tickets/Header.astro';
 import { format } from 'date-fns';
+import { Icon } from 'astro-icon';
 const API = import.meta.env.API;
 
 const res = await fetch(`${API}/day-tickets`);
@@ -21,36 +21,87 @@ const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
   title={DAY_TICKETS_TITLE}
   description={DAY_TICKETS_ARCHIVE_DESCRIPTION}
 >
-  <Header />
-  <p>{DAY_TICKETS_ARCHIVE_DESCRIPTION}</p>
+  <div class="container">
+    <Header />
 
-  <div>
-    {
-      sortedTicketsByDateArr &&
-        sortedTicketsByDateArr.map(group => {
-          return (
-            <div data-date={group[0]}>
-              <span>
-                {format(
-                  new Date(
-                    +(group[0] as string).split('/')[2],
-                    +(group[0] as string).split('/')[1] - 1,
-                    +(group[0] as string).split('/')[0]
-                  ),
-                  'MMM-yyyy'
-                ).replace('-', ' ')}
-              </span>
+    <p>{DAY_TICKETS_ARCHIVE_DESCRIPTION}</p>
 
-              {(group[1] as DayTicket[]).map(ticket => {
-                return (
-                  <a class="link" href={`/day-tickets/${ticket.id}`}>
-                    {ticket.attributes.title}
-                  </a>
-                );
-              })}
-            </div>
-          );
-        })
-    }
+    <div class="tix-container">
+      {
+        sortedTicketsByDateArr &&
+          sortedTicketsByDateArr.map(group => {
+            return (
+              <div data-date={group[0]} class="title-block">
+                <span class="title-block-date">
+                  {format(
+                    new Date(
+                      +(group[0] as string).split('/')[2],
+                      +(group[0] as string).split('/')[1] - 1,
+                      +(group[0] as string).split('/')[0]
+                    ),
+                    'MMM-yyyy'
+                  ).replace('-', ' ')}
+                </span>
+
+                {(group[1] as DayTicket[]).map(ticket => {
+                  return (
+                    <a class="link" href={`/day-tickets/${ticket.id}`}>
+                      {ticket.attributes.title}
+                    </a>
+                  );
+                })}
+              </div>
+            );
+          })
+      }
+    </div>
   </div>
 </BaseLayout>
+
+<style lang="scss">
+  .container {
+    width: 40rem;
+    font-family: lores-12, sans-serif;
+
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
+
+  .tix-container {
+    width: 100%;
+    white-space: nowrap;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .title-block {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .title-block-date {
+    font-weight: 600;
+    font-size: 2rem;
+    align-self: flex-start;
+    color: #f0f2e6;
+  }
+</style>
