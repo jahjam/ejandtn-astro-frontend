@@ -1,10 +1,14 @@
 ---
+import { format } from 'date-fns';
 import { marked } from 'marked';
 type Props = DayTicketAttributes;
 
 const { title, body, date_created, publishedAt } = Astro.props;
 
-const content = marked.parse(body);
+const content = marked.parse(body, {
+  mangle: false,
+  headerIds: false,
+});
 ---
 
 <div>
@@ -12,6 +16,42 @@ const content = marked.parse(body);
 
   <article set:html={content} />
 
-  <span>Written: {date_created}</span>
-  <span>Published: {publishedAt}</span>
+  <div class="info">
+    <span>- Elijah James</span>
+    <div>
+      <span>Written: {format(new Date(date_created), 'dd/MM/yyyy')}</span>
+      <span>Published: {format(new Date(publishedAt), 'dd/MM/yyyy')}</span>
+    </div>
+  </div>
 </div>
+
+<style is:inline>
+  div {
+    font-family: lores-12, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  h3 {
+    font-family: lores-9-wide, sans-serif;
+    font-size: 2rem;
+  }
+
+  article > p {
+    font-size: 1.4rem;
+    line-height: 2rem;
+
+    margin-bottom: 0.5rem;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  span {
+    font-size: 1.4rem;
+  }
+</style>
