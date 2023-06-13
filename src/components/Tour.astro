@@ -1,23 +1,6 @@
 ---
 import GigCard from './GigCard.astro';
 
-type GigAttributes = {
-  venue: string;
-  date: string;
-  doors: string;
-  ticket_url: string;
-  city: string;
-  country: string;
-  createdAt: Date;
-  updatedAt: Date;
-  publishedAt: Date;
-};
-
-type Gig = {
-  id: number;
-  attributes: GigAttributes;
-};
-
 const API = import.meta.env.API;
 const res = await fetch(`${API}/gigs`);
 const { data }: { data: Gig[] } = await res.json();
