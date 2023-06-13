@@ -25,3 +25,34 @@ declare type Album = {
   credits: Credits;
   links: Link;
 };
+
+declare type GigAttributes = {
+  venue: string;
+  date: string;
+  doors: string;
+  ticket_url: string;
+  city: string;
+  country: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+};
+
+declare type Gig = {
+  id: number;
+  attributes: GigAttributes;
+};
+
+declare type DayTicket = {
+  id: number;
+  attributes: DayTicketAttributes;
+};
+
+declare type DayTicketAttributes = {
+  title: string;
+  body: string;
+  date_created: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+  publishedAt: Date;
+};
