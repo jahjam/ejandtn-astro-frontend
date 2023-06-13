@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 const enableScroll = (el: HTMLElement) => el.classList.add('nooverflow');
 const stopScroll = (el: HTMLElement) => el.classList.remove('nooverflow');
 
@@ -67,3 +69,64 @@ export function overlayClosesModal(
     hide(e.target as HTMLElement, modals);
   }
 }
+
+export const sortTicketsByDateFn = (ticketArr: DayTicket[]) => {
+  const tickets = ticketArr;
+  const sortedObj = {};
+  tickets.forEach(e => {
+    const formattedTicketDate = format(
+      new Date(e.attributes.date_created),
+      'dd/MM/yyyy'
+    );
+    const k = formattedTicketDate.slice(3);
+    const fk = `01/${k}`;
+    sortedObj[fk] = sortedObj[fk] || [];
+    sortedObj[fk].push(e);
+  });
+
+  Object.values(sortedObj).forEach((group: DayTicket[]) => {
+    group.sort(
+      (a, b) =>
+        +new Date(
+          +format(new Date(b.attributes.date_created), 'dd/MM/yyyy').split(
+            '/'
+          )[2],
+          +format(new Date(b.attributes.date_created), 'dd/MM/yyyy').split(
+            '/'
+          )[1] - 1,
+          +format(new Date(b.attributes.date_created), 'dd/MM/yyyy').split(
+            '/'
+          )[0]
+        ) -
+        +new Date(
+          +format(new Date(a.attributes.date_created), 'dd/MM/yyyy').split(
+            '/'
+          )[2],
+          +format(new Date(a.attributes.date_created), 'dd/MM/yyyy').split(
+            '/'
+          )[1] - 1,
+          +format(new Date(a.attributes.date_created), 'dd/MM/yyyy').split(
+            '/'
+          )[0]
+        )
+    );
+  });
+
+  return Object.entries(sortedObj).sort(
+    (a, b) =>
+      +new Date(
+        new Date(
+          +b[0].split('/')[2],
+          +b[0].split('/')[1] - 1,
+          +b[0].split('/')[0]
+        )
+      ) -
+      +new Date(
+        new Date(
+          +a[0].split('/')[2],
+          +a[0].split('/')[1] - 1,
+          +a[0].split('/')[0]
+        )
+      )
+  ) as Array<Array<string | DayTicket[]>>;
+};
