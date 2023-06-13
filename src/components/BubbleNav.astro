@@ -1,0 +1,173 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<div>
+  <div class="main-nav-icon" tabindex="0">
+    <Icon name="ph:squares-four" class="squares" />
+    <Icon name="ph:squares-four-fill" class="squares-fill opacity" />
+  </div>
+
+  <div class="icon ticket-icon">
+    <a href="/day-tickets"><Icon name="ep:ticket" /></a>
+  </div>
+</div>
+
+<script>
+  const header = document.querySelector('.hero');
+  const mainNavIcon = document.querySelector('.main-nav-icon') as HTMLElement;
+  const squares = document.querySelector('.squares') as HTMLElement;
+  const squaresFill = document.querySelector('.squares-fill') as HTMLElement;
+  const ticketIcon = document.querySelector('.ticket-icon') as HTMLElement;
+  const stickyNavHeight = (document.querySelector('.sticky-nav') as HTMLElement)
+    .offsetHeight;
+
+  const headerObserver = new IntersectionObserver(
+    function (entries) {
+      const [entry] = entries;
+      if (entry.isIntersecting === false) {
+        mainNavIcon.classList.add('icon-nav-display');
+        ticketIcon.classList.add('icon-nav-display');
+      } else {
+        mainNavIcon.classList.remove('icon-nav-display');
+        ticketIcon.classList.remove('icon-nav-display');
+      }
+    },
+    { root: null, threshold: 0, rootMargin: `-${stickyNavHeight}px` }
+  );
+
+  headerObserver.observe(header);
+
+  const toggleIcons = () => {
+    if (squares.classList.contains('opacity')) {
+      squares.classList.remove('opacity');
+      squaresFill.classList.add('opacity');
+      ticketIcon.style.right = '6rem';
+      mainNavIcon.style.transform = 'rotate(0deg)';
+      return;
+    }
+
+    mainNavIcon.style.transform = 'rotate(180deg)';
+    squares.classList.add('opacity');
+    squaresFill.classList.remove('opacity');
+
+    if (window.matchMedia('(max-width: 27em)').matches) {
+      ticketIcon.style.right = '11.5rem';
+      return;
+    }
+
+    ticketIcon.style.right = '13rem';
+  };
+
+  mainNavIcon.addEventListener('keypress', (e: KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      toggleIcons();
+    }
+  });
+
+  mainNavIcon.addEventListener('click', toggleIcons);
+</script>
+
+<style lang="scss">
+  .icon-nav-display {
+    transform: translateX(20rem) !important;
+  }
+
+  .main-nav-icon {
+    height: 6rem;
+    width: 6rem;
+    background-color: var(--primary-color);
+    border: var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(110%);
+    }
+
+    @media (max-width: 27em) {
+      height: 5rem;
+      width: 5rem;
+    }
+  }
+
+  [astro-icon='ph:squares-four'] {
+    height: 4rem;
+    width: 4rem;
+    position: absolute;
+
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  [astro-icon='ph:squares-four-fill'] {
+    height: 4rem;
+    width: 4rem;
+    position: absolute;
+
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .icon {
+    height: 4rem !important;
+    width: 4rem !important;
+    background-color: var(--primary-color);
+    border: var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    bottom: 6rem;
+    right: 6rem;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition: all 0.5s ease-in-out;
+
+    & a {
+      color: var(--light-color);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.4rem var(--light-color);
+      }
+    }
+
+    &:hover {
+      transform: scale(110%);
+    }
+
+    @media (max-width: 27em) {
+      height: 3.4rem !important;
+      width: 3.4rem !important;
+    }
+  }
+
+  [astro-icon='ep:ticket'] {
+    height: 2rem;
+    width: 2rem;
+
+    transition: opacity 0.5s ease-in-out;
+  }
+</style>
