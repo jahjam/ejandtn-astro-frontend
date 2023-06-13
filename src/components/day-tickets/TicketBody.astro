@@ -1,0 +1,17 @@
+---
+import { marked } from 'marked';
+type Props = DayTicketAttributes;
+
+const { title, body, date_created, publishedAt } = Astro.props;
+
+const content = marked.parse(body);
+---
+
+<div>
+  <h3>{title}</h3>
+
+  <article set:html={content} />
+
+  <span>Written: {date_created}</span>
+  <span>Published: {publishedAt}</span>
+</div>

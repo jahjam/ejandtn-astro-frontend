@@ -1,0 +1,22 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/day-tickets/Header.astro';
+import TicketBody from '../components/day-tickets/TicketBody.astro';
+
+type Props = DayTicketAttributes;
+
+const { title, body, date_created, publishedAt } = Astro.props;
+---
+
+<BaseLayout title={title} description=`${body.substring(0, 20)}...`>
+  <Header />
+
+  <a class="link" href="/day-tickets/archive">Archive</a>
+
+  <TicketBody
+    title={title}
+    body={body}
+    date_created={date_created}
+    publishedAt={publishedAt}
+  />
+</BaseLayout>

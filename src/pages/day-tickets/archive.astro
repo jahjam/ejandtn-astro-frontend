@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  DAY_TICKETS_TITLE,
+  DAY_TICKETS_ARCHIVE_DESCRIPTION,
+} from '../../consts';
+import { sortTicketsByDateFn } from '../../utils';
+import DayTicket from '../../layouts/DayTicket.astro';
+import Header from '../../components/day-tickets/Header.astro';
+import { format } from 'date-fns';
+const API = import.meta.env.API;
+
+const res = await fetch(`${API}/day-tickets`);
+
+const { data: dayTickets }: { data: DayTicket[] } = await res.json();
+
+const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
+---
+
+<BaseLayout
+  title={DAY_TICKETS_TITLE}
+  description={DAY_TICKETS_ARCHIVE_DESCRIPTION}
+>
+  <Header />
+  <p>{DAY_TICKETS_ARCHIVE_DESCRIPTION}</p>
+
+  <div>
+    {
+      sortedTicketsByDateArr &&
+        sortedTicketsByDateArr.map(group => {
+          return (
+            <div data-date={group[0]}>
+              <span>
+                {format(
+                  new Date(
+                    +(group[0] as string).split('/')[2],
+                    +(group[0] as string).split('/')[1] - 1,
+                    +(group[0] as string).split('/')[0]
+                  ),
+                  'MMM-yyyy'
+                ).replace('-', ' ')}
+              </span>
+
+              {(group[1] as DayTicket[]).map(ticket => {
+                return (
+                  <a class="link" href={`/day-tickets/${ticket.id}`}>
+                    {ticket.attributes.title}
+                  </a>
+                );
+              })}
+            </div>
+          );
+        })
+    }
+  </div>
+</BaseLayout>

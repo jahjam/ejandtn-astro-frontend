@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { DAY_TICKETS_TITLE, DAY_TICKETS_DESCRIPTION } from '../../consts';
+import { sortTicketsByDateFn } from '../../utils';
+import DayTicket from '../../layouts/DayTicket.astro';
+import Header from '../../components/day-tickets/Header.astro';
+import TicketBody from '../../components/day-tickets/TicketBody.astro';
+const API = import.meta.env.API;
+
+const res = await fetch(`${API}/day-tickets`);
+
+const { data: dayTickets }: { data: DayTicket[] } = await res.json();
+
+const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
+
+const mostRecentTicket = (sortedTicketsByDateArr[0][1][0] as DayTicket)
+  .attributes as DayTicketAttributes;
+---
+
+<BaseLayout title={DAY_TICKETS_TITLE} description={DAY_TICKETS_DESCRIPTION}>
+  <div class="container">
+    <Header />
+    <p>{DAY_TICKETS_DESCRIPTION}</p>
+
+    <a class="link" href="/day-tickets/archive">Archive</a>
+
+    <TicketBody
+      title={mostRecentTicket.title}
+      body={mostRecentTicket.body}
+      date_created={mostRecentTicket.date_created}
+      publishedAt={new Date(mostRecentTicket.publishedAt)}
+    />
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+  .container {
+    height: 100%;
+    width: 40rem;
+    font-family: lores-12, sans-serif;
+    position: relative;
+    color: #f0f2e6;
+    background-color: #090d16;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+</style>
