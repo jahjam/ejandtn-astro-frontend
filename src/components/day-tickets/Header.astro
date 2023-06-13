@@ -11,11 +11,14 @@ import { Icon } from 'astro-icon';
 
 <style lang="scss">
   .container {
+    width: 30rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    border: var(--border);
+    padding: 2rem;
   }
 
   @keyframes cursor-blink {
@@ -25,7 +28,9 @@ import { Icon } from 'astro-icon';
   }
 
   h1 {
-    font-family: lores-9-wide, sans-serif;
+    font-family: sinter, sans-serif;
+    font-weight: 900;
+    font-style: normal;
     font-size: 3.6rem;
 
     display: flex;
@@ -43,8 +48,10 @@ import { Icon } from 'astro-icon';
 
     &::after {
       content: '';
+      margin-left: 0.4rem;
+      margin-bottom: 0.6rem;
       width: 0.5rem;
-      height: 3.2rem;
+      height: 3.4rem;
       background: var(--primary-color);
       display: inline-block;
       animation: cursor-blink 1.5s steps(2) infinite;
