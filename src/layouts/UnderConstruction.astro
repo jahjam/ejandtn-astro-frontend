@@ -1,0 +1,64 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { Icon } from 'astro-icon';
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="container">
+    <div>
+      <Icon name="line-md:construction" />
+      <h1>Under Construction</h1>
+      <Icon name="line-md:construction" />
+    </div>
+    <a href="/" class="link"
+      ><Icon pack="cil" name="arrow-left" />Back to EJANDTN Website</a
+    >
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  div {
+    height: auto;
+    width: 100%;
+
+    padding-top: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  a {
+    margin-top: -1rem;
+    display: flex !important;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  [astro-icon] {
+    height: 4rem;
+    width: 4rem;
+
+    color: rgb(221, 211, 23);
+  }
+
+  [astro-icon='cil:arrow-left'] {
+    color: var(--primary-color);
+  }
+</style>
