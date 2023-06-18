@@ -38,16 +38,51 @@ import { Icon } from 'astro-icon';
 
   headerObserver.observe(header);
 
+  mainNavIcon.onmouseover = () => {
+    mainNavIcon.style.transform = 'scale(110%) rotate(0deg)';
+  };
+
+  mainNavIcon.onmouseout = () => {
+    mainNavIcon.style.transform = 'scale(100%) rotate(0deg)';
+  };
+
   const toggleIcons = () => {
     if (squares.classList.contains('opacity')) {
       squares.classList.remove('opacity');
       squaresFill.classList.add('opacity');
       ticketIcon.style.right = '6rem';
       mainNavIcon.style.transform = 'rotate(0deg)';
+
+      mainNavIcon.onmouseover = () => {
+        mainNavIcon.style.transform = 'rotate(0deg)';
+      };
+
+      mainNavIcon.onmouseout = () => {
+        mainNavIcon.style.transform = 'rotate(0deg)';
+      };
+
+      setTimeout(() => {
+        mainNavIcon.onmouseover = () => {
+          mainNavIcon.style.transform = 'scale(110%) rotate(0deg)';
+        };
+
+        mainNavIcon.onmouseout = () => {
+          mainNavIcon.style.transform = 'scale(100%) rotate(0deg)';
+        };
+      }, 500);
+
       return;
     }
 
     mainNavIcon.style.transform = 'rotate(180deg)';
+
+    mainNavIcon.onmouseover = () => {
+      mainNavIcon.style.transform = 'rotate(180deg)';
+    };
+    mainNavIcon.onmouseout = () => {
+      mainNavIcon.style.transform = 'rotate(180deg)';
+    };
+
     squares.classList.add('opacity');
     squaresFill.classList.remove('opacity');
 
