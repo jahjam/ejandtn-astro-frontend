@@ -1,0 +1,85 @@
+---
+// const API = import.meta.env.API;
+// const res = await fetch(`${API}/blogs`);
+// const { data } = await res.json();
+
+const TEST_DATA = [
+  {
+    title: 'The Hellish Bending Towards The Light - OUT NOW!',
+    body:
+      'Howdy,\n' +
+      '\n' +
+      "Welcome to the first blog post! Let's begin:\n" +
+      '\n' +
+      "This album was never meant to be made. It was cobbled together in desperation due to another album I was working on proving close to impossible to make over the last two years. That said, I'm happy with how it turned out. It's got no bells or whistles, but the things it has got, whatever they may be, it's got in spades. Call it what you will. I call it The Hellish Bending Towards The Light. \n" +
+      '\n' +
+      "We have a very limited run of CD's available with a little special extra included for those lucky few who grab them before they're gone, you can buy those here (it's also 'Bandcamp Friday' which means bandcamp don't take a penny if you buy today): https://goldenbelieversrecords.bandcamp.com/album/the-hellish-bending-towards-the-light?fbclid=IwAR3lqnX-zaByPA4UJS5kcANP7dhKsRDykrslXf5lhkJpM9UWaipCJHQBzwE\n" +
+      '\n' +
+      "** Special thanks to Stuart at Golden Believers Records for making the CD's possible and always supporting me in this chaotic journey.\n" +
+      ' \n' +
+      "You can also stream it on all major platforms, here is one, but there's many other poisons to choose: https://open.spotify.com/album/1gpje4oT9maxNYrfcgDmEr\n" +
+      '\n' +
+      'Many thanks to those who take the time to listen, it means more than can possibly be displayed through these particular forms of communication. \n' +
+      '\n' +
+      "There'll be another album on the way soon too!\n" +
+      '\n' +
+      "Huge thanks to @tomroach for doing an incredible job as always on the mixing. To @sbernicemusic for singing some amazing backing vocals. @mynameisgaz13 for the groovy percussion. And Emily Vanlint for the ever-beautiful violin/viola playing. I'm very lucky.\n" +
+      '\n' +
+      'All my love,\n' +
+      '\n' +
+      'EJ xo',
+    img_url:
+      'https://ejandtn-strapi-aws-s3-bucket.s3.eu-west-2.amazonaws.com/the_hellish_bending_towards_the_light_album_art_dea84cc2f7.jpg',
+    createdAt: '2023-06-17T17:11:53.685Z',
+    updatedAt: '2023-06-18T11:28:07.237Z',
+    publishedAt: '2023-06-18T11:24:01.465Z',
+    img_urls: [
+      'https://ejandtn-strapi-aws-s3-bucket.s3.eu-west-2.amazonaws.com/349231466_150971737883966_6377181652039813722_n_cd86b8a5f5.jpg',
+    ],
+    slug: 'the-hellish-bending-towards-the-light---out---now!',
+  },
+];
+---
+
+<div class="container">
+  {
+    TEST_DATA.map(data => {
+      return (
+        <a class="img-box" href={`/blog/${data.slug}`}>
+          <img class="main-img" src={data.img_url} />
+        </a>
+      );
+    })
+  }
+</div>
+
+<style lang="scss">
+  .container {
+    height: auto;
+    max-width: 80rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.2rem;
+  }
+
+  .img-box {
+    height: 100;
+    width: 100%;
+
+    cursor: pointer;
+
+    object-fit: contain;
+
+    transition: all 0.5s linear;
+
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+
+  .main-img {
+    height: 100%;
+    width: 100%;
+  }
+</style>
