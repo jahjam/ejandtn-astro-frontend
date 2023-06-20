@@ -17,7 +17,7 @@ export const DAY_TICKETS_ARCHIVE_DESCRIPTION =
 
 export const BLOG_TITLE = 'Elijah James And The Nightmares | Blog';
 export const BLOG_DESCRIPTION =
-  "Welcome to Elijah James And The Nightmares' personal blog. Here you will find the most recent updates from the band that can only be found here or via our mailing list if you're subscribed.";
+  "Welcome to Elijah James And The Nightmares' personal blog. Here you will find the most recent updates from the band that can only be found here.";
 
 export const PHOTOGRAPHY_TITLE =
   'Elijah James And The Nightmares | Animals & Architecture';
