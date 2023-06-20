@@ -9,7 +9,10 @@ import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts';
   <div class="container">
     <Header />
 
-    <p>{BLOG_DESCRIPTION}</p>
+    <p>
+      {BLOG_DESCRIPTION.slice(0, -1)}, or via our mailing list if you're
+      <a href="/subscribe" class="link" }>subscribed</a>.
+    </p>
 
     <span>Click an image to read the blog post!</span>
 
@@ -31,6 +34,10 @@ import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts';
     align-items: center;
     justify-content: flex-start;
     gap: 2rem;
+  }
+
+  a {
+    text-decoration: underline !important;
   }
 
   p {
