@@ -1,0 +1,232 @@
+---
+import { marked } from 'marked';
+import BaseLayout from './BaseLayout.astro';
+import { format } from 'date-fns';
+import { Icon } from 'astro-icon';
+import SubscribeForm from '../components/SubscribeForm.astro';
+
+type Props = {
+  img_url: string;
+  img_urls: string[];
+  title: string;
+  body: string;
+  datePublished: Date;
+};
+
+const { title, body, datePublished, img_url, img_urls } = Astro.props;
+
+const content = marked.parse(body, {
+  mangle: false,
+  headerIds: false,
+});
+---
+
+<BaseLayout title={title} description=`${body.substring(0, 20)}...`>
+  <div class="container">
+    <a href="/blog" class="link"
+      ><Icon pack="cil" name="arrow-left" />Back to blog</a
+    >
+
+    <h1>{title}</h1>
+
+    <div class="slider-container">
+      <div class="my-slider">
+        <img src={img_url} />
+        {img_urls.map(img => <img src={img} />)}
+      </div>
+
+      <div class="controls">
+        <button class="ctl-btn prev"><Icon name="ic:sharp-arrow-left" /></button
+        >
+        <button class="ctl-btn next"
+          ><Icon name="ic:sharp-arrow-right" /></button
+        >
+      </div>
+    </div>
+
+    <div class="info">
+      <span>By Elijah James</span>
+      <span>Posted: {format(new Date(datePublished), 'dd MMMM, yyyy')}</span>
+    </div>
+
+    <article set:html={content} />
+
+    <span class="divider"></span>
+
+    <span
+      >Subscribe to our mailing list to recieve more posts like this one.</span
+    >
+    <SubscribeForm direction="column" />
+  </div>
+</BaseLayout>
+
+<script>
+  import { tns } from 'tiny-slider';
+
+  const slider = tns({
+    container: '.my-slider',
+    loop: false,
+    navAsThumbnails: true,
+    swipeAngle: false,
+    speed: 400,
+    mouseDrag: true,
+    controlsContainer: '.controls',
+    prevButton: '.prev',
+    nextButton: '.next',
+  });
+</script>
+
+<style lang="scss" is:inline>
+  .container {
+    max-width: 60rem;
+    margin-top: 1rem;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  article > p {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+
+  article > p a {
+    margin-top: 0;
+  }
+
+  article > p a:link,
+  article > p a:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+
+    text-decoration: underline;
+
+    transition: all 0.3s;
+  }
+
+  article > p a:hover,
+  article > p a:active {
+    text-decoration: none;
+    color: var(--primary-color);
+    transform: scale(1.05);
+  }
+
+  .my-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tns-nav {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tns-nav button {
+    border: none;
+    padding: 0.8rem;
+    background-color: var(--grey-color);
+  }
+
+  .tns-nav .tns-nav-active {
+    background-color: var(--light-color);
+  }
+
+  .controls {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .ctl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--light-color);
+
+    cursor: pointer;
+
+    border: none;
+  }
+
+  .ctl-btn:disabled {
+    cursor: default;
+  }
+
+  .ctl-btn:disabled [astro-icon='ic:sharp-arrow-left'] {
+    color: var(--dark-color);
+  }
+
+  .ctl-btn:disabled [astro-icon='ic:sharp-arrow-right'] {
+    color: var(--dark-color);
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 1rem;
+
+    border: var(--border);
+  }
+
+  a {
+    margin-top: -1rem;
+    display: flex !important;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  [astro-icon] {
+    height: 2rem;
+    width: 2rem;
+    color: var(--primary-color);
+  }
+
+  [astro-icon='ic:sharp-arrow-left'] {
+    height: 3rem;
+    width: 3rem;
+
+    color: var(--primary-color);
+  }
+
+  [astro-icon='ic:sharp-arrow-right'] {
+    height: 3rem;
+    width: 3rem;
+
+    color: var(--primary-color);
+  }
+
+  .divider {
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--light-color);
+  }
+</style>

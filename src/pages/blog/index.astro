@@ -1,6 +1,54 @@
 ---
-import UnderConstruction from '../../layouts/UnderConstruction.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/blog/Header.astro';
+import Gallery from '../../components/blog/Gallery.astro';
 import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts';
 ---
 
-<UnderConstruction title={BLOG_TITLE} description={BLOG_DESCRIPTION} />
+<BaseLayout title={BLOG_TITLE} description={BLOG_DESCRIPTION}>
+  <div class="container">
+    <Header />
+
+    <p>
+      {BLOG_DESCRIPTION.slice(0, -1)}, or via our mailing list if you're
+      <a href="/subscribe" class="link" }>subscribed</a>.
+    </p>
+
+    <span>Click an image to read the blog post!</span>
+
+    <Gallery />
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+  .container {
+    height: 100%;
+    max-width: 80rem;
+    font-family: sinter, sans-serif;
+    position: relative;
+    color: #f0f2e6;
+    background-color: #090d16;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  a {
+    text-decoration: underline !important;
+  }
+
+  p {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    padding: 0 1rem;
+  }
+
+  span {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    padding: 0 1rem;
+  }
+</style>

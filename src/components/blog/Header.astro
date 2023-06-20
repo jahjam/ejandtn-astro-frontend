@@ -1,0 +1,58 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<div class="container">
+  <h1><a href="/blog">Blog</a></h1>
+  <a href="/" class="link"
+    ><Icon pack="cil" name="arrow-left" />Back to EJANDTN Website</a
+  >
+</div>
+
+<style lang="scss">
+  .container {
+    width: 26rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    border: var(--border);
+    padding: 2rem;
+  }
+
+  h1 {
+    font-family: sinter, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 3.6rem;
+
+    display: flex;
+    align-items: center;
+
+    a {
+      color: var(--light-color);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:visited {
+      color: var(--light-color);
+      text-decoration: underline;
+    }
+  }
+
+  a {
+    margin-top: -1rem;
+    display: flex !important;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  [astro-icon] {
+    height: 2rem;
+    width: 2rem;
+    color: var(--primary-color);
+  }
+</style>

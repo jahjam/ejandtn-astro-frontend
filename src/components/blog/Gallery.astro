@@ -1,0 +1,48 @@
+---
+const API = import.meta.env.API;
+const res = await fetch(`${API}/blogs`);
+const { data: blogs } = await res.json();
+---
+
+<div class="container">
+  {
+    blogs.map(blog => {
+      return (
+        <a class="img-box" href={`/blog/${blog.attributes.slug}`}>
+          <img class="main-img" src={blog.attributes.img_url} />
+        </a>
+      );
+    })
+  }
+</div>
+
+<style lang="scss">
+  .container {
+    height: auto;
+    max-width: 80rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.2rem;
+  }
+
+  .img-box {
+    height: 100;
+    width: 100%;
+
+    cursor: pointer;
+
+    object-fit: contain;
+
+    transition: all 0.5s linear;
+
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+
+  .main-img {
+    height: 100%;
+    width: 100%;
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+import Blog from '../../layouts/Blog.astro';
+
+export async function getStaticPaths() {
+  const API: string = import.meta.env.API;
+  const res = await fetch(`${API}/blogs`);
+  const { data: blogs } = await res.json();
+  return blogs?.map(blog => ({
+    params: { slug: blog.attributes.slug },
+    props: blog.attributes,
+  }));
+}
+
+const post = Astro.props;
+---
+
+<Blog
+  title={post.title}
+  body={post.body}
+  img_url={post.img_url}
+  img_urls={post.img_urls}
+  datePublished={post.publishedAt}
+/>
