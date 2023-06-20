@@ -95,6 +95,8 @@ const content = marked.parse(body, {
   }
 
   article {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -103,11 +105,15 @@ const content = marked.parse(body, {
   }
 
   article > p {
+    width: 100%;
     font-size: 1.6rem;
     line-height: 2.4rem;
   }
 
   article > p a {
+    width: 100%;
+    word-break: break-word;
+    hyphens: auto;
     margin-top: 0;
   }
 
