@@ -35,6 +35,7 @@ const mostRecentTicket = (sortedTicketsByDateArr[0][1][0] as DayTicket)
       body={mostRecentTicket.body}
       date_created={mostRecentTicket.date_created}
       publishedAt={new Date(mostRecentTicket.publishedAt)}
+      slug={mostRecentTicket.slug}
     />
   </div>
 </BaseLayout>

@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   const { data: dayTickets }: { data: DayTicket[] } = await res.json();
 
   return dayTickets?.map(ticket => ({
-    params: { id: ticket.id },
+    params: { slug: ticket.attributes.slug },
     props: ticket.attributes,
   }));
 }
@@ -24,4 +24,5 @@ const ticket = Astro.props;
   body={ticket.body}
   date_created={ticket.date_created}
   publishedAt={ticket.publishedAt}
+  slug={ticket.slug}
 />

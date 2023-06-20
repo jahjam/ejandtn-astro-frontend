@@ -45,7 +45,10 @@ const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
 
                 {(group[1] as DayTicket[]).map(ticket => {
                   return (
-                    <a class="link" href={`/day-tickets/${ticket.id}`}>
+                    <a
+                      class="link"
+                      href={`/day-tickets/${ticket.attributes.slug}`}
+                    >
                       {ticket.attributes.title}
                     </a>
                   );

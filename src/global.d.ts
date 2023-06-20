@@ -55,4 +55,5 @@ declare type DayTicketAttributes = {
   createdAt?: Date;
   updatedAt?: Date;
   publishedAt: Date;
+  slug: string;
 };
