@@ -1,15 +1,16 @@
 ---
+import { Image } from 'astro:assets';
 import IMG from '../assets/promophoto.jpeg';
 ---
 
 <section class="about-section container section-seperator" id="about">
   <h1 class="about-header">About</h1>
   <div class="about-body">
-    <img
+    <Image
       class="promo-photo"
-      src={`${IMG}`}
-      alt="Promo photograph
-of Elijah James"
+      src={IMG}
+      alt="Promo photograph of Elijah James"
+      format="webp"
     />
     <p>
       E. J. Mainwaring (the sole member of EJANDTN) writes captivating songs,
@@ -44,6 +45,7 @@ of Elijah James"
     float: left;
     margin: 0 2.4rem 2.4rem 0;
     box-shadow: 2px 2px 12px -1px hsla(0, 0%, 0%, 0.774);
+    height: 100%;
     width: 32rem;
   }
 

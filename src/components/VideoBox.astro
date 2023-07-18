@@ -1,8 +1,9 @@
 ---
 import { Icon } from 'astro-icon';
+import { Image } from 'astro:assets';
 
 type Props = {
-  img: string;
+  img: ImageMetadata;
   title: string;
   id: number;
 };
@@ -11,10 +12,13 @@ const { img, title, id } = Astro.props;
 ---
 
 <div class="video-box" id={`video-box-${id}`} tabindex="0">
-  <img
+  <Image
     class="video-thumb"
-    src={`${img}`}
+    src={img}
+    height={img.height}
+    width={img.width}
     alt=`Thumbnail for ${title} Video`
+    format="webp"
   /><Icon pack="gg" class="video-icon" name="play-button-o" />
 </div>
 
@@ -38,6 +42,7 @@ const { img, title, id } = Astro.props;
   }
 
   .video-thumb {
+    height: 100%;
     width: 100%;
     box-shadow: 2px 2px 12px -1px hsla(0, 0%, 0%, 0.774);
   }

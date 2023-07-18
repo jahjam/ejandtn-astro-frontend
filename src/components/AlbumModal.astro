@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon';
+import { Image } from 'astro:assets';
 
 type Props = Album;
 
@@ -24,7 +25,7 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
 
   <div class="album grid--2-cols">
     <div class="img-title-date">
-      <img
+      <Image
         class="album-artwork-modal"
         src={img}
         alt=`Elijah James And The Nightares Album Art of ${title}`
@@ -134,6 +135,7 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
 
   .album-artwork-modal {
     align-self: start;
+    height: 100%;
     width: 40rem;
   }
 

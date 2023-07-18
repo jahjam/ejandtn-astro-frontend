@@ -2,6 +2,7 @@
 import SocialIconNav from '../components/SocialIconNav.astro';
 import LOGO from '../assets/ejandtn-logo.png';
 import BubbleNav from '../components/BubbleNav.astro';
+import { Image } from 'astro:assets';
 ---
 
 <header class="hero">
@@ -10,10 +11,11 @@ import BubbleNav from '../components/BubbleNav.astro';
   <div class="section-header">
     <nav class="main-nav">
       <a href="#" class="link-scroll">
-        <img
-          src={`${LOGO}`}
+        <Image
+          src={LOGO}
           alt="Elijah James And The Nightmares logo"
           class="header-logo"
+          format="webp"
         /></a
       >
       <ul class="nav-pages">
@@ -122,6 +124,7 @@ import BubbleNav from '../components/BubbleNav.astro';
   }
 
   .header-logo {
+    height: 100%;
     width: 38rem;
     cursor: pointer;
 

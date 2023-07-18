@@ -1,6 +1,7 @@
 ---
+import { Image } from '@astrojs/image/components';
 type Props = {
-  img: string;
+  img: ImageMetadata;
   albumTitle: string;
   albumDate: string;
   releaseDate: string;
@@ -10,10 +11,11 @@ const { img, albumTitle, albumDate, releaseDate } = Astro.props;
 ---
 
 <div class="art-box" id={`art-box-${releaseDate}`} tabindex="0">
-  <img
+  <Image
     class="album-artwork"
-    src={`${img}`}
+    src={img}
     alt=`Elijah James And The Nightmares Album Art of ${albumTitle}`
+    format="webp"
   />
   <span class="album-title">{albumTitle}</span>
   <span class="album-date">{albumDate}</span>
@@ -55,6 +57,7 @@ const { img, albumTitle, albumDate, releaseDate } = Astro.props;
   }
 
   .album-artwork {
+    height: 100%;
     width: 100%;
     box-shadow: 2px 2px 12px -1px hsla(0, 0%, 0%, 0.774);
   }

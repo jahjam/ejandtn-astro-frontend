@@ -5,7 +5,7 @@ import ITLNTS_ALBUM_ART from '../assets/album-art/Ep-cover-1-reduce.jpg';
 
 export const albums: Album[] = [
   {
-    img: `${THBTTL_ALBUM_ART}`,
+    img: THBTTL_ALBUM_ART,
     title: 'The Hellish Bending Towards The Light',
     releaseDate: '07/06/2023',
     tracklist: {
@@ -45,7 +45,7 @@ export const albums: Album[] = [
     },
   },
   {
-    img: `${ITLNTS_ALBUM_ART}`,
+    img: ITLNTS_ALBUM_ART,
     title: "It's Too Late Now To Say: Two Songs EP",
     releaseDate: '26/06/2020',
     tracklist: {
@@ -72,7 +72,7 @@ export const albums: Album[] = [
     },
   },
   {
-    img: `${BIAG_ALBUM_ART}`,
+    img: BIAG_ALBUM_ART,
     title: "Because I'm A Giant LP",
     releaseDate: '06/09/2019',
     tracklist: {
@@ -128,7 +128,7 @@ export const albums: Album[] = [
   },
 
   {
-    img: `${LFES_ALBUM_ART}`,
+    img: LFES_ALBUM_ART,
     title: 'Live From Elevator Studios EP',
     releaseDate: '26/06/2020',
     tracklist: {

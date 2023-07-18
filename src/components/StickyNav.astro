@@ -1,14 +1,16 @@
 ---
+import { Image } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
 import LOGO from '../assets/ejandtn-logo.png';
 ---
 
 <nav class="sticky-nav">
   <a href="#" class="link-scroll"
-    ><img
-      src={`${LOGO}`}
+    ><Image
+      src={LOGO}
       alt="Elijah James And The Nightmares logo"
       class="sticky-nav-logo"
+      format="webp"
     /></a
   >
   <ul class="nav-pages sticky-nav-pages">
@@ -102,6 +104,7 @@ import LOGO from '../assets/ejandtn-logo.png';
   }
 
   .sticky-nav-logo {
+    height: 100%;
     width: 24rem;
     cursor: pointer;
   }

@@ -1,12 +1,14 @@
 ---
+import { Image } from 'astro:assets';
 import LOGO from '../assets/ejandtn-logo.png';
 ---
 
 <footer class="footer">
-  <img
-    src={`${LOGO}`}
+  <Image
+    src={LOGO}
     alt="Elijah James And The Nightmares logo"
     class="header-logo logo-footer"
+    format="webp"
   />
   <span
     ><a

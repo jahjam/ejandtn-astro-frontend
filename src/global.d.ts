@@ -17,7 +17,7 @@ declare type Link = {
 };
 
 declare type Album = {
-  img: string;
+  img: ImageMetadata;
   title: string;
   releaseDate: string;
   tracklist: Object;

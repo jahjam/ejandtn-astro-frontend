@@ -4,16 +4,17 @@ import BaseLayout from './BaseLayout.astro';
 import { format } from 'date-fns';
 import { Icon } from 'astro-icon';
 import SubscribeForm from '../components/SubscribeForm.astro';
+import { Image } from 'astro:assets';
 
-type Props = {
-  img_url: string;
-  img_urls: string[];
-  title: string;
-  body: string;
-  datePublished: Date;
-};
+// type Props = {
+//   img_url: string;
+//   img_urls: string[];
+//   title: string;
+//   body: string;
+//   datePublished: Date;
+// };
 
-const { title, body, datePublished, img_url, img_urls } = Astro.props;
+const { title, body, datePublished, main_img, img_urls } = Astro.props;
 
 const content = marked.parse(body, {
   mangle: false,
@@ -31,8 +32,24 @@ const content = marked.parse(body, {
 
     <div class="slider-container">
       <div class="my-slider">
-        <img src={img_url} />
-        {img_urls.map(img => <img src={img} />)}
+        <Image
+          src={main_img.img_url}
+          alt="Photo"
+          width={main_img.width}
+          height={main_img.height}
+          format="webp"
+        />
+        {
+          img_urls.map(img => (
+            <Image
+              src={img.img_url}
+              alt="Photo"
+              width={img.width}
+              height={img.height}
+              format="webp"
+            />
+          ))
+        }
       </div>
 
       <div class="controls">
@@ -75,6 +92,13 @@ const content = marked.parse(body, {
     nextButton: '.next',
   });
 </script>
+
+<style lang="scss">
+  img {
+    width: 100%;
+    height: 100%;
+  }
+</style>
 
 <style lang="scss" is:inline>
   .container {
