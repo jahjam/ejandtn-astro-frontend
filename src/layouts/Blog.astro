@@ -34,7 +34,7 @@ const content = marked.parse(body, {
       <div class="my-slider">
         <Image
           src={main_img.img_url}
-          alt="Photo"
+          alt={`Photo for blog post connected to ${title}`}
           width={main_img.width}
           height={main_img.height}
           format="webp"

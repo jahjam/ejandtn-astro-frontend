@@ -13,7 +13,7 @@ const { data: blogs } = await res.json();
           <Image
             class="main-img"
             src={blog.attributes.main_img[0].img_url}
-            alt="Photo"
+            alt={`Photo for blog post connected to ${blog.attributes.title}`}
             height={blog.attributes.main_img[0].height}
             width={blog.attributes.main_img[0].width}
             format="webp"
