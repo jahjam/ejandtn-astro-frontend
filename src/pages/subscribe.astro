@@ -2,6 +2,7 @@
 import { SUBSCRIBE_TITLE as title } from '../consts';
 import { SUBSCRIBE_DESCRIPTION as description } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 
 import SubscribeForm from '../components/SubscribeForm.astro';
 import { Icon } from 'astro-icon';
@@ -10,7 +11,7 @@ import LOGO from '../assets/ejandtn-logo.png';
 
 <BaseLayout title={title} description={description}>
   <main>
-    <img src={`${LOGO}`} alt="EJANDTN logo" />
+    <Image src={LOGO} alt="EJANDTN logo" />
     <a href="/" class="link"
       ><Icon pack="cil" name="arrow-left" />Back to EJANDTN Website</a
     >
@@ -43,12 +44,13 @@ import LOGO from '../assets/ejandtn-logo.png';
   }
 
   img {
-    height: 10rem;
+    width: 30rem;
+    height: 100%;
   }
 
   main {
     margin: 0 auto;
-    width: 50rem;
+    max-width: 50rem;
     padding: 4rem;
 
     display: flex;

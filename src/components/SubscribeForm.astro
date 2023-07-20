@@ -5,7 +5,7 @@ type Props = {
 const { direction } = Astro.props;
 ---
 
-<!-- TODO add netlify forms -->
+<!-- TODO add netlify forms
 <form class="subscribe-form" name="subscribe" netlify netlify-honeypot>
   <ul class="form">
     <li>
@@ -28,9 +28,38 @@ const { direction } = Astro.props;
     </li>
     <li><button class="btn subscribe-btn">Subscribe</button></li>
   </ul>
-</form>
+</form> -->{
+  direction === 'column' ? (
+    <div class="ml-embedded" data-form="wW0sZm" />
+  ) : (
+    <div class="ml-embedded" data-form="LXlcDe" />
+  )
+}
+<!-- MailerLite Universal -->
+<script is:inline>
+  (function (w, d, e, u, f, l, n) {
+    (w[f] =
+      w[f] ||
+      function () {
+        (w[f].q = w[f].q || []).push(arguments);
+      }),
+      (l = d.createElement(e)),
+      (l.async = 1),
+      (l.src = u),
+      (n = d.getElementsByTagName(e)[0]),
+      n.parentNode.insertBefore(l, n);
+  })(
+    window,
+    document,
+    'script',
+    'https://assets.mailerlite.com/js/universal.js',
+    'ml'
+  );
+  ml('account', '517759');
+</script>
+<!-- End MailerLite Universal -->
 
-<style lang="css" define:vars={{ direction }}>
+<style lang="css" define:vars={{ direction }} is:inline>
   .form {
     list-style: none;
     margin-bottom: 1.2rem;
@@ -41,7 +70,7 @@ const { direction } = Astro.props;
     gap: 1.2rem;
   }
 
-  .form-input {
+  /* .form-input {
     padding: 1.4rem;
     font-family: inherit;
     font-size: 1.6rem;
@@ -66,5 +95,32 @@ const { direction } = Astro.props;
     color: var(--dark-color);
     background-color: var(--light-color);
     border: 0.2rem solid var(--light-color);
+  } */
+
+  .ml-embedded {
+    width: 100%;
+  }
+
+  #mlb2-6413232.ml-form-embedContainer
+    .ml-form-embedWrapper
+    .ml-form-embedBody
+    .ml-form-embedSubmit
+    .primary {
+    border: var(--border) !important;
+  }
+
+  #mlb2-6412365.ml-form-embedContainer
+    .ml-form-embedWrapper
+    .ml-form-embedBody
+    .ml-form-horizontalRow
+    .primary
+    button {
+    margin-top: 0.1rem !important;
+    border: var(--border) !important;
+  }
+
+  #mlb2-6412365 .ml-mobileButton-horizontal .primary {
+    margin-top: 0.1rem !important;
+    border: var(--border) !important;
   }
 </style>
