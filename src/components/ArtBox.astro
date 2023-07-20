@@ -14,7 +14,7 @@ const { img, albumTitle, albumDate, releaseDate } = Astro.props;
   <Image
     class="album-artwork"
     src={img}
-    alt=`Elijah James And The Nightmares Album Art of ${albumTitle}`
+    alt={`Elijah James And The Nightmares Album Art of ${albumTitle}`}
     format="webp"
   />
   <span class="album-title">{albumTitle}</span>
