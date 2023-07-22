@@ -69,14 +69,6 @@ import { Icon } from 'astro-icon';
 
   headerObserver.observe(header);
 
-  mainNavIcon.onmouseover = () => {
-    mainNavIcon.style.transform = 'scale(110%) rotate(0deg)';
-  };
-
-  mainNavIcon.onmouseout = () => {
-    mainNavIcon.style.transform = 'scale(100%) rotate(0deg)';
-  };
-
   const toggleIcons = () => {
     if (squares.classList.contains('opacity')) {
       squares.classList.remove('opacity');
@@ -85,25 +77,25 @@ import { Icon } from 'astro-icon';
       penIcon.style.right = '6.2rem';
       cameraIcon.style.right = '6.2rem';
       soundWaveIcon.style.right = '6.2rem';
-      mainNavIcon.style.transform = 'rotate(0deg)';
+      mainNavIcon.style.transform = 'scale(100%) rotate(0deg)';
+      mainNavIcon.style.animation = 'pulsate 2s infinite';
       mainNavIcon.onmouseover = () => {
-        mainNavIcon.style.transform = 'rotate(0deg)';
+        mainNavIcon.style.transform = 'scale(100%) rotate(0deg)';
       };
       mainNavIcon.onmouseout = () => {
-        mainNavIcon.style.transform = 'rotate(0deg)';
+        mainNavIcon.style.transform = 'scale(100%) rotate(0deg)';
       };
+
       setTimeout(() => {
         mainNavIcon.onmouseover = () => {
           mainNavIcon.style.transform = 'scale(110%) rotate(0deg)';
-        };
-        mainNavIcon.onmouseout = () => {
-          mainNavIcon.style.transform = 'scale(100%) rotate(0deg)';
         };
       }, 500);
 
       return;
     }
 
+    mainNavIcon.style.animation = 'none';
     mainNavIcon.style.transform = 'rotate(-180deg)';
     mainNavIcon.onmouseover = () => {
       mainNavIcon.style.transform = 'rotate(-180deg)';
@@ -138,6 +130,20 @@ import { Icon } from 'astro-icon';
 </script>
 
 <style lang="scss">
+  @keyframes pulsate {
+    0% {
+      box-shadow: 0 0 0 0 rgba(198, 47, 59, 0.8);
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgba(198, 47, 59, 0);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(198, 47, 59, 0);
+    }
+  }
+
   .icon-nav-display {
     transform: translateX(40rem) !important;
   }
@@ -161,6 +167,8 @@ import { Icon } from 'astro-icon';
     z-index: 10;
 
     transition: all 0.5s ease-in-out;
+
+    animation: pulsate 2s infinite;
 
     &:hover {
       transform: scale(110%);

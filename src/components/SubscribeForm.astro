@@ -29,15 +29,28 @@ const { direction } = Astro.props;
   </ul>
 </form>
 
-<style lang="css" define:vars={{ direction }}>
+<style lang="scss" define:vars={{ direction }}>
+  .subscribe-form {
+    width: 100%;
+  }
+
   .form {
+    width: 100%;
     list-style: none;
     margin-bottom: 1.2rem;
 
     display: flex;
     flex-direction: var(--direction);
     align-items: center;
+    justify-content: center;
     gap: 1.2rem;
+
+    & li {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .form-input {
@@ -45,7 +58,7 @@ const { direction } = Astro.props;
     font-family: inherit;
     font-size: 1.6rem;
     font-weight: 600;
-    width: 22rem;
+    width: 100%;
     border: none;
   }
 
@@ -54,6 +67,7 @@ const { direction } = Astro.props;
   }
 
   .subscribe-btn {
+    width: 100%;
     padding: 1rem 4.8rem !important;
     border: 0.2rem solid var(--light-color) !important;
 
