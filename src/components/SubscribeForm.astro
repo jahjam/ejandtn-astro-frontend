@@ -2,17 +2,18 @@
 type Props = {
   direction: string;
 };
+
 const { direction } = Astro.props;
 ---
 
-<form class="subscribe-form" name="subscribe" netlify netlify-honeypot>
+<form class="subscribe-form" name="subscribe">
   <ul class="form">
     <li>
       <input
         type="text"
         name="first-name"
         placeholder="First Name"
-        class="form-input"
+        class="form-input first-name-input"
         required
       />
     </li>
@@ -21,13 +22,57 @@ const { direction } = Astro.props;
         type="email"
         name="email"
         placeholder="Email Address"
-        class="form-input"
+        class="form-input email-input"
         required
       />
     </li>
-    <li><button class="btn subscribe-btn">Subscribe</button></li>
+
+    <li><button type="submit" class="btn subscribe-btn">Subscribe</button></li>
   </ul>
 </form>
+<span class="error-msg"></span>
+<div class="thank-you-div no-display">
+  <span class="thank-you-msg"></span>
+</div>
+
+<script>
+  import axios from 'axios';
+  const firstNameInput = document.querySelector(
+    '.first-name-input'
+  ) as HTMLInputElement;
+  const emailInput = document.querySelector('.email-input') as HTMLInputElement;
+  const subscribeForm = document.querySelector('.subscribe-form');
+  const errorMsg = document.querySelector('.error-msg');
+  const thankYouDiv = document.querySelector('.thank-you-div');
+  const thankYouMsg = document.querySelector('.thank-you-msg');
+
+  async function handleSignUp(e) {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(
+        `https://ejandtn-strapi-backend-production.up.railway.app/api/sign-up`,
+        {
+          email: emailInput.value,
+          firstName: firstNameInput.value,
+        }
+      );
+
+      if (res.data.error) {
+        errorMsg.textContent = res.data.error;
+        return;
+      }
+
+      subscribeForm.classList.add('no-display');
+      thankYouMsg.textContent = res.data.message;
+      thankYouDiv.classList.remove('no-display');
+    } catch (err) {
+      console.log('Error');
+    }
+  }
+
+  subscribeForm.addEventListener('submit', handleSignUp);
+</script>
 
 <style lang="scss" define:vars={{ direction }}>
   .subscribe-form {
@@ -79,5 +124,13 @@ const { direction } = Astro.props;
     color: var(--dark-color);
     background-color: var(--light-color);
     border: 0.2rem solid var(--light-color);
+  }
+
+  .error-msg {
+    color: red;
+  }
+
+  .no-display {
+    display: none;
   }
 </style>
