@@ -4,6 +4,11 @@ import Header from '../../components/blog/Header.astro';
 import Gallery from '../../components/blog/Gallery.astro';
 import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts';
 import { Icon } from 'astro-icon';
+import axios from 'axios';
+
+const API: string = import.meta.env.API;
+const { data } = await axios.get(`${API}/sub-count`);
+const subscribers = data.total;
 ---
 
 <BaseLayout title={BLOG_TITLE} description={BLOG_DESCRIPTION}>
@@ -18,7 +23,7 @@ import { Icon } from 'astro-icon';
 
     <div class="sub-box">
       <div class="cur-subs">
-        <span>Current Subs:</span><span class="sub-num">10</span>
+        <span>Current Subs:</span><span class="sub-num">{subscribers}</span>
       </div>
 
       <a class="sub-link" href="/subscribe/"
