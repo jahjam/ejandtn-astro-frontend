@@ -9,7 +9,7 @@ const { data: blogs } = await res.json();
   {
     blogs.map(blog => {
       return (
-        <a class="img-box" href={`/blog/${blog.attributes.slug}`}>
+        <a class="img-box" href={`/blog/${blog.attributes.slug}`} aria-label=`Link to take you to a blog post for ${blog.attributes.title}`>
           <Image
             class="main-img"
             src={blog.attributes.main_img[0].img_url}

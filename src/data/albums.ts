@@ -130,7 +130,7 @@ export const albums: Album[] = [
   {
     img: LFES_ALBUM_ART,
     title: 'Live From Elevator Studios EP',
-    releaseDate: '26/06/2020',
+    releaseDate: '09/09/2017',
     tracklist: {
       1: 'Movie In Your Eyes',
       2: 'On A Stage',

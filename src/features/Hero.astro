@@ -1,6 +1,7 @@
 ---
 import SocialIconNav from '../components/SocialIconNav.astro';
 import LOGO from '../assets/ejandtn-logo.png';
+import HEROIMAGE from '../assets/THBTTL-banner-web.jpg'
 import BubbleNav from '../components/BubbleNav.astro';
 import { Image } from 'astro:assets';
 ---
@@ -8,9 +9,16 @@ import { Image } from 'astro:assets';
 <header class="hero">
   <BubbleNav />
 
+  <Image 
+    src={HEROIMAGE} 
+    alt="Elijah James And The Nightmares Album Artwork as Hero Image" 
+    class="hero-image"
+    format="webp"
+   /> 
+
   <div class="section-header">
     <nav class="main-nav">
-      <a href="#" class="link-scroll">
+      <a href="#" class="link-scroll" aria-label='Link to take you to top of page'>
         <Image
           src={LOGO}
           alt="Elijah James And The Nightmares logo"
@@ -19,16 +27,17 @@ import { Image } from 'astro:assets';
         /></a
       >
       <ul class="nav-pages">
-        <li><a class="link link-scroll" href="#tour">Tour</a></li>
-        <li><a class="link link-scroll" href="#music">Music</a></li>
-        <li><a class="link link-scroll" href="#videos">Videos</a></li>
-        <li><a class="link link-scroll" href="#about">About</a></li>
+        <li><a class="link link-scroll" href="#tour" aria-label='Link to scroll down to tour section'>Tour</a></li>
+        <li><a class="link link-scroll" href="#music" aria-label='Link to scroll down to music section'>Music</a></li>
+        <li><a class="link link-scroll" href="#videos" aria-label='Link to scroll down to videos section'>Videos</a></li>
+        <li><a class="link link-scroll" href="#about" aria-label='Link to scroll down to about section'>About</a></li>
         <li>
           <a
             class="link"
             href="https://ejandtn.bandcamp.com/merch"
             target="_blank"
-            rel="noreferrer noopener">Shop</a
+            rel="noreferrer noopener"
+            aria-label='Link to take you to bandcamp merch shop'>Shop</a
           >
         </li>
       </ul>
@@ -38,20 +47,21 @@ import { Image } from 'astro:assets';
 
     <div class="header-container">
       <div class="header-container-inner">
-        <div class="header-text">
+        <h1 class="header-text">
           New album <br />
           <span class="album-title-hero"
             >'The Hellish Bending <br /> Towards The Light' <br /></span
           >
           Out Now
-        </div>
-        <a class="link-scroll" href="#music"
+        </h1>
+        <a class="link-scroll" href="#music" aria-label='Link to take you to the music section'
           ><button class="btn listen-btn">Listen</button></a
         >
         <a
           href="https://goldenbelieversrecords.bandcamp.com/album/the-hellish-bending-towards-the-light"
           target="_blank"
           rel="noreferrer noopener"
+          aria-label='Link to take you to bandcamp page for the album The Hellish Bending Towards The Light'
           ><button class="btn buy-btn">Buy Here</button></a
         >
       </div>
@@ -103,13 +113,25 @@ import { Image } from 'astro:assets';
   header {
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(
+   /* background-image: linear-gradient(
         rgba(34, 34, 34, 0.3),
         rgba(34, 34, 34, 0.3)
       ),
       url(../assets/THBTTL-banner-web.jpg);
     background-position: center center;
     background-size: cover;
+  */
+
+      position: relative;
+  }
+
+  .hero-image {
+    height: 100vh;
+    width: 100%;
+
+    object-fit: cover;
+
+      position: absolute;
   }
 
   .section-header {
@@ -169,6 +191,7 @@ import { Image } from 'astro:assets';
     line-height: 3.2rem;
     text-transform: uppercase;
     text-align: center;
+    font-weight: 700;
 
     color: var(--primary-color);
   }
