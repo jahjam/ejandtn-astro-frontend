@@ -1,6 +1,7 @@
 ---
 import { SITE_TITLE as title } from '../consts';
 import { SITE_DESCRIPTION as description } from '../consts';
+import { Icon } from 'astro-icon';
 
 import Hero from '../features/Hero.astro';
 import Subscribe from '../components/Subscribe.astro';
@@ -12,10 +13,13 @@ import Links from '../features/Links.astro';
 import Footer from '../features/Footer.astro';
 import StickyNav from '../components/StickyNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LoadingOverlay from '../components/LoadingOverlay.astro';
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="container">
+  <LoadingOverlay />
+
+  <div class="container no-display">
     <Hero />
 
     <StickyNav />
@@ -36,13 +40,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </div>
 </BaseLayout>
 
+<script>
+  const loadingOverlay = document.querySelector('.loading-overlay');
+  const container = document.querySelector('.container');
+  const loadingIcon = document.querySelectorAll('.loading-icon');
+  const buildingText = document.querySelector('.building-text');
+
+  setTimeout(() => {
+    container.classList.remove('no-display');
+
+    loadingOverlay.style.opacity = 0;
+
+    loadingIcon[0].getAnimations()[0].cancel();
+    loadingIcon[0].classList.add('slide-on-load');
+    loadingIcon[1].getAnimations()[0].cancel();
+    loadingIcon[1].classList.add('slide-on-load');
+    buildingText.style.display = 'none';
+  }, 2000);
+
+  loadingOverlay.addEventListener('transitionend', e => {
+    if (e.propertyName === 'opacity') {
+      loadingOverlay.classList.add('no-display');
+      localStorage.setItem('visited', 'true');
+    }
+  });
+</script>
+
 <style is:inline>
+  .container {
+    position: relative;
+  }
+
+  .no-display {
+    display: none;
+  }
+
   /*
-	****************************************
- MEDIA QUERIES 
- TODO REFACTOR, SHOULDN'T ALL BE IN ONE FILE!
-	****************************************
-	*/
+                                                                                                                    ****************************************
+                                                                                                                    MEDIA QUERIES
+                                                                                                                    TODO REFACTOR, SHOULDN'T ALL BE IN ONE FILE!
+                                                                                                                    ****************************************
+                                                                                                                    */
 
   @media (max-width: 59em) {
     h1 {
@@ -228,8 +266,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   /*
-FOR MOBILE
-*/
+                                                                                                                                                                FOR MOBILE
+                                                                                                                                                                */
 
   @media (max-width: 35em) {
     h1 {
@@ -324,6 +362,7 @@ FOR MOBILE
       font-size: 2.4rem;
       text-align: center;
     }
+
     .form {
       display: flex;
       flex-direction: column;

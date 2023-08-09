@@ -1,0 +1,94 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<div class="loading-overlay">
+  <Icon name="ph:squares-four" class="squares loading-icon" />
+  <Icon name="ph:squares-four-fill" class="squares-fill loading-icon" />
+  <span class="building-text">Building...</span>
+</div>
+
+<style lang="scss">
+  @keyframes spin-and-fade {
+    0% {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+
+    40% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    60% {
+      opacity: 0;
+    }
+
+    100% {
+      transform: rotate(360deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .loading-overlay {
+    height: 100vh;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: var(--dark-color);
+
+    z-index: 5000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 1s linear;
+
+    & span {
+      margin-top: 8rem;
+    }
+  }
+
+  .slide-on-load {
+    transform: translate(calc(100vw), calc(100vh));
+  }
+
+  [astro-icon='ph:squares-four'] {
+    height: 4rem;
+    width: 4rem;
+    position: absolute;
+
+    transition: all 0.5s linear;
+
+    z-index: 5001;
+    animation: spin 2s linear infinite;
+  }
+
+  [astro-icon='ph:squares-four-fill'] {
+    height: 4rem;
+    width: 4rem;
+    position: absolute;
+
+    transition: all 0.5s linear;
+
+    animation: spin-and-fade 2s linear infinite;
+    z-index: 5002;
+  }
+</style>

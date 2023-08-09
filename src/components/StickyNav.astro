@@ -5,27 +5,46 @@ import LOGO from '../assets/ejandtn-logo.png';
 ---
 
 <nav class="sticky-nav">
-  <a href="#" class="link-scroll"
-     aria-label='Link to scroll back up to top of page'
-    ><Image
+  <a
+    href="#"
+    class="link-scroll"
+    aria-label="Link to scroll back up to top of page"
+  >
+    <Image
       src={LOGO}
       alt="Elijah James And The Nightmares logo"
       class="sticky-nav-logo"
       format="webp"
-    /></a
-  >
+    />
+  </a>
   <ul class="nav-pages sticky-nav-pages">
     <li>
-      <a class="link link-scroll sticky-nav-link" href="#tour" aria-label='Link to take you to the tour section'>Tour</a>
+      <a
+        class="link link-scroll sticky-nav-link"
+        href="#tour"
+        aria-label="Link to take you to the tour section">Tour</a
+      >
     </li>
     <li>
-      <a class="link link-scroll sticky-nav-link" href="#music" aria-label='Link to take you to the music section'>Music</a>
+      <a
+        class="link link-scroll sticky-nav-link"
+        href="#music"
+        aria-label="Link to take you to the music section">Music</a
+      >
     </li>
     <li>
-      <a class="link link-scroll sticky-nav-link" href="#videos" aria-label='Link to take you to the videos section'>Videos</a>
+      <a
+        class="link link-scroll sticky-nav-link"
+        href="#videos"
+        aria-label="Link to take you to the videos section">Videos</a
+      >
     </li>
     <li>
-      <a class="link link-scroll sticky-nav-link" href="#about" aria-label='Link to take you to the about section'>About</a>
+      <a
+        class="link link-scroll sticky-nav-link"
+        href="#about"
+        aria-label="Link to take you to the about section">About</a
+      >
     </li>
     <li>
       <a
@@ -33,7 +52,7 @@ import LOGO from '../assets/ejandtn-logo.png';
         href="https://ejandtn.bandcamp.com/merch"
         target="_blank"
         rel="noreferrer noopener"
-        aria-label='Link to take you to the bandcamp merch store'>Shop</a
+        aria-label="Link to take you to the bandcamp merch store">Shop</a
       >
     </li>
   </ul>
@@ -56,12 +75,19 @@ import LOGO from '../assets/ejandtn-logo.png';
   const menuIcon = document.querySelector('.icon-mobile-nav-menu');
   const closeIcon = document.querySelector('.icon-mobile-nav-close');
 
+  let toggle = 0;
+
   const headerObserver = new IntersectionObserver(
     function (entries) {
       const [entry] = entries;
-      entry.isIntersecting === false
-        ? stickyNav.classList.add('display')
-        : stickyNav.classList.remove('display');
+      if (entry.isIntersecting === false) {
+        if (toggle) {
+          stickyNav.style.transform = `translateX(2000px)`;
+        }
+      } else {
+        toggle += 1;
+        stickyNav.style.transform = `translateX(-2000px)`;
+      }
     },
     { root: null, threshold: 0, rootMargin: `-${stickyNavHeight}px` }
   );
@@ -84,20 +110,15 @@ import LOGO from '../assets/ejandtn-logo.png';
 </script>
 
 <style lang="css">
-  .display {
-    transform: translateX(0) !important;
-  }
-
   .sticky-nav {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -2000px;
     width: 100%;
     height: 8rem;
     padding: 2.4rem;
     background-color: rgba(9, 13, 22, 0.89);
     z-index: 999;
-    transform: translateX(-100%);
     transition: all 0.5s ease-in;
 
     display: flex;
