@@ -17,9 +17,10 @@ import LoadingOverlay from '../components/LoadingOverlay.astro';
 ---
 
 <BaseLayout title={title} description={description}>
-  <LoadingOverlay />
+  <!--Page load feature-->
+  <!--<LoadingOverlay class="no-display" />-->
 
-  <div class="container no-display">
+  <div class="container">
     <Hero />
 
     <StickyNav />
@@ -40,31 +41,40 @@ import LoadingOverlay from '../components/LoadingOverlay.astro';
   </div>
 </BaseLayout>
 
-<script>
-  const loadingOverlay = document.querySelector('.loading-overlay');
-  const container = document.querySelector('.container');
-  const loadingIcon = document.querySelectorAll('.loading-icon');
-  const buildingText = document.querySelector('.building-text');
+<!-- Script for added a page load feature --->
+<!--<script>-->
+<!--  const loadingOverlay = document.querySelector('.loading-overlay');-->
+<!--  const container = document.querySelector('.container');-->
+<!--  const loadingIcon = document.querySelectorAll('.loading-icon');-->
+<!--  const buildingText = document.querySelector('.building-text');-->
 
-  setTimeout(() => {
-    container.classList.remove('no-display');
+<!--  const visited = JSON.parse(localStorage.getItem('visited'));-->
 
-    loadingOverlay.style.opacity = 0;
+<!--  if (!visited) {-->
+<!--    loadingOverlay.classList.remove('no-display');-->
+<!--    setTimeout(() => {-->
+<!--      container.classList.remove('no-display');-->
 
-    loadingIcon[0].getAnimations()[0].cancel();
-    loadingIcon[0].classList.add('slide-on-load');
-    loadingIcon[1].getAnimations()[0].cancel();
-    loadingIcon[1].classList.add('slide-on-load');
-    buildingText.style.display = 'none';
-  }, 2000);
+<!--      loadingOverlay.style.opacity = 0;-->
 
-  loadingOverlay.addEventListener('transitionend', e => {
-    if (e.propertyName === 'opacity') {
-      loadingOverlay.classList.add('no-display');
-      localStorage.setItem('visited', 'true');
-    }
-  });
-</script>
+<!--      loadingIcon[0].getAnimations()[0].cancel();-->
+<!--      loadingIcon[0].classList.add('slide-on-load');-->
+<!--      loadingIcon[1].getAnimations()[0].cancel();-->
+<!--      loadingIcon[1].classList.add('slide-on-load');-->
+<!--      buildingText.style.display = 'none';-->
+<!--    }, 2000);-->
+
+<!--    loadingOverlay.addEventListener('transitionend', e => {-->
+<!--      if (e.propertyName === 'opacity') {-->
+<!--        loadingOverlay.classList.add('no-display');-->
+<!--        localStorage.setItem('visited', 'true');-->
+<!--      }-->
+<!--    });-->
+<!--  } else {-->
+<!--    loadingOverlay.classList.add('no-display');-->
+<!--    container.classList.remove('no-display');-->
+<!--  }-->
+<!--</script>-->
 
 <style is:inline>
   .container {
@@ -74,13 +84,6 @@ import LoadingOverlay from '../components/LoadingOverlay.astro';
   .no-display {
     display: none;
   }
-
-  /*
-                                                                                                                    ****************************************
-                                                                                                                    MEDIA QUERIES
-                                                                                                                    TODO REFACTOR, SHOULDN'T ALL BE IN ONE FILE!
-                                                                                                                    ****************************************
-                                                                                                                    */
 
   @media (max-width: 59em) {
     h1 {
@@ -266,8 +269,8 @@ import LoadingOverlay from '../components/LoadingOverlay.astro';
   }
 
   /*
-                                                                                                                                                                FOR MOBILE
-                                                                                                                                                                */
+                                                                                                                                                                                                                      FOR MOBILE
+                                                                                                                                                                                                                      */
 
   @media (max-width: 35em) {
     h1 {

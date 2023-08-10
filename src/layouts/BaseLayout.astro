@@ -16,9 +16,10 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
+
     <style lang="css" is:global>
       :root {
-        /* 
+        /*
         past colours
         --primary-color: #6e95ce; */
         --primary-color: #c62f3b;
@@ -86,10 +87,10 @@ const { title, description } = Astro.props;
       }
 
       /*
-	****************************************
-	LINKS
-	****************************************
-	*/
+****************************************
+LINKS
+****************************************
+*/
 
       .link:link,
       .link:visited {
@@ -108,10 +109,10 @@ const { title, description } = Astro.props;
       }
 
       /*
-	****************************************
-	DEFAULT STYLES
-	****************************************
-	*/
+****************************************
+DEFAULT STYLES
+****************************************
+*/
 
       .section-seperator::after {
         content: '';
@@ -134,10 +135,10 @@ const { title, description } = Astro.props;
       }
 
       /*
-	****************************************
-	BUTTONS
-	****************************************
-	*/
+****************************************
+BUTTONS
+****************************************
+*/
 
       .btn,
       .btn:link,
