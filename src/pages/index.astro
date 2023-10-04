@@ -85,6 +85,11 @@ import LoadingOverlay from '../components/LoadingOverlay.astro';
     display: none;
   }
 
+  /* Put this here to stop lazy loading links looking the default blue color */
+  link {
+    color: white;
+  }
+
   @media (max-width: 59em) {
     h1 {
       font-size: 3.2rem;
