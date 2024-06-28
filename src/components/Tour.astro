@@ -1,4 +1,5 @@
 ---
+import { ARTIST_NAME } from '../consts';
 import GigCard from './GigCard.astro';
 
 const API = import.meta.env.API;
@@ -7,8 +8,6 @@ const { data }: { data: Gig[] } = await res.json();
 ---
 
 <section class="tour-section section-seperator" id="tour">
-  <h1 class="tour-header">Tour</h1>
-
   <div class="gig-cards">
     {
       data?.length ? (
@@ -34,8 +33,8 @@ const { data }: { data: Gig[] } = await res.json();
 
   <div class="message">
     <span
-      >If you would like to recieve updates for when we are next playing a gig,
-      please subscribe to our mailing list!
+      >If you would like to recieve updates for when {ARTIST_NAME} is next playing
+      a gig, please subscribe to our mailing list!
     </span>
     <a href="/subscribe/"><button class="btn">Subscribe</button></a>
   </div>
@@ -43,7 +42,7 @@ const { data }: { data: Gig[] } = await res.json();
 
 <style lang="css">
   .tour-section {
-    padding: 6.4rem 9.8rem;
+    padding: 4rem 9.8rem;
     background-color: var(--dark-color);
     position: relative;
 

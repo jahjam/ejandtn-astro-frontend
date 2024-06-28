@@ -1,0 +1,96 @@
+---
+import { Icon } from 'astro-icon';
+
+type Props = {
+  href: string;
+  header: string;
+  linkBack?: boolean;
+};
+
+const { href, header, linkBack = false }: Props = Astro.props;
+---
+
+<div class="container">
+  <h1><a href={href}>{header}</a></h1>
+  {
+    linkBack ? (
+      <a
+        href="/"
+        class="link link-back"
+        aria-label="Link to take you back to the main website"
+      >
+        <Icon pack="cil" name="arrow-left" />
+        Back to main website
+      </a>
+    ) : null
+  }
+</div>
+
+<style lang="scss">
+  .container {
+    width: 26rem;
+    height: auto;
+    margin-top: 4rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    border: var(--border);
+    padding: 2rem;
+  }
+
+  @keyframes cursor-blink {
+    0% {
+      opacity: 0;
+    }
+  }
+
+  h1 {
+    font-family: sinter, sans-serif !important;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 3.6rem;
+
+    display: flex;
+    align-items: center;
+
+    a {
+      color: var(--light-color);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:visited {
+      color: var(--light-color);
+      text-decoration: underline;
+    }
+
+    &::after {
+      content: '';
+      margin-left: 0.4rem;
+      margin-bottom: 0.6rem;
+      width: 0.5rem;
+      height: 3.4rem;
+      background: var(--primary-color);
+      display: inline-block;
+      animation: cursor-blink 1.5s steps(2) infinite;
+    }
+  }
+
+  a {
+    display: flex !important;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .link-back {
+    margin-top: -1rem;
+  }
+
+  [astro-icon] {
+    height: 2rem;
+    width: 2rem;
+    color: var(--primary-color);
+  }
+</style>

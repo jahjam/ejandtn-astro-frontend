@@ -4,7 +4,6 @@ import IMG from '../assets/promophoto.jpeg';
 ---
 
 <section class="about-section container section-seperator" id="about">
-  <h1 class="about-header">About</h1>
   <div class="about-body">
     <Image
       class="promo-photo"
@@ -13,18 +12,18 @@ import IMG from '../assets/promophoto.jpeg';
       format="webp"
     />
     <p>
-      Elijah James (the sole member of EJANDTN) writes captivating songs,
-      which are brought to life with his unique, rich baritone vocal that
-      conjures thoughts of Leonard Cohen and Scott Walker. A singer and
-      songwriter born in Liverpool, UK, his music errs on the side of
-      melancholia, whilst also still managing to provoke hopeful and nostalgic
-      imagery in the process. <br /><br />Usually accompanied by a band of
-      accomplished musicians weaving the intricate instrumentation around his
-      captivating narratives, James studies and channels the foundations of
-      songwriting and storytelling laid out before him by the likes of Bob
-      Dylan, Paul Simon and John Lennon. With a passion for songwriting, his
-      focus is mainly on deeply thought-out, spellbinding lyrics and moving
-      instrumentation to deliver his unique style of song.
+      Elijah James (the sole member of EJANDTN) writes captivating songs, which
+      are brought to life with his unique, rich baritone vocal that conjures
+      thoughts of Leonard Cohen and Scott Walker. A singer and songwriter born
+      in Liverpool, UK, his music errs on the side of melancholia, whilst also
+      still managing to provoke hopeful and nostalgic imagery in the process. <br
+      /><br />Usually accompanied by a band of accomplished musicians weaving
+      the intricate instrumentation around his captivating narratives, James
+      studies and channels the foundations of songwriting and storytelling laid
+      out before him by the likes of Bob Dylan, Paul Simon and John Lennon. With
+      a passion for songwriting, his focus is mainly on deeply thought-out,
+      spellbinding lyrics and moving instrumentation to deliver his unique style
+      of song.
     </p>
   </div>
 </section>
@@ -56,5 +55,44 @@ import IMG from '../assets/promophoto.jpeg';
   .about-body p {
     font-size: 2rem;
     line-height: 3rem;
+  }
+
+  @media (max-width: 59em) {
+    .about-body p {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width: 41em) {
+    .about-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .promo-photo {
+      float: none;
+    }
+  }
+
+  @media (max-width: 35em) {
+    .about-body p {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 29em) {
+    .about-body p {
+      font-size: 1.6rem;
+    }
+    .promo-photo {
+      width: 26rem;
+    }
+  }
+
+  @media (max-width: 27em) {
+    .about-section {
+      padding: 4rem 4rem;
+    }
   }
 </style>

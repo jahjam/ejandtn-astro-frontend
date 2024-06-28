@@ -24,6 +24,7 @@ declare type Album = {
   about: string;
   credits: Credits;
   links: Link;
+  id: number;
 };
 
 declare type GigAttributes = {
@@ -55,5 +56,5 @@ declare type DayTicketAttributes = {
   createdAt?: Date;
   updatedAt?: Date;
   publishedAt: Date;
-  slug: string;
+  slug?: string;
 };

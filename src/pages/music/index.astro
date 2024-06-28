@@ -1,0 +1,11 @@
+---
+import Header from '../../components/Header.astro';
+import { MUSIC_DESCRIPTION, MUSIC_TITLE } from '../../consts';
+import Music from '../../features/Music.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title={MUSIC_TITLE} description={MUSIC_DESCRIPTION}>
+  <Header header="Music" href="/music" linkBack />
+  <Music />
+</BaseLayout>

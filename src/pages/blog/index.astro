@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/blog/Header.astro';
 import Gallery from '../../components/blog/Gallery.astro';
 import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts';
 import { Icon } from 'astro-icon';
 import axios from 'axios';
+import Header from '../../components/Header.astro';
 
 const API: string = import.meta.env.API;
 const { data } = await axios.get(`${API}/sub-count`);
@@ -13,7 +13,7 @@ const subscribers = data.total;
 
 <BaseLayout title={BLOG_TITLE} description={BLOG_DESCRIPTION}>
   <div class="container">
-    <Header />
+    <Header href="/blog" header="Blog" linkBack />
 
     <p>
       {BLOG_DESCRIPTION.slice(0, -1)}.
@@ -26,7 +26,10 @@ const subscribers = data.total;
         <span>Current Subs:</span><span class="sub-num">{subscribers}</span>
       </div>
 
-      <a class="sub-link" href="/subscribe/" aria-label='Link to take you to the subscribe page'
+      <a
+        class="sub-link"
+        href="/subscribe/"
+        aria-label="Link to take you to the subscribe page"
         ><button class="blog-sub-btn btn">Subscribe</button></a
       >
     </div>
@@ -38,7 +41,8 @@ const subscribers = data.total;
         href="/blog/rss.xml"
         target="_blank"
         rel="noreferrer noopener"
-        aria-label='Link to take you to the rss feed'><Icon pack="mdi" class="icon" name="rss" /></a
+        aria-label="Link to take you to the rss feed"
+        ><Icon pack="mdi" class="icon" name="rss" /></a
       >
     </p>
 

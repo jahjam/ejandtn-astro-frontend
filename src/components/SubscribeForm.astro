@@ -51,7 +51,9 @@ const { direction } = Astro.props;
 
     try {
       const res = await axios.post(
-        `https://ejandtn-strapi-backend-production.up.railway.app/api/sign-up`,
+        import.meta.env.MODE === 'development'
+          ? 'https://localhost:8888/api/signup'
+          : `https://ejandtn-strapi-backend-production.up.railway.app/api/sign-up`,
         {
           email: emailInput.value,
           firstName: firstNameInput.value,

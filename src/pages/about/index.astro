@@ -1,0 +1,12 @@
+---
+import Header from '../../components/Header.astro';
+import { ABOUT_DESCRIPTION, ABOUT_TITLE } from '../../consts';
+import About from '../../features/About.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title={ABOUT_TITLE} description={ABOUT_DESCRIPTION}>
+  <Header header="About" href="/about" linkBack />
+
+  <About />
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+import Header from '../../components/Header.astro';
+import { VIDEOS_DESCRIPTION, VIDEOS_TITLE } from '../../consts';
+import Video from '../../features/Video.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title={VIDEOS_TITLE} description={VIDEOS_DESCRIPTION}>
+  <Header header="Videos" href="/videos" linkBack />
+
+  <Video />
+</BaseLayout>

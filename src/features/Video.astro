@@ -6,7 +6,6 @@ import { videos } from '../data/videos';
 ---
 
 <section class="video-section section-seperator" id="videos">
-  <h1 class="video-header">Videos</h1>
   <div class="video-gallery grid--2-cols">
     {
       videos.map(video => (
@@ -174,6 +173,19 @@ import { videos } from '../data/videos';
   @media (max-width: 29em) {
     [astro-icon] {
       right: 20rem;
+    }
+  }
+
+  @media (max-width: 51em) {
+    .video-gallery {
+      display: flex !important;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 29em) {
+    .video-section {
+      padding: 4rem 6rem;
     }
   }
 </style>

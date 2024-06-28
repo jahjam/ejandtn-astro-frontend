@@ -1,0 +1,113 @@
+---
+import { Image } from 'astro:assets';
+import THBTTLAlbumArt from '../assets/album-art/the-hellish-bending-towards-the-light-album-art-reduce.jpg';
+---
+
+<div class="album-spotlight">
+  <Image
+    src={THBTTLAlbumArt}
+    alt="The Hellish Bending Towards The Light Artwork"
+    sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${THBTTLAlbumArt.width}px`}
+    format="webp"
+    class="album-art"
+  />
+
+  <div class="header-container">
+    <div class="header-container-inner">
+      <h1 class="header-text">
+        New album <br />
+        <span class="album-title-hero"
+          >'The Hellish Bending <br /> Towards The Light' <br /></span
+        >
+        Out Now
+      </h1>
+      <a
+        class="link-scroll"
+        href="#music"
+        aria-label="Link to take you to the music section"
+        ><button class="btn listen-btn">Listen</button></a
+      >
+      <a
+        href="https://goldenbelieversrecords.bandcamp.com/album/the-hellish-bending-towards-the-light"
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label="Link to take you to bandcamp page for the album The Hellish Bending Towards The Light"
+        ><button class="btn buy-btn">Buy Here</button></a
+      >
+    </div>
+  </div>
+</div>
+
+<style lang="css">
+  .album-spotlight {
+    height: auto;
+    margin-top: 2rem;
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .album-art {
+    height: 40rem;
+    width: 40rem;
+  }
+
+  .header-container-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .header-text {
+    font-family: 'rockwell', sans-serif;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+
+    color: var(--primary-color);
+  }
+
+  .listen-btn {
+    padding: 1.2rem 2.4rem 1.2rem 2.4rem !important;
+  }
+
+  .listen-btn::after {
+    content: '';
+    width: 10.2rem;
+    height: 0.2rem;
+    background-color: var(--light-color);
+
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+
+    transition: all 0.3s;
+  }
+
+  .listen-btn:hover::after {
+    transform: translateY(-0.6rem);
+  }
+
+  .buy-btn::after {
+    content: '';
+    width: 10.4rem;
+    height: 0.2rem;
+    background-color: var(--light-color);
+
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+
+    transition: all 0.3s;
+  }
+
+  .buy-btn:hover::after {
+    transform: translateY(-0.6rem);
+  }
+</style>

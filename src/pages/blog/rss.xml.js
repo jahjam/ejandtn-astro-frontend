@@ -1,4 +1,5 @@
 import rss from '@astrojs/rss';
+import { ARTIST_NAME } from '../../consts';
 
 export async function get(context) {
   const items = [];
@@ -17,9 +18,8 @@ export async function get(context) {
   });
 
   return rss({
-    title: 'Elijah James And The Nightmares’ Blog',
-    description:
-      'A source of regular updates for what the band are getting upto.',
+    title: `${ARTIST_NAME}' Blog`,
+    description: `A source of regular updates for what ${ARTIST_NAME} is upto.`,
     site: context.site,
     items,
     customData: `<language>en-us</language>`,

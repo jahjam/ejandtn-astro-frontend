@@ -1,25 +1,37 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import { ARTIST_NAME } from '../consts';
+
 type Props = {
   img: ImageMetadata;
   albumTitle: string;
   albumDate: string;
   releaseDate: string;
+  slug: string;
+  id: number;
 };
 
-const { img, albumTitle, albumDate, releaseDate } = Astro.props;
+const { img, albumTitle, albumDate, releaseDate, slug, id } = Astro.props;
 ---
 
-<div class="art-box" id={`art-box-${releaseDate}`} tabindex="0">
-  <Image
-    class="album-artwork"
-    src={img}
-    alt={`Elijah James And The Nightmares Album Art of ${albumTitle}`}
-    format="webp"
-  />
+<a
+  class="art-box"
+  href={`/music/${slug}`}
+  id={`art-box-${releaseDate}`}
+  tabindex="0"
+>
+  <div>
+    <Image
+      class="album-artwork"
+      src={img}
+      alt={`${ARTIST_NAME} Album Art of ${albumTitle}`}
+      format="webp"
+    />
+  </div>
   <span class="album-title">{albumTitle}</span>
   <span class="album-date">{albumDate}</span>
-</div>
+</a>
 
 <script define:vars={{ releaseDate }}>
   const artBox = document.getElementById(`art-box-${releaseDate}`);
@@ -29,11 +41,15 @@ const { img, albumTitle, albumDate, releaseDate } = Astro.props;
 
 <style>
   .art-box {
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.8rem;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--light-color);
 
     transition: all 0.2s linear;
   }
@@ -60,5 +76,7 @@ const { img, albumTitle, albumDate, releaseDate } = Astro.props;
     height: 100%;
     width: 100%;
     box-shadow: 2px 2px 12px -1px hsla(0, 0%, 0%, 0.774);
+    object-fit: cover;
+    object-position: 50% 50%;
   }
 </style>

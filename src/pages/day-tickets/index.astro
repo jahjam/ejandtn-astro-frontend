@@ -2,9 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DAY_TICKETS_TITLE, DAY_TICKETS_DESCRIPTION } from '../../consts';
 import { sortTicketsByDateFn } from '../../utils';
-import Header from '../../components/day-tickets/Header.astro';
 import TicketBody from '../../components/day-tickets/TicketBody.astro';
 import { Icon } from 'astro-icon';
+import Header from '../../components/Header.astro';
 const API = import.meta.env.API;
 
 const res = await fetch(`${API}/day-tickets`);
@@ -19,14 +19,17 @@ const mostRecentTicket = (sortedTicketsByDateArr[0][1][0] as DayTicket)
 
 <BaseLayout title={DAY_TICKETS_TITLE} description={DAY_TICKETS_DESCRIPTION}>
   <div class="container">
-    <Header />
+    <Header href="/day-tickets" header="Day Tickets" linkBack />
 
     <details>
       <summary>?</summary>
       <p>{DAY_TICKETS_DESCRIPTION}</p>
     </details>
 
-    <a class="link" href="/day-tickets/archive" aria-label='Link to take you to the archive'
+    <a
+      class="link"
+      href="/day-tickets/archive"
+      aria-label="Link to take you to the archive"
       >Archive<Icon pack="cil" name="arrow-right" /></a
     >
 

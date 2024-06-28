@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 const enableScroll = (el: HTMLElement) => el.classList.add('nooverflow');
 const stopScroll = (el: HTMLElement) => el.classList.remove('nooverflow');
 
-let timeoutId: number;
+let timeoutId: NodeJS.Timeout;
 
 function show(
   modal: HTMLElement,
@@ -85,48 +85,36 @@ export const sortTicketsByDateFn = (ticketArr: DayTicket[]) => {
   });
 
   Object.values(sortedObj).forEach((group: DayTicket[]) => {
-    group.sort(
-      (a, b) =>
+    group.sort((a, b) => {
+      const formattedDateA = format(
+        new Date(a.attributes.date_created),
+        'dd/MM/yyyy'
+      ).split('/');
+      const formattedDateB = format(
+        new Date(b.attributes.date_created),
+        'dd/MM/yyyy'
+      ).split('/');
+      return (
         +new Date(
-          +format(new Date(b.attributes.date_created), 'dd/MM/yyyy').split(
-            '/'
-          )[2],
-          +format(new Date(b.attributes.date_created), 'dd/MM/yyyy').split(
-            '/'
-          )[1] - 1,
-          +format(new Date(b.attributes.date_created), 'dd/MM/yyyy').split(
-            '/'
-          )[0]
+          +formattedDateB[2],
+          +formattedDateB[1] - 1,
+          +formattedDateB[0]
         ) -
         +new Date(
-          +format(new Date(a.attributes.date_created), 'dd/MM/yyyy').split(
-            '/'
-          )[2],
-          +format(new Date(a.attributes.date_created), 'dd/MM/yyyy').split(
-            '/'
-          )[1] - 1,
-          +format(new Date(a.attributes.date_created), 'dd/MM/yyyy').split(
-            '/'
-          )[0]
+          +formattedDateA[2],
+          +formattedDateA[1] - 1,
+          +formattedDateA[0]
         )
-    );
+      );
+    });
   });
 
-  return Object.entries(sortedObj).sort(
-    (a, b) =>
-      +new Date(
-        new Date(
-          +b[0].split('/')[2],
-          +b[0].split('/')[1] - 1,
-          +b[0].split('/')[0]
-        )
-      ) -
-      +new Date(
-        new Date(
-          +a[0].split('/')[2],
-          +a[0].split('/')[1] - 1,
-          +a[0].split('/')[0]
-        )
-      )
-  ) as Array<Array<string | DayTicket[]>>;
+  return Object.entries(sortedObj).sort((a, b) => {
+    const aDateArray = a[0].split('/');
+    const bDateArray = b[0].split('/');
+    return (
+      +new Date(new Date(+bDateArray[2], +bDateArray[1] - 1, +bDateArray[0])) -
+      +new Date(new Date(+aDateArray[2], +aDateArray[1] - 1, +aDateArray[0]))
+    );
+  }) as Array<Array<string | DayTicket[]>>;
 };

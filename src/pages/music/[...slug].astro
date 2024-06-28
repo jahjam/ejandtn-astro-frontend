@@ -1,0 +1,28 @@
+---
+import Album from '../../components/Album.astro';
+import { albums } from '../../data/albums';
+
+export async function getStaticPaths() {
+  return albums.map(album => ({
+    params: {
+      slug: `${album.title.replace(/\s+/g, '-').toLocaleLowerCase()}`,
+    },
+    props: album,
+  }));
+}
+
+type Props = Album;
+
+const albumData = Astro.props;
+---
+
+<Album
+  img={albumData.img}
+  title={albumData.title}
+  releaseDate={albumData.releaseDate}
+  tracklist={albumData.tracklist}
+  about={albumData.about}
+  credits={albumData.credits}
+  links={albumData.links}
+  id={albumData.id}
+/>

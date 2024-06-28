@@ -1,534 +1,495 @@
 ---
 import { SITE_TITLE as title } from '../consts';
 import { SITE_DESCRIPTION as description } from '../consts';
-import { Icon } from 'astro-icon';
 
 import Hero from '../features/Hero.astro';
 import Subscribe from '../components/Subscribe.astro';
-import Tour from '../components/Tour.astro';
-import Music from '../features/Music.astro';
-import Video from '../features/Video.astro';
-import About from '../features/About.astro';
 import Links from '../features/Links.astro';
 import Footer from '../features/Footer.astro';
-import StickyNav from '../components/StickyNav.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LoadingOverlay from '../components/LoadingOverlay.astro';
 ---
 
 <BaseLayout title={title} description={description}>
-  <!--Page load feature-->
-  <!--<LoadingOverlay class="no-display" />-->
-
   <div class="container">
     <Hero />
 
-    <StickyNav />
-
     <Subscribe />
-
-    <Tour />
-
-    <Music />
-
-    <Video />
-
-    <About />
 
     <Links />
 
     <Footer />
   </div>
-</BaseLayout>
 
-<!-- Script for added a page load feature --->
-<!--<script>-->
-<!--  const loadingOverlay = document.querySelector('.loading-overlay');-->
-<!--  const container = document.querySelector('.container');-->
-<!--  const loadingIcon = document.querySelectorAll('.loading-icon');-->
-<!--  const buildingText = document.querySelector('.building-text');-->
-
-<!--  const visited = JSON.parse(localStorage.getItem('visited'));-->
-
-<!--  if (!visited) {-->
-<!--    loadingOverlay.classList.remove('no-display');-->
-<!--    setTimeout(() => {-->
-<!--      container.classList.remove('no-display');-->
-
-<!--      loadingOverlay.style.opacity = 0;-->
-
-<!--      loadingIcon[0].getAnimations()[0].cancel();-->
-<!--      loadingIcon[0].classList.add('slide-on-load');-->
-<!--      loadingIcon[1].getAnimations()[0].cancel();-->
-<!--      loadingIcon[1].classList.add('slide-on-load');-->
-<!--      buildingText.style.display = 'none';-->
-<!--    }, 2000);-->
-
-<!--    loadingOverlay.addEventListener('transitionend', e => {-->
-<!--      if (e.propertyName === 'opacity') {-->
-<!--        loadingOverlay.classList.add('no-display');-->
-<!--        localStorage.setItem('visited', 'true');-->
-<!--      }-->
-<!--    });-->
-<!--  } else {-->
-<!--    loadingOverlay.classList.add('no-display');-->
-<!--    container.classList.remove('no-display');-->
-<!--  }-->
-<!--</script>-->
-
-<style is:inline>
-  .container {
-    position: relative;
-  }
-
-  .no-display {
-    display: none;
-  }
-
-  /* Put this here to stop lazy loading links looking the default blue color */
-  link {
-    color: white;
-  }
-
-  @media (max-width: 59em) {
-    h1 {
-      font-size: 3.2rem;
+  <style is:inline>
+    .container {
+      position: relative;
     }
 
-    h2 {
-      font-size: 2.6rem;
-      text-align: center;
+    .no-display {
+      display: none;
     }
 
-    .about-body p {
-      font-size: 1.8rem;
+    /* Put this here to stop lazy loading links looking the default blue color */
+    link {
+      color: white;
     }
 
-    .btn-mobile-nav {
-      display: block;
-      z-index: 9999;
-    }
-
-    .section-header {
-      padding: 0 2rem 2rem 2rem;
-
-      z-index: 2;
-
-      background-color: var(--dark-color-transparent);
-      box-shadow: 0 0 15px 20px var(--dark-color-transparent);
-    }
-
-    .sticky-nav-pages {
-      background-color: rgba(9, 13, 22, 0.89);
-      width: 100%;
+    .home-page-hero {
       height: 100vh;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateX(100%);
-
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .album-spotlight-section {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
       justify-content: center;
-      align-items: center;
-      gap: 2rem;
-
-      transition: all 0.5s ease-in;
-
-      opacity: 0;
-      pointer-events: none;
-      visibility: hidden;
     }
 
-    .nav-open .sticky-nav-pages {
-      opacity: 1;
-      pointer-events: auto;
-      visibility: visible;
-      transform: translateX(0);
+    @media (max-width: 59em) {
+      h1 {
+        font-size: 3.2rem;
+      }
+
+      h2 {
+        font-size: 2.6rem;
+        text-align: center;
+      }
+
+      .about-body p {
+        font-size: 1.8rem;
+      }
+
+      .btn-mobile-nav {
+        display: block;
+        z-index: 9999;
+      }
+
+      .section-header {
+        padding: 0 2rem 2rem 2rem;
+
+        z-index: 2;
+
+        background-color: var(--dark-color-transparent);
+        box-shadow: 0 0 15px 20px var(--dark-color-transparent);
+      }
+
+      .sticky-nav-pages {
+        background-color: rgba(9, 13, 22, 0.89);
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(100%);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        transition: all 0.5s ease-in;
+
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+      }
+
+      .nav-open .sticky-nav-pages {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: translateX(0);
+      }
+
+      .sticky-nav-link {
+        font-size: 3rem;
+      }
+
+      .album {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .album-title {
+        font-size: 1.8rem;
+      }
+
+      .album .img-title-date {
+        order: 2;
+      }
+
+      .album-modal-btns a {
+        width: 30%;
+      }
+
+      .tracklist {
+        order: 2;
+      }
+
+      .album .desc-modal {
+        order: 2;
+      }
+
+      .album .credits {
+        order: 3;
+      }
     }
 
-    .sticky-nav-link {
-      font-size: 3rem;
+    @media (max-width: 51em) {
+      h2 {
+        font-size: 2.4rem;
+      }
+
+      h3 {
+        font-size: 1.8rem;
+      }
+
+      .album-gallery {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .album-artwork {
+        width: 80%;
+      }
+
+      .video-gallery {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
-    .album {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
+    @media (max-width: 41em) {
+      h2 {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      h3 {
+        font-size: 1.4rem;
+      }
+
+      .form {
+        display: grid;
+        row-gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+      }
+
+      .form li:nth-child(3) {
+        grid-column: 1/3;
+        grid-row: 2/3;
+      }
+
+      .form li:last-child {
+        grid-column: 1/3;
+        grid-row: 3/4;
+      }
+
+      .modal-body {
+        width: 95%;
+        padding: 2rem;
+      }
+
+      .album-modal-btns a {
+        width: 40%;
+      }
+
+      .album-artwork-modal {
+        margin: 0 auto;
+        height: 30rem;
+        width: 30rem;
+      }
+
+      .about-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .promo-photo {
+        float: none;
+      }
+
+      .contact-item {
+        font-size: 1.4rem;
+      }
+
+      .contact-section {
+        padding: 6rem 6rem 6.4rem 5rem;
+      }
+
+      .footer {
+        padding: 6.4rem 4rem 6.4rem 4rem;
+      }
     }
 
-    .album-title {
-      font-size: 1.8rem;
-    }
-
-    .album .img-title-date {
-      order: 2;
-    }
-
-    .album-modal-btns a {
-      width: 30%;
-    }
-
-    .tracklist {
-      order: 2;
-    }
-
-    .album .desc-modal {
-      order: 2;
-    }
-
-    .album .credits {
-      order: 3;
-    }
-  }
-
-  @media (max-width: 51em) {
-    h2 {
-      font-size: 2.4rem;
-    }
-
-    h3 {
-      font-size: 1.8rem;
-    }
-
-    .album-gallery {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .album-artwork {
-      width: 80%;
-    }
-
-    .video-gallery {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-  @media (max-width: 41em) {
-    h2 {
-      font-size: 2rem;
-      text-align: center;
-    }
-
-    h3 {
-      font-size: 1.4rem;
-    }
-
-    .form {
-      display: grid;
-      row-gap: 1rem;
-      grid-template-columns: 1fr 1fr;
-      justify-items: center;
-    }
-
-    .form li:nth-child(3) {
-      grid-column: 1/3;
-      grid-row: 2/3;
-    }
-
-    .form li:last-child {
-      grid-column: 1/3;
-      grid-row: 3/4;
-    }
-
-    .modal-body {
-      width: 95%;
-      padding: 2rem;
-    }
-
-    .album-modal-btns a {
-      width: 40%;
-    }
-
-    .album-artwork-modal {
-      margin: 0 auto;
-      height: 30rem;
-      width: 30rem;
-    }
-
-    .about-body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .promo-photo {
-      float: none;
-    }
-
-    .contact-item {
-      font-size: 1.4rem;
-    }
-
-    .contact-section {
-      padding: 6rem 6rem 6.4rem 5rem;
-    }
-
-    .footer {
-      padding: 6.4rem 4rem 6.4rem 4rem;
-    }
-  }
-
-  /*
+    /*
                                                                                                                                                                                                                       FOR MOBILE
                                                                                                                                                                                                                       */
 
-  @media (max-width: 35em) {
-    h1 {
-      font-size: 2.8rem;
+    @media (max-width: 35em) {
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header-logo {
+        width: 34rem;
+        cursor: pointer;
+      }
+
+      .nav-pages li {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .bit-widget-container {
+        align-self: center;
+      }
+
+      .icon {
+        height: 2.4rem;
+        width: 2.4rem;
+      }
+
+      .header-text {
+        font-size: 2.2rem;
+      }
+
+      .section-header {
+        position: static;
+        margin: 4rem auto;
+      }
+
+      .modal-body {
+        padding: 2rem;
+      }
+
+      .album-modal-btns a {
+        width: 40%;
+      }
+
+      .about-body p {
+        font-size: 1.6rem;
+      }
+
+      .music-section {
+        padding: 6.4rem 6rem 6.4rem 6rem;
+      }
+
+      footer span {
+        font-size: 1rem;
+      }
+
+      .contact-section {
+        padding: 6rem 6rem 6.4rem 5rem;
+      }
+
+      .footer {
+        padding: 6.4rem 4rem 6.4rem 4rem;
+      }
+
+      .logo-footer {
+        height: 40%;
+        width: 40%;
+      }
     }
 
-    h2 {
-      font-size: 1.8rem;
-      text-align: center;
+    @media (max-width: 29em) {
+      .contact-header {
+        font-size: 3.4rem;
+      }
+
+      h2 {
+        font-size: 2.4rem;
+        text-align: center;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.8rem;
+      }
+
+      .video-section {
+        padding: 6.4rem 6rem 6.4rem 6rem;
+      }
+
+      .music-section {
+        padding: 6.4rem 6rem 6.4rem 6rem;
+      }
+
+      .album-artwork {
+        width: 100%;
+      }
+
+      .album-modal {
+        padding: 6rem 3rem 6rem 3rem;
+      }
+
+      .modal-body {
+        width: 100%;
+      }
+
+      .close-modal-icon {
+        height: 3rem;
+        width: 3rem;
+      }
+
+      .tracklist ol {
+        font-size: 1.4rem;
+      }
+
+      .tracklist ol span {
+        font-size: 1.6rem;
+      }
+
+      .desc-modal p {
+        font-size: 1.4rem;
+      }
+
+      .album-modal-btns a {
+        width: 40%;
+      }
+
+      .album-artwork-modal {
+        margin: 0 auto;
+        height: 25rem;
+        width: 25rem;
+      }
+
+      .promo-photo {
+        width: 26rem;
+      }
+
+      .about-body p {
+        font-size: 1.6rem;
+      }
+
+      .contact-body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-item {
+        font-size: 1.6rem;
+      }
+
+      .footer {
+        padding: 6.4rem 4rem 6.4rem 4rem;
+      }
     }
 
-    h3 {
-      font-size: 1.2rem;
-      text-align: center;
-    }
+    @media (max-width: 27em) {
+      .contact-header {
+        font-size: 3.4rem;
+      }
 
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+      h2 {
+        font-size: 2.4rem;
+        text-align: center;
+      }
 
-    .header-logo {
-      width: 34rem;
-      cursor: pointer;
-    }
+      .header-logo {
+        width: 28rem;
+        cursor: pointer;
+      }
 
-    .nav-pages li {
-      font-size: 1.8rem;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
+      .nav-pages {
+        gap: 1.2rem;
+      }
 
-    .bit-widget-container {
-      align-self: center;
-    }
+      .nav-pages li {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
 
-    .icon {
-      height: 2.4rem;
-      width: 2.4rem;
-    }
+      .icon {
+        height: 2.4rem;
+        width: 2.4rem;
+      }
 
-    .header-text {
-      font-size: 2.2rem;
-    }
+      .header-text {
+        font-size: 1.8rem;
+      }
 
-    .section-header {
-      position: static;
-      margin: 4rem auto;
-    }
+      .music-section {
+        padding: 6.4rem 6rem 6.4rem 6rem;
+      }
 
-    .modal-body {
-      padding: 2rem;
-    }
+      .album-modal {
+        padding: 6rem 3rem 6rem 3rem;
+      }
 
-    .album-modal-btns a {
-      width: 40%;
-    }
+      .modal-body {
+        width: 100%;
+      }
 
-    .about-body p {
-      font-size: 1.6rem;
-    }
+      .btn {
+        font-size: 1.8rem;
+        padding: 1rem !important;
+      }
 
-    .music-section {
-      padding: 6.4rem 6rem 6.4rem 6rem;
-    }
+      .listen-btn::after {
+        width: 6.9rem;
+      }
 
-    footer span {
-      font-size: 1rem;
-    }
+      .buy-btn::after {
+        width: 9.2rem;
+      }
 
-    .contact-section {
-      padding: 6rem 6rem 6.4rem 5rem;
-    }
+      .about-section {
+        padding: 6.4rem 6rem 6.4rem 6rem;
+      }
 
-    .footer {
-      padding: 6.4rem 4rem 6.4rem 4rem;
-    }
+      .contact-body {
+        display: flex;
+        flex-direction: column;
+      }
 
-    .logo-footer {
-      height: 40%;
-      width: 40%;
-    }
-  }
+      .contact-item {
+        font-size: 1.6rem;
+      }
 
-  @media (max-width: 29em) {
-    .contact-header {
-      font-size: 3.4rem;
-    }
+      .footer {
+        padding: 6.4rem 4rem 6.4rem 4rem;
+      }
 
-    h2 {
-      font-size: 2.4rem;
-      text-align: center;
-    }
+      .logo-footer {
+        height: 40%;
+        width: 40%;
+      }
 
-    .form {
-      display: flex;
-      flex-direction: column;
-      row-gap: 2.8rem;
+      footer span {
+        font-size: 0.8rem;
+      }
     }
-
-    .video-section {
-      padding: 6.4rem 6rem 6.4rem 6rem;
-    }
-
-    .music-section {
-      padding: 6.4rem 6rem 6.4rem 6rem;
-    }
-
-    .album-artwork {
-      width: 100%;
-    }
-
-    .album-modal {
-      padding: 6rem 3rem 6rem 3rem;
-    }
-
-    .modal-body {
-      width: 100%;
-    }
-
-    .close-modal-icon {
-      height: 3rem;
-      width: 3rem;
-    }
-
-    .tracklist ol {
-      font-size: 1.4rem;
-    }
-
-    .tracklist ol span {
-      font-size: 1.6rem;
-    }
-
-    .desc-modal p {
-      font-size: 1.4rem;
-    }
-
-    .album-modal-btns a {
-      width: 40%;
-    }
-
-    .album-artwork-modal {
-      margin: 0 auto;
-      height: 25rem;
-      width: 25rem;
-    }
-
-    .promo-photo {
-      width: 26rem;
-    }
-
-    .about-body p {
-      font-size: 1.6rem;
-    }
-
-    .contact-body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contact-item {
-      font-size: 1.6rem;
-    }
-
-    .footer {
-      padding: 6.4rem 4rem 6.4rem 4rem;
-    }
-  }
-
-  @media (max-width: 27em) {
-    .contact-header {
-      font-size: 3.4rem;
-    }
-
-    h2 {
-      font-size: 2.4rem;
-      text-align: center;
-    }
-
-    .header-logo {
-      width: 28rem;
-      cursor: pointer;
-    }
-
-    .nav-pages {
-      gap: 1.2rem;
-    }
-
-    .nav-pages li {
-      font-size: 1.6rem;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    .icon {
-      height: 2.4rem;
-      width: 2.4rem;
-    }
-
-    .header-text {
-      font-size: 1.8rem;
-    }
-
-    .music-section {
-      padding: 6.4rem 6rem 6.4rem 6rem;
-    }
-
-    .album-modal {
-      padding: 6rem 3rem 6rem 3rem;
-    }
-
-    .modal-body {
-      width: 100%;
-    }
-
-    .btn {
-      font-size: 1.8rem;
-      padding: 1rem !important;
-    }
-
-    .listen-btn::after {
-      width: 6.9rem;
-    }
-
-    .buy-btn::after {
-      width: 9.2rem;
-    }
-
-    .about-section {
-      padding: 6.4rem 6rem 6.4rem 6rem;
-    }
-
-    .contact-body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contact-item {
-      font-size: 1.6rem;
-    }
-
-    .footer {
-      padding: 6.4rem 4rem 6.4rem 4rem;
-    }
-
-    .logo-footer {
-      height: 40%;
-      width: 40%;
-    }
-
-    footer span {
-      font-size: 0.8rem;
-    }
-  }
-</style>
+  </style>
+</BaseLayout>

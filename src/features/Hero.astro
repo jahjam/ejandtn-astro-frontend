@@ -1,7 +1,6 @@
 ---
 import SocialIconNav from '../components/SocialIconNav.astro';
-import LOGO from '../assets/ejandtn-logo.png';
-import HEROIMAGE from '../assets/THBTTL-banner-web.jpg'
+import HEROIMAGE from '../assets/the-hellish-bending-towards-the-light-web-banner-for-web.webp';
 import BubbleNav from '../components/BubbleNav.astro';
 import { Image } from 'astro:assets';
 ---
@@ -9,58 +8,85 @@ import { Image } from 'astro:assets';
 <header class="hero">
   <BubbleNav />
 
-  <Image 
-    src={HEROIMAGE} 
-    alt="Elijah James And The Nightmares Album Artwork as Hero Image" 
+  <Image
+    src={HEROIMAGE}
+    alt="Elijah James And The Nightmares Album Artwork as Hero Image"
     class="hero-image"
     format="webp"
-   /> 
+  />
 
   <div class="section-header">
     <nav class="main-nav">
-      <a href="#" class="link-scroll" aria-label='Link to take you to top of page'>
-        <Image
-          src={LOGO}
-          alt="Elijah James And The Nightmares logo"
-          class="header-logo"
-          format="webp"
-        /></a
+      <a
+        href="#"
+        class="link-scroll header-logo-link"
+        aria-label="Link to take you to top of page"
       >
+        <h1 class="header-logo">E.J. Hallows</h1>
+      </a>
       <ul class="nav-pages">
-        <li><a class="link link-scroll" href="#tour" aria-label='Link to scroll down to tour section'>Tour</a></li>
-        <li><a class="link link-scroll" href="#music" aria-label='Link to scroll down to music section'>Music</a></li>
-        <li><a class="link link-scroll" href="#videos" aria-label='Link to scroll down to videos section'>Videos</a></li>
-        <li><a class="link link-scroll" href="#about" aria-label='Link to scroll down to about section'>About</a></li>
+        <li>
+          <a
+            class="link link-scroll"
+            href="/tour"
+            aria-label="Link to tour page">Tour</a
+          >
+        </li>
+        <li>
+          <a
+            class="link link-scroll"
+            href="/music"
+            aria-label="Link to scroll down to music section">Music</a
+          >
+        </li>
+        <li>
+          <a
+            class="link link-scroll"
+            href="/videos"
+            aria-label="Link to scroll down to videos section">Videos</a
+          >
+        </li>
+        <li>
+          <a
+            class="link link-scroll"
+            href="/about"
+            aria-label="Link to scroll down to about section">About</a
+          >
+        </li>
         <li>
           <a
             class="link"
             href="https://ejandtn.bandcamp.com/merch"
             target="_blank"
             rel="noreferrer noopener"
-            aria-label='Link to take you to bandcamp merch shop'>Shop</a
+            aria-label="Link to take you to bandcamp merch shop">Shop</a
           >
         </li>
       </ul>
 
+      <SocialIconNav iconHeight="3.2rem" iconWidth="3.2rem" />
     </nav>
 
     <div class="header-container">
       <div class="header-container-inner">
-        <h1 class="header-text">
+        <h3 class="header-text">
           New album <br />
           <span class="album-title-hero"
             >'The Hellish Bending <br /> Towards The Light' <br /></span
           >
           Out Now
-        </h1>
-        <a class="link-scroll" href="#music" aria-label='Link to take you to the music section'
+        </h3>
+        <a
+          class="link-scroll"
+          href="/music/the-hellish-bending-towards-the-light"
+          aria-label="Link to take you to the music section"
           ><button class="btn listen-btn">Listen</button></a
         >
         <a
           href="https://goldenbelieversrecords.bandcamp.com/album/the-hellish-bending-towards-the-light"
           target="_blank"
           rel="noreferrer noopener"
-          aria-label='Link to take you to bandcamp page for the album The Hellish Bending Towards The Light'
+          aria-label="Link to take you to bandcamp page for the album The Hellish Bending Towards The Light"
           ><button class="btn buy-btn">Buy Here</button></a
         >
       </div>
@@ -68,60 +94,12 @@ import { Image } from 'astro:assets';
   </div>
 </header>
 
-<script>
-  const navLinks = document.querySelectorAll('.link-scroll');
-  const stickyNav = document.querySelector('.sticky-nav');
-  const stickyNavHeight = (document.querySelector('.sticky-nav') as HTMLElement)
-    .offsetHeight;
-
-  function scrollToElement(e) {
-    e.preventDefault();
-
-    const href = this.getAttribute('href');
-
-    if (href === '#') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-      return;
-    }
-
-    const element = document.querySelector(href);
-
-    const elementPosition = element.getBoundingClientRect().top;
-
-    const scrollTo = elementPosition + window.pageYOffset - stickyNavHeight;
-
-    if (href !== '#' && href.startsWith('#')) {
-      window.scrollTo({
-        top: scrollTo,
-        behavior: 'smooth',
-      });
-    }
-
-    if (stickyNav.classList.contains('nav-open')) {
-      stickyNav.classList.toggle('nav-open');
-    }
-  }
-
-  navLinks.forEach(link => link.addEventListener('click', scrollToElement));
-</script>
-
 <style lang="css">
   header {
     height: 100vh;
     width: 100%;
-   /* background-image: linear-gradient(
-        rgba(34, 34, 34, 0.3),
-        rgba(34, 34, 34, 0.3)
-      ),
-      url(../assets/THBTTL-banner-web.jpg);
-    background-position: center center;
-    background-size: cover;
-  */
 
-      position: relative;
+    position: relative;
   }
 
   .hero-image {
@@ -130,7 +108,19 @@ import { Image } from 'astro:assets';
 
     object-fit: cover;
 
-      position: absolute;
+    position: absolute;
+  }
+
+  @media (max-width: 51em) {
+    .hero-image {
+      object-position: -40rem 0rem;
+    }
+  }
+
+  @media (max-width: 35em) {
+    .hero-image {
+      object-position: -60rem 0rem;
+    }
   }
 
   .section-header {
@@ -145,11 +135,15 @@ import { Image } from 'astro:assets';
   }
 
   .header-logo {
-    height: 100%;
-    width: 38rem;
-    cursor: pointer;
+    font-size: 4rem !important;
+  }
 
-    margin-bottom: -0.4rem;
+  .header-logo-link {
+    font-family: 'rockwell';
+    text-decoration: none;
+    color: white !important;
+    text-transform: uppercase;
+    margin-bottom: -1rem;
   }
 
   .album-title-hero {
@@ -182,26 +176,26 @@ import { Image } from 'astro:assets';
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    text-transform: uppercase;
   }
 
   .header-text {
-    font-family: 'rockwell', sans-serif;
+    font-family: 'rockwell';
     font-size: 2.4rem;
-    line-height: 3.2rem;
-    text-transform: uppercase;
     text-align: center;
-    font-weight: 700;
 
     color: var(--primary-color);
+    margin-bottom: -1rem;
   }
 
   .listen-btn {
     padding: 1.2rem 2.4rem 1.2rem 2.4rem !important;
+    font-size: 1.8rem !important;
   }
 
   .listen-btn::after {
     content: '';
-    width: 10.2rem;
+    width: 9.7rem;
     height: 0.2rem;
     background-color: var(--light-color);
 
@@ -216,9 +210,13 @@ import { Image } from 'astro:assets';
     transform: translateY(-0.6rem);
   }
 
+  .buy-btn {
+    font-size: 1.8rem !important;
+  }
+
   .buy-btn::after {
     content: '';
-    width: 10.4rem;
+    width: 9.58rem;
     height: 0.2rem;
     background-color: var(--light-color);
 

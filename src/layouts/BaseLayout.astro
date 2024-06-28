@@ -9,7 +9,7 @@ type Props = {
 const { title, description } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <MainHead title={title} description={description} />
@@ -171,7 +171,7 @@ BUTTONS
       }
 
       .opacity {
-        opacity: 1;
+        opacity: 1 !important;
         pointer-events: auto;
       }
     </style>

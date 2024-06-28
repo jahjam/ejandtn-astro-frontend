@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { TOUR_TITLE, TOUR_DESCRIPTION } from '../../consts';
+import Tour from '../../components/Tour.astro';
+import Header from '../../components/Header.astro';
+---
+
+<BaseLayout title={TOUR_TITLE} description={TOUR_DESCRIPTION}>
+  <Header header="Tour" href="/tour" linkBack />
+
+  <Tour />
+</BaseLayout>

@@ -8,25 +8,34 @@ import { Icon } from 'astro-icon';
     <Icon name="ph:squares-four-fill" class="squares-fill opacity" />
   </div>
 
-  <a href="/day-tickets" aria-label='Link to take you to the bands day tickets webpage'>
+  <a
+    href="/day-tickets"
+    aria-label="Link to take you to the bands day tickets webpage"
+  >
     <div class="icon ticket-icon">
       <Icon name="ep:ticket" />
     </div>
   </a>
 
-  <a href="/blog" aria-label='Link to take you to the bands blog webpage'>
+  <a href="/blog" aria-label="Link to take you to the bands blog webpage">
     <div class="icon pen-icon">
       <Icon name="mdi:pen" />
     </div>
   </a>
 
-  <a href="/animals-and-architecture" aria-label='Link to take you to the bands animals and architecture webpage'>
+  <a
+    href="/animals-and-architecture"
+    aria-label="Link to take you to the bands animals and architecture webpage"
+  >
     <div class="icon camera-icon">
       <Icon name="ic:baseline-camera" />
     </div>
   </a>
 
-  <a href="/elis-little-dictaphone" aria-label='Link to take you to the bands soundscape webpage'>
+  <a
+    href="/elis-little-dictaphone"
+    aria-label="Link to take you to the bands soundscape webpage"
+  >
     <div class="icon sound-wave-icon">
       <Icon name="bi:soundwave" />
     </div>
@@ -34,7 +43,7 @@ import { Icon } from 'astro-icon';
 </div>
 
 <script>
-  const header = document.querySelector('.hero');
+  // const header = document.querySelector('.hero');
   const mainNavIcon = document.querySelector('.main-nav-icon') as HTMLElement;
   const squares = document.querySelector('.squares') as HTMLElement;
   const squaresFill = document.querySelector('.squares-fill') as HTMLElement;
@@ -44,30 +53,6 @@ import { Icon } from 'astro-icon';
   const soundWaveIcon = document.querySelector(
     '.sound-wave-icon'
   ) as HTMLElement;
-  const stickyNavHeight = (document.querySelector('.sticky-nav') as HTMLElement)
-    .offsetHeight;
-
-  const headerObserver = new IntersectionObserver(
-    function (entries) {
-      const [entry] = entries;
-      if (entry.isIntersecting === false) {
-        mainNavIcon.classList.add('icon-nav-display');
-        ticketIcon.classList.add('icon-nav-display');
-        penIcon.classList.add('icon-nav-display');
-        cameraIcon.classList.add('icon-nav-display');
-        soundWaveIcon.classList.add('icon-nav-display');
-      } else {
-        mainNavIcon.classList.remove('icon-nav-display');
-        ticketIcon.classList.remove('icon-nav-display');
-        penIcon.classList.remove('icon-nav-display');
-        cameraIcon.classList.remove('icon-nav-display');
-        soundWaveIcon.classList.remove('icon-nav-display');
-      }
-    },
-    { root: null, threshold: 0, rootMargin: `-${stickyNavHeight}px` }
-  );
-
-  headerObserver.observe(header);
 
   const toggleIcons = () => {
     if (squares.classList.contains('opacity')) {
@@ -136,7 +121,7 @@ import { Icon } from 'astro-icon';
     }
 
     70% {
-      box-shadow: 0 0 0 10px rgba(198, 47, 59, 0);
+      box-shadow: 0 0 0 16px rgba(198, 47, 59, 0);
     }
 
     100% {

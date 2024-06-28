@@ -1,10 +1,11 @@
-import THBTTL_ALBUM_ART from '../assets/album-art/the-hellish-bending-towards-the-light-album-art-reduce.jpg';
-import BIAG_ALBUM_ART from '../assets/album-art/Because-im-a-giant-1-Web-reduce.jpg';
+import THBTTL_ALBUM_ART from '../assets/album-art/the-hellish-bending-towards-the-light-album-art-for-web.webp';
+import BIAG_ALBUM_ART from '../assets/album-art/EJ-BIAG-full-artwork-front-and-back-for-web.webp';
 import LFES_ALBUM_ART from '../assets/album-art/EJANDTN-EP-COVER-1-reduce.jpg';
-import ITLNTS_ALBUM_ART from '../assets/album-art/Ep-cover-1-reduce.jpg';
+import ITLNTS_ALBUM_ART from '../assets/album-art/two-song-ep-artwork-for-web.webp';
 
 export const albums: Album[] = [
   {
+    id: 1,
     img: THBTTL_ALBUM_ART,
     title: 'The Hellish Bending Towards The Light',
     releaseDate: '07/06/2023',
@@ -12,14 +13,13 @@ export const albums: Album[] = [
       1: "The Coroner's Report",
       2: 'Man In The Diner',
       3: 'This Love',
-      4: 'Out Of The Woodwork',
-      5: 'Sara',
-      6: 'Grown Now',
-      7: 'Feet First',
-      8: 'Another Sunny Day',
-      9: 'Starry-Eyed Kid (With My Head In The Clouds)',
-      10: 'My Very Own Time Machine',
-      11: 'I Wish',
+      4: 'Sara',
+      5: 'Grown Now',
+      6: 'Feet First',
+      7: 'Another Sunny Day',
+      8: 'Starry-Eyed Kid (With My Head In The Clouds)',
+      9: 'My Very Own Time Machine',
+      10: 'I Wish',
     },
     about:
       "This album was never meant to be made. It was cobbled together in desperation due to another album I was working on proving close to impossible to make over the last three years (2020, 2021, 2022). That said, I'm happy with how it turned out. It's got no bells or whistles, but the things it has got, whatever they may be, it's got in spades. Call it what you will. I call it The Hellish Bending Towards The Light.",
@@ -45,6 +45,7 @@ export const albums: Album[] = [
     },
   },
   {
+    id: 2,
     img: ITLNTS_ALBUM_ART,
     title: "It's Too Late Now To Say: Two Songs EP",
     releaseDate: '26/06/2020',
@@ -72,6 +73,7 @@ export const albums: Album[] = [
     },
   },
   {
+    id: 3,
     img: BIAG_ALBUM_ART,
     title: "Because I'm A Giant LP",
     releaseDate: '06/09/2019',
@@ -128,6 +130,7 @@ export const albums: Album[] = [
   },
 
   {
+    id: 4,
     img: LFES_ALBUM_ART,
     title: 'Live From Elevator Studios EP',
     releaseDate: '09/09/2017',
