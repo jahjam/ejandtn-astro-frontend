@@ -36,12 +36,12 @@ export const albums: Album[] = [
         'Emily Vanlint - Violin/Viola',
       ],
       albumArtDesignedBy: 'Elijah James',
-      albumArtBy: 'Jason Patrick Marsden',
+      albumArtBy: 'Elijah James',
     },
     links: {
       smartLink: 'https://ditto.fm/the-hellish-bending-towards-the-light',
       bandcamp:
-        'https://goldenbelieversrecords.bandcamp.com/album/the-hellish-bending-towards-the-light',
+        'https://ejhallows.bandcamp.com/album/the-hellish-bending-towards-the-light',
     },
   },
   {
@@ -54,7 +54,7 @@ export const albums: Album[] = [
       2: 'Enough Rope',
     },
     about:
-      "In May 2020, Elijah James And The Nightmares were set to record their sophomore LP. Alas, due to the Covid-19 pandemic, their plans - like everybody else's - were put on hold. Instead, Elijah James Mainwaring took to creating this short film, featuring two acoustic versions of songs from said upcoming LP: 1. Who'll Be Here Tomorrow? 2. Enough Rope The two songs were recorded in his flat in Liverpool, UK, with the virtual help of Tom Roach, whom engineered, mixed and mastered the two song EP.",
+      "In May 2020, E.J. Hallows was set to record his sophomore LP. Alas, due to the Covid-19 pandemic, his plans - like everybody else's - were put on hold. Instead, he took to creating this short film, featuring two acoustic versions of songs from said upcoming LP: 1. Who'll Be Here Tomorrow? 2. Enough Rope The two songs were recorded in his flat in Liverpool, UK, with the virtual help of Tom Roach, whom engineered, mixed and mastered the two song EP.",
     credits: {
       writtenBy: 'Elijah James',
       arrangedBy: 'Elijah James',
@@ -98,7 +98,7 @@ export const albums: Album[] = [
       18: 'Man-Made Masquerade',
     },
     about:
-      "Because I'm A Giant is an album that from its original conception was ambitious in scope. It features 18 songs, was recorded over a period of three and a half years between 2015-2018, and is the product of E. J. Mainwaring travelling around the UK (mostly Liverpool) with a backpack full of borrowed microphones to various musicians/friends houses to track the parts he’d written. Although there's no overriding concept to the album, Elijah was focussing on writing songs with narratives and creating characters with rich personalities and backgrounds. Its intent is an atmospheric and poignant journey through the magnificent highs and the necessary lows of growing up. E. J. Mainwaring weaves a plethora of musical styles from indie, rock, folk, pop and incorporates over 25 different acoustic/electric instruments with themes and emotions everybody’s experienced at one point or another in their life.",
+      "Because I'm A Giant is an album that from its original conception was ambitious in scope. It features 18 songs, was recorded over a period of three and a half years between 2015-2018, and is the product of E.J. Hallows travelling around the UK (mostly Liverpool) with a backpack full of borrowed microphones to various musicians/friends houses to track the parts he’d written. Although there's no overriding concept to the album, Elijah was focussing on writing songs with narratives and creating characters with rich personalities and backgrounds. Its intent is an atmospheric and poignant journey through the magnificent highs and the necessary lows of growing up. E.J. Hallows weaves a plethora of musical styles from indie, rock, folk, pop and incorporates over 25 different acoustic/electric instruments with themes and emotions everybody’s experienced at one point or another in their life.",
     credits: {
       writtenBy: 'Elijah James',
       arrangedBy: 'Elijah James',

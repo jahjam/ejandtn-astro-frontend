@@ -1,8 +1,8 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import Header from '../components/day-tickets/Header.astro';
 import TicketBody from '../components/day-tickets/TicketBody.astro';
 import { Icon } from 'astro-icon';
+import Header from '../components/Header.astro';
 
 type Props = DayTicketAttributes;
 
@@ -11,7 +11,7 @@ const { title, body, date_created, publishedAt } = Astro.props;
 
 <BaseLayout title={title} description=`${body.substring(0, 20)}...`>
   <div class="container">
-    <Header />
+    <Header header="Day Tickets" href="/day-tickets" linkBack />
 
     <div class="tix-container">
       <a class="link" href="/day-tickets/archive"

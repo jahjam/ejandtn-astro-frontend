@@ -19,12 +19,6 @@ export const videos = [
     src: 'https://www.youtube.com/watch?v=hVJwG3kjplA',
   },
   {
-    id: 4,
-    title: "Because I'm A Giant",
-    url: BIAG_THUMBNAIL,
-    src: 'https://www.youtube.com/embed/EEPCzYCF-pU?enablejsapi=1&version=3&playerapiid=ytplayer',
-  },
-  {
     id: 3,
     title: "It's Too Late Now To Say: Two Songs EP",
     url: ITLNTS_THUMBNAIL,
