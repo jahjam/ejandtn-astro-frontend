@@ -140,11 +140,14 @@ import { Image } from 'astro:assets';
   }
 
   .header-logo-link {
-    font-family: 'rockwell';
     text-decoration: none;
     color: white !important;
     text-transform: uppercase;
     margin-bottom: -1rem;
+
+    & h1 {
+      font-family: 'Roca', sans-serif !important;
+    }
   }
 
   .album-title-hero {
