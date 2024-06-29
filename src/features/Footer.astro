@@ -4,7 +4,7 @@
 
 <footer class="footer">
   <h1 class="header-logo">E.J. Hallows</h1>
-  <span
+  <span class="info"
     ><span class="link">Built using Astro by Elijah James</span><br /><br />All
     Rights Reserved E.J. Hallows &copy; <span class="copy-date">2022</span
     ></span
@@ -19,7 +19,7 @@
   copyrightDate.textContent = year.toString();
 </script>
 
-<style>
+<style lang="scss">
   .footer {
     padding: 6.4rem 9.8rem 6.4rem 9.8rem;
     background-color: #090d16;
@@ -34,11 +34,21 @@
   .header-logo {
     font-size: 4rem !important;
     text-transform: uppercase;
+
+    @media (max-width: 35em) {
+      font-size: 1rem !important;
+    }
   }
 
   .logo-footer {
     height: 20%;
     width: 20%;
+  }
+
+  .info {
+    @media (max-width: 35em) {
+      width: 30rem;
+    }
   }
 
   footer span {
