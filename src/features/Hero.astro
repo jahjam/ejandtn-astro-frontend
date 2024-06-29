@@ -8,12 +8,14 @@ import { Image } from 'astro:assets';
 <header class="hero">
   <BubbleNav />
 
-  <Image
-    src={HEROIMAGE}
-    alt="Elijah James And The Nightmares Album Artwork as Hero Image"
-    class="hero-image"
-    format="webp"
-  />
+  <div class="hero-container">
+    <Image
+      src={HEROIMAGE}
+      alt="Elijah James And The Nightmares Album Artwork as Hero Image"
+      class="hero-image"
+      format="webp"
+    />
+  </div>
 
   <div class="section-header">
     <nav class="main-nav">
@@ -96,25 +98,30 @@ import { Image } from 'astro:assets';
 
 <style lang="scss">
   header {
-    height: 100vh;
+    height: 100svh;
     width: 100%;
+    overflow: hidden;
 
     position: relative;
   }
 
-  .hero-image {
-    height: 100vh;
+  .hero-container {
+    height: 100%;
     width: 100%;
-
-    object-fit: cover;
-
     position: absolute;
+  }
+
+  .hero-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 
     @media (max-width: 51em) {
       object-position: -40rem 0rem;
     }
 
     @media (max-width: 35em) {
+      height: 70rem;
       object-position: -60rem 0rem;
     }
   }
