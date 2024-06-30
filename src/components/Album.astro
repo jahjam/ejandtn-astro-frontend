@@ -78,9 +78,17 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
   </div>
 </BaseLayout>
 
-<style>
+<style lang="scss">
   h2 {
     text-align: center;
+
+    @media (max-width: 41em) {
+      font-size: 3rem;
+    }
+
+    @media (max-width: 35em) {
+      font-size: 2.2rem;
+    }
   }
 
   .body {
@@ -89,6 +97,19 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
     width: 90%;
     height: 100%;
     background-color: #090d16;
+
+    @media (max-width: 41em) {
+      width: 95%;
+      padding: 2rem;
+    }
+
+    @media (max-width: 35em) {
+      padding: 2rem;
+    }
+
+    @media (max-width: 27em) {
+      width: 100%;
+    }
   }
 
   .header {
@@ -111,6 +132,22 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
 
   .album-btns a {
     width: 20%;
+
+    @media (max-width: 59em) {
+      width: 30%;
+    }
+
+    @media (max-width: 41em) {
+      width: 40%;
+    }
+
+    @media (max-width: 35em) {
+      width: 40%;
+    }
+
+    @media (max-width: 29em) {
+      width: 40%;
+    }
   }
 
   .album-btn {
@@ -120,12 +157,53 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
 
   .album {
     justify-items: center;
+
+    @media (max-width: 59em) {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    @media (max-width: 29em) {
+      padding: 0 3rem;
+    }
+  }
+  .album .credits {
+    @media (max-width: 59em) {
+      order: 3;
+    }
+  }
+
+  .album .desc {
+    @media (max-width: 59em) {
+      order: 2;
+    }
+  }
+
+  .album .img-title-date {
+    @media (max-width: 59em) {
+      order: 2;
+    }
+  }
+
+  .album-title {
+    @media (max-width: 59em) {
+      font-size: 1.8rem;
+    }
   }
 
   .album-artwork {
     align-self: start;
     height: 40rem;
     width: 40rem;
+
+    @media (max-width: 29em) {
+      margin: 0 auto;
+      height: 25rem;
+      width: 25rem;
+    }
   }
 
   .tracklist {
@@ -134,12 +212,21 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
     justify-content: flex-start;
     flex-direction: column;
     gap: 2rem;
+
+    @media (max-width: 59em) {
+      margin-top: 2rem;
+      order: 2;
+    }
   }
 
   .tracklist ol {
     margin-left: 2.6rem;
     font-size: 1.6rem;
     line-height: 3rem;
+
+    @media (max-width: 29em) {
+      font-size: 1.4rem;
+    }
   }
 
   .tracklist ol span {
@@ -147,6 +234,10 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
     margin-left: -2.6rem;
     font-size: 2rem;
     line-height: 4rem;
+
+    @media (max-width: 29em) {
+      font-size: 1.6rem;
+    }
   }
 
   .img-title-date {
@@ -194,6 +285,10 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
   .desc p {
     font-size: 1.6rem;
     line-height: 2.8rem;
+
+    @media (max-width: 29em) {
+      font-size: 1.4rem;
+    }
   }
 
   .desc a:link,
@@ -206,132 +301,10 @@ const { img, title, releaseDate, tracklist, about, credits, links } =
     color: #6e94ce;
   }
 
-  @media (max-width: 59em) {
-    h2 {
-      font-size: 3.2rem;
-    }
-
-    .album {
-      display: flex !important;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .album-title {
-      font-size: 1.8rem;
-    }
-
-    .album .img-title-date {
-      order: 2;
-    }
-
-    .album-btns a {
-      width: 30%;
-    }
-
-    .tracklist {
-      margin-top: 2rem;
-      order: 2;
-    }
-
-    .album .desc {
-      order: 2;
-    }
-
-    .album .credits {
-      order: 3;
-    }
-  }
-
-  @media (max-width: 41em) {
-    h2 {
-      font-size: 3rem;
-    }
-
-    .body {
-      width: 95%;
-      padding: 2rem;
-    }
-
-    .album-btns a {
-      width: 40%;
-    }
-
-    .album-modal {
-      margin: 0 auto;
-      height: 30rem;
-      width: 30rem;
-    }
-  }
-
-  @media (max-width: 35em) {
-    h2 {
-      font-size: 2.2rem;
-    }
-
-    .body {
-      padding: 2rem;
-    }
-
-    .album-btns a {
-      width: 40%;
-    }
-  }
-
-  @media (max-width: 29em) {
-    .album {
-      padding: 0 3rem;
-    }
-
-    .modal {
-      width: 100%;
-    }
-
-    .tracklist ol {
-      font-size: 1.4rem;
-    }
-
-    .tracklist ol span {
-      font-size: 1.6rem;
-    }
-
-    .desc p {
-      font-size: 1.4rem;
-    }
-
-    .album-btns a {
-      width: 40%;
-    }
-
-    .album-artwork {
-      margin: 0 auto;
-      height: 25rem;
-      width: 25rem;
-    }
-
-    .promo-photo {
-      width: 26rem;
-    }
-  }
-
-  @media (max-width: 27em) {
-    .body {
-      width: 100%;
-    }
-
-    .btn {
+  .btn {
+    @media (max-width: 27em) {
       font-size: 1.8rem;
       padding: 1rem !important;
-    }
-
-    .listen-btn::after {
-      width: 6.9rem;
-    }
-
-    .buy-btn::after {
-      width: 9.2rem;
     }
   }
 </style>

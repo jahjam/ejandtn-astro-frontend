@@ -103,6 +103,12 @@ import { Image } from 'astro:assets';
     overflow: hidden;
 
     position: relative;
+
+    @media (max-width: 35em) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .hero-container {
@@ -135,6 +141,20 @@ import { Image } from 'astro:assets';
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+
+    @media (max-width: 59em) {
+      padding: 0 2rem 2rem 2rem;
+
+      z-index: 2;
+
+      background-color: var(--dark-color-transparent);
+      box-shadow: 0 0 15px 20px var(--dark-color-transparent);
+    }
+
+    @media (max-width: 35em) {
+      position: static;
+      margin: 4rem auto;
+    }
   }
 
   .header-logo {
@@ -143,6 +163,8 @@ import { Image } from 'astro:assets';
 
     @media (max-width: 35em) {
       font-size: 3rem !important;
+      width: 34rem;
+      cursor: pointer;
     }
   }
 
@@ -174,14 +196,29 @@ import { Image } from 'astro:assets';
 
     display: flex;
     gap: 2rem;
+
+    @media (max-width: 27em) {
+      gap: 1.2rem;
+    }
   }
 
   .nav-pages li {
     font-size: 2rem;
     text-transform: uppercase;
     cursor: pointer;
-  }
 
+    @media (max-width: 35em) {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    @media (max-width: 27em) {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
   .header-container-inner {
     display: flex;
     flex-direction: column;
@@ -197,6 +234,14 @@ import { Image } from 'astro:assets';
 
     color: var(--primary-color);
     margin-bottom: -1rem;
+
+    @media (max-width: 35em) {
+      font-size: 2.2rem;
+    }
+
+    @media (max-width: 27em) {
+      font-size: 1.8rem;
+    }
   }
 
   .listen-btn {
@@ -215,6 +260,10 @@ import { Image } from 'astro:assets';
     left: 0;
 
     transition: all 0.3s;
+
+    @media (max-width: 27em) {
+      width: 6.9rem;
+    }
   }
 
   .listen-btn:hover::after {
@@ -236,6 +285,10 @@ import { Image } from 'astro:assets';
     left: 0;
 
     transition: all 0.3s;
+
+    @media (max-width: 27em) {
+      width: 9.2rem;
+    }
   }
 
   .buy-btn:hover::after {

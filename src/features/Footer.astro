@@ -29,6 +29,14 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+
+    @media (max-width: 41em) {
+      padding: 6.4rem 4rem 6.4rem 4rem;
+    }
+
+    @media (max-width: 35em) {
+      padding: 6.4rem 4rem 6.4rem 4rem;
+    }
   }
 
   .header-logo {
@@ -39,11 +47,21 @@
     @media (max-width: 35em) {
       font-size: 1rem !important;
     }
+
+    @media (max-width: 27em) {
+      width: 28rem;
+      cursor: pointer;
+    }
   }
 
   .logo-footer {
     height: 20%;
     width: 20%;
+
+    @media (max-width: 35em) {
+      height: 40%;
+      width: 40%;
+    }
   }
 
   .info {
@@ -56,5 +74,13 @@
     font-size: 1rem;
     max-width: 40%;
     text-align: end;
+
+    @media (max-width: 35em) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 27em) {
+      font-size: 0.8rem;
+    }
   }
 </style>

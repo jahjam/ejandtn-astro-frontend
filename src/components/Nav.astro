@@ -31,7 +31,7 @@
   </ul>
 </nav>
 
-<style lang="css">
+<style lang="scss">
   .main-nav {
     display: flex;
     flex-direction: column;
@@ -46,11 +46,27 @@
 
     display: flex;
     gap: 2rem;
+
+    @media (max-width: 27em) {
+      gap: 1.2rem;
+    }
   }
 
   .nav-pages li {
     font-size: 2rem;
     text-transform: uppercase;
     cursor: pointer;
+
+    @media (max-width: 35em) {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    @media (max-width: 27em) {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
   }
 </style>

@@ -24,7 +24,12 @@ import SubscribeForm from '../components/SubscribeForm.astro';
   </div>
 </section>
 
-<style>
+<section class="about-section container section-seperator" id="about">
+  <h3>Subsribe to my newsletter</h3>
+  <SubscribeForm direction="column" />
+</section>
+
+<style lang="scss">
   .about-section {
     padding: 6.4rem 9.8rem 6.4rem 9.8rem;
     background-color: var(--dark-color);
@@ -34,6 +39,14 @@ import SubscribeForm from '../components/SubscribeForm.astro';
     flex-direction: column;
     align-items: center;
     gap: 3.2rem;
+
+    @media (max-width: 27em) {
+      padding: 4rem 4rem;
+    }
+
+    @media (max-width: 27em) {
+      padding: 6.4rem 6rem 6.4rem 6rem;
+    }
   }
 
   .promo-photo {
@@ -42,53 +55,46 @@ import SubscribeForm from '../components/SubscribeForm.astro';
     box-shadow: 2px 2px 12px -1px hsla(0, 0%, 0%, 0.774);
     height: 100%;
     width: 32rem;
+
+    @media (max-width: 41em) {
+      float: none;
+    }
+
+    @media (max-width: 29em) {
+      width: 26rem;
+    }
   }
 
   .about-body {
     max-width: 100%;
-  }
 
-  .about-body p {
-    font-size: 2rem;
-    line-height: 3rem;
-  }
-
-  @media (max-width: 59em) {
-    .about-body p {
-      font-size: 1.8rem;
+    & p {
+      font-size: 2rem;
+      line-height: 3rem;
     }
-  }
 
-  @media (max-width: 41em) {
-    .about-body {
+    @media (max-width: 59em) {
+      & p {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 41em) {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .promo-photo {
-      float: none;
+    @media (max-width: 35em) {
+      & p {
+        font-size: 1.6rem;
+      }
     }
-  }
 
-  @media (max-width: 35em) {
-    .about-body p {
-      font-size: 1.6rem;
-    }
-  }
-
-  @media (max-width: 29em) {
-    .about-body p {
-      font-size: 1.6rem;
-    }
-    .promo-photo {
-      width: 26rem;
-    }
-  }
-
-  @media (max-width: 27em) {
-    .about-section {
-      padding: 4rem 4rem;
+    @media (max-width: 29em) {
+      & p {
+        font-size: 1.6rem;
+      }
     }
   }
 </style>

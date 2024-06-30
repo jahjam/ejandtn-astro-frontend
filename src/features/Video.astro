@@ -91,7 +91,7 @@ import { videos } from '../data/videos';
   });
 </script>
 
-<style>
+<style lang="scss">
   .video-section {
     padding: 6.4rem 9.8rem 6.4rem 9.8rem;
     background-color: var(--dark-color);
@@ -101,10 +101,19 @@ import { videos } from '../data/videos';
     flex-direction: column;
     align-items: center;
     gap: 3.2rem;
+
+    @media (max-width: 29em) {
+      padding: 4rem 6rem;
+    }
   }
 
   .video-gallery {
     width: 100%;
+
+    @media (max-width: 51em) {
+      display: flex !important;
+      flex-direction: column;
+    }
   }
 
   .video-modal {
@@ -146,46 +155,25 @@ import { videos } from '../data/videos';
     right: -4rem;
     cursor: pointer;
     background-color: #090d16;
-  }
 
-  .close-video-icon {
-    color: inherit;
-  }
-
-  @media (max-width: 59em) {
-    [astro-icon] {
+    @media (max-width: 59em) {
       right: 0;
     }
-  }
 
-  @media (max-width: 50em) {
-    [astro-icon] {
+    @media (max-width: 50em) {
       right: 10rem;
     }
-  }
 
-  @media (max-width: 36em) {
-    [astro-icon] {
+    @media (max-width: 36em) {
       right: 15rem;
     }
-  }
 
-  @media (max-width: 29em) {
-    [astro-icon] {
+    @media (max-width: 29em) {
       right: 20rem;
     }
   }
 
-  @media (max-width: 51em) {
-    .video-gallery {
-      display: flex !important;
-      flex-direction: column;
-    }
-  }
-
-  @media (max-width: 29em) {
-    .video-section {
-      padding: 4rem 6rem;
-    }
+  .close-video-icon {
+    color: inherit;
   }
 </style>

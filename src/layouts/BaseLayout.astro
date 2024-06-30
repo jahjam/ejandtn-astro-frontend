@@ -17,7 +17,7 @@ const { title, description } = Astro.props;
   <body>
     <slot />
 
-    <style lang="css" is:global>
+    <style lang="scss" is:global>
       :root {
         /*
         past colours
@@ -65,16 +65,66 @@ const { title, description } = Astro.props;
       h1 {
         font-family: 'rockwell', sans-serif;
         font-size: 3.6rem;
+
+        @media (max-width: 59em) {
+          font-size: 3.2rem;
+        }
+
+        @media (max-width: 35em) {
+          font-size: 2.8rem;
+        }
       }
 
       h2 {
         font-family: 'rockwell', sans-serif;
         font-size: 2.8rem;
+
+        @media (max-width: 59em) {
+          font-size: 2.6rem;
+          text-align: center;
+        }
+
+        @media (max-width: 51em) {
+          font-size: 2.4rem;
+        }
+
+        @media (max-width: 41em) {
+          font-size: 2rem;
+          text-align: center;
+        }
+
+        @media (max-width: 35em) {
+          font-size: 1.8rem;
+          text-align: center;
+        }
+
+        @media (max-width: 29em) {
+          font-size: 2.4rem;
+          text-align: center;
+        }
+
+        @media (max-width: 27em) {
+          font-size: 2.4rem;
+          text-align: center;
+        }
       }
 
       h3 {
         font-family: 'rockwell', sans-serif;
         font-size: 2rem;
+
+        @media (max-width: 51em) {
+          font-size: 1.8rem;
+        }
+
+        @media (max-width: 41em) {
+          font-size: 1.4rem;
+        }
+
+        @media (max-width: 35em) {
+          font-size: 1.2rem;
+          text-align: center;
+        }
       }
 
       p {
@@ -140,6 +190,13 @@ BUTTONS
 ****************************************
 */
 
+      .btn {
+        @media (max-width: 27em) {
+          font-size: 1.8rem;
+          padding: 1rem !important;
+        }
+      }
+
       .btn,
       .btn:link,
       .btn:active {
@@ -173,6 +230,12 @@ BUTTONS
       .opacity {
         opacity: 1 !important;
         pointer-events: auto;
+      }
+
+      .bit-widget-container {
+        @media (max-width: 35em) {
+          align-self: center;
+        }
       }
     </style>
   </body>

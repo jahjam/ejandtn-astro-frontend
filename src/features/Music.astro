@@ -24,7 +24,7 @@ import { albums } from '../data/albums';
   </div>
 </section>
 
-<style lang="css">
+<style lang="scss">
   .music-section {
     padding: 4rem 9.8rem 4rem 9.8rem;
     background-color: var(--dark-color);
@@ -34,6 +34,14 @@ import { albums } from '../data/albums';
     flex-direction: column;
     align-items: center;
     gap: 3.2rem;
+
+    @media (max-width: 35em) {
+      padding: 6.4rem 6rem 6.4rem 6rem;
+    }
+
+    @media (max-width: 29em) {
+      padding: 6.4rem 6rem 6.4rem 6rem;
+    }
   }
 
   .album-modal {
@@ -59,5 +67,10 @@ import { albums } from '../data/albums';
 
   .album-gallery {
     width: 100%;
+
+    @media (max-width: 51em) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 </style>
