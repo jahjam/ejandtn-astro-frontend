@@ -49,16 +49,20 @@ import { videos } from '../data/videos';
   };
 
   videos.forEach(video => {
-    video.addEventListener('click', () =>
+    video.addEventListener('click', () => {
+      videoContainer.classList.remove('removePointer');
+      videoContainer.classList.add('addPointer');
       openModal(
         modals as HTMLElement[],
         videoContainer as HTMLElement,
         video as HTMLElement
-      )
-    );
+      );
+    });
 
     video.addEventListener('keypress', (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
+        videoContainer.classList.remove('removePointer');
+        videoContainer.classList.add('addPointer');
         openModal(
           modals as HTMLElement[],
           videoContainer as HTMLElement,
@@ -69,6 +73,16 @@ import { videos } from '../data/videos';
   });
 
   videoContainer.addEventListener('click', e => {
+    const { target } = e;
+    if (
+      target instanceof HTMLElement &&
+      !target.classList.contains('youtube-video') &&
+      !target.classList.contains('lty-playbtn')
+    ) {
+      videoContainer.classList.remove('addPointer');
+      videoContainer.classList.add('removePointer');
+    }
+
     pauseVideoWhenClose();
     overlayClosesModal(
       e as MouseEvent,
@@ -79,12 +93,16 @@ import { videos } from '../data/videos';
 
   closeModal.forEach(close => {
     pauseVideoWhenClose();
-    close.addEventListener('click', () =>
-      xClosesModal(videoContainer as HTMLElement, modals as HTMLElement[])
-    );
+    close.addEventListener('click', () => {
+      videoContainer.classList.remove('addPointer');
+      videoContainer.classList.add('removePointer');
+      xClosesModal(videoContainer as HTMLElement, modals as HTMLElement[]);
+    });
 
     close.addEventListener('keypress', (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
+        videoContainer.classList.remove('addPointer');
+        videoContainer.classList.add('removePointer');
         xClosesModal(videoContainer as HTMLElement, modals as HTMLElement[]);
       }
     });
