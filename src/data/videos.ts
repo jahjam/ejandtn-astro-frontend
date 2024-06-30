@@ -3,7 +3,6 @@ import MITD_THUMBNAIL from '../assets/youtube-art/man-in-the-diner-thumb-reduce.
 import IHIH_THUMBNAIL from '../assets/youtube-art/hate-it-here-thumb-reduce.jpg';
 import OAS_THUMBNAIL from '../assets/youtube-art/on-a-stage-thumb-reduce.jpg';
 import ITLNTS_THUMBNAIL from '../assets/youtube-art/EP-thumb-reduce.jpg';
-import BIAG_THUMBNAIL from '../assets/youtube-art/BIAG-thumb-reduce.jpg';
 
 export const videos = [
   {
