@@ -1,5 +1,5 @@
 ---
-import { SUBSCRIBE_TITLE as title } from '../consts';
+import { ARTIST_NAME, SUBSCRIBE_TITLE as title } from '../consts';
 import { SUBSCRIBE_DESCRIPTION as description } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
@@ -13,24 +13,25 @@ import LOGO from '../assets/ejandtn-logo.png';
   <main>
     <Image src={LOGO} alt="EJANDTN logo" />
     <a href="/" class="link"
-      ><Icon pack="cil" name="arrow-left" />Back to EJANDTN Website</a
+      ><Icon pack="cil" name="arrow-left" />Back to main website</a
     >
     <h1>subscribe</h1>
     <p>
-      EJANDTN's newsletter is the only regular form of communication from the
-      band. So if you want to know everything the band is up to, from new music
-      and upcoming/newly announced gigs to the latest merchandise releases and
-      literally anything else the band is up to, then you'll want to pop your
-      name and email address below, otherwise, given the disjointed means of
-      communication on the internet, you're liable to miss an update or two.
+      {ARTIST_NAME}'s newsletter is the only regular form of communication from
+      the him. So if you want to know everything he's up to, from new music and
+      upcoming/newly announced gigs to the latest merchandise releases and
+      literally anything else, then you'll want to pop your name and email
+      address below, otherwise, given the disjointed means of communication on
+      the internet, you're liable to miss an update or two.
     </p>
 
     <div>
       <Icon pack="mdi" name="warning-outline" />
       <span
         >Please know, we will only ever use your name and email address to send
-        you information related to EJANDTN. You can also opt out of these emails
-        at any time following the "opt-out" link on the bottom of each email.</span
+        you information related to {ARTIST_NAME}. You can also opt out of these
+        emails at any time following the "opt-out" link on the bottom of each
+        email.</span
       >
     </div>
 
