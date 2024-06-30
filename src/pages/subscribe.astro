@@ -11,7 +11,7 @@ import LOGO from '../assets/ejandtn-logo.png';
 
 <BaseLayout title={title} description={description}>
   <main>
-    <Image src={LOGO} alt="EJANDTN logo" />
+    <h2>{ARTIST_NAME}</h2>
     <a href="/" class="link"
       ><Icon pack="cil" name="arrow-left" />Back to main website</a
     >
@@ -40,6 +40,10 @@ import LOGO from '../assets/ejandtn-logo.png';
 </BaseLayout>
 
 <style lang="scss">
+  h2 {
+    text-transform: uppercase;
+  }
+
   html {
     background-color: var(--dark-color);
   }
