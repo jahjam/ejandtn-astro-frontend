@@ -40,7 +40,7 @@ const { data }: { data: Gig[] } = await res.json();
   </div>
 </section>
 
-<style lang="css">
+<style lang="scss">
   .tour-section {
     padding: 4rem 9.8rem;
     background-color: var(--dark-color);
@@ -68,6 +68,10 @@ const { data }: { data: Gig[] } = await res.json();
     align-items: center;
     flex-direction: column;
     gap: 1rem;
+
+    & span {
+      text-align: center;
+    }
   }
 
   @media (max-width: 51em) {

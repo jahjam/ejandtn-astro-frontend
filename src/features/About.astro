@@ -27,7 +27,7 @@ import SubscribeForm from '../components/SubscribeForm.astro';
 <section class="about-section container section-seperator" id="about">
   <h3>Subsribe to my newsletter</h3>
   <div class="subscribe-container">
-    <SubscribeForm direction="column" />
+    <SubscribeForm direction="flex" />
   </div>
 </section>
 
@@ -41,6 +41,10 @@ import SubscribeForm from '../components/SubscribeForm.astro';
     flex-direction: column;
     align-items: center;
     gap: 3.2rem;
+
+    & h3 {
+      font-size: 1.6rem;
+    }
 
     @media (max-width: 27em) {
       padding: 4rem 4rem;
