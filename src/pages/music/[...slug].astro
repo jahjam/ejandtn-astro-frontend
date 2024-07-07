@@ -5,7 +5,7 @@ import { albums } from '../../data/albums';
 export async function getStaticPaths() {
   return albums.map(album => ({
     params: {
-      slug: `${album.title.replace(/\s+/g, '-').toLocaleLowerCase()}`,
+      slug: `${album.title.replace(/\s+/g, '-').replace(':', '').toLocaleLowerCase()}`,
     },
     props: album,
   }));
