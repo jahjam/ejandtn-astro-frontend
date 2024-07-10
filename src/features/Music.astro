@@ -15,7 +15,10 @@ import { albums } from '../data/albums';
           albumTitle={album.title}
           albumDate={album.releaseDate}
           releaseDate={album.releaseDate}
-          slug={album.title.replace(/\s+/g, '-').toLocaleLowerCase()}
+          slug={album.title
+            .replace(/\s+/g, '-')
+            .replace(':', '')
+            .toLocaleLowerCase()}
           id={album.id}
         />
       ))
