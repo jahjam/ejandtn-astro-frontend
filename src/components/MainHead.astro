@@ -2,21 +2,29 @@
 type Props = {
   title: string;
   description: string;
+  canonicalURL: URL;
 };
 
-const { title, description } = Astro.props;
+const { title, description, canonicalURL } = Astro.props;
+console.log(canonicalURL);
 ---
 
 <meta charset="UTF-8" />
 <meta name="description" content={description} />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/svg+xml" href="/ejhallows-favicon-white.svg" />
+<link
+  rel="icon"
+  type="image/svg+xml"
+  sizes="any"
+  href="/ejhallows-favicon-white.svg"
+/>
 <meta name="generator" content={Astro.generator} />
 <meta
   property="og:image"
   content="https://www.elijahjamesandthenightmares.com/public/social-sharing-logo.png"
 />
 <link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="canonical" href={canonicalURL.href} />
 
 <link
   rel="stylesheet"
