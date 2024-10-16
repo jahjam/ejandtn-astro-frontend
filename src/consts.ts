@@ -27,7 +27,7 @@ export const DAY_TICKETS_ARCHIVE_DESCRIPTION =
   'Welcome to the archive! Here you will find all the day tickets ever published.';
 
 export const BLOG_TITLE = `${ARTIST_NAME} | Blog`;
-export const BLOG_DESCRIPTION = `Welcome to ${ARTIST_NAME}' personal blog. Here you will find the most recent updates from the band that don't appear on any social media.`;
+export const BLOG_DESCRIPTION = `Welcome to ${ARTIST_NAME}' personal blog. Here is where you will find his most recent news and updates.`;
 
 export const PHOTOGRAPHY_TITLE = `${ARTIST_NAME} | Animals & Architecture`;
 export const PHOTOGRAPHY_DESCRIPTION =
