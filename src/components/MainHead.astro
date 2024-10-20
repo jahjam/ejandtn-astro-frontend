@@ -6,13 +6,13 @@ type Props = {
 };
 
 const { title, description, canonicalURL } = Astro.props;
-console.log(canonicalURL);
 ---
 
 <meta charset="UTF-8" />
 <meta name="description" content={description} />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <meta name="generator" content={Astro.generator} />
 <meta
   property="og:image"
