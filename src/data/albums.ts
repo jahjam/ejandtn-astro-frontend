@@ -7,7 +7,7 @@ export const albums: Album[] = [
   {
     id: 1,
     img: THBTTL_ALBUM_ART,
-    title: 'The Hellish Bending Towards The Light',
+    title: 'The Hellish Bending Towards The Light - LP',
     releaseDate: '07/06/2023',
     tracklist: {
       1: "The Coroner's Report",

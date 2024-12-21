@@ -3,6 +3,8 @@ import MITD_THUMBNAIL from '../assets/youtube-art/man-in-the-diner-thumb-reduce.
 import IHIH_THUMBNAIL from '../assets/youtube-art/hate-it-here-thumb-reduce.jpg';
 import OAS_THUMBNAIL from '../assets/youtube-art/on-a-stage-thumb-reduce.jpg';
 import ITLNTS_THUMBNAIL from '../assets/youtube-art/EP-thumb-reduce.jpg';
+import MIYE from '../assets/youtube-art/movie-in-your-eyes-thumbnail.png';
+import TEEATTY from '../assets/youtube-art/everything-else-thumb.png';
 
 export const videos = [
   {
@@ -18,21 +20,33 @@ export const videos = [
     src: 'https://www.youtube.com/watch?v=hVJwG3kjplA',
   },
   {
-    id: 3,
+    id: 4,
     title: "It's Too Late Now To Say: Two Songs EP",
     url: ITLNTS_THUMBNAIL,
     src: 'https://www.youtube.com/embed/CMTG1q8EZ-M?enablejsapi=1&version=3&playerapiid=ytplayer',
   },
   {
+    id: 3,
+    title: "There's Everything Else And Then There's You",
+    url: TEEATTY,
+    src: 'https://www.youtube.com/watch?v=jS7QwRZgr6k',
+  },
+  {
+    id: 3,
+    title: 'Movie In Your Eyes',
+    url: MIYE,
+    src: 'https://www.youtube.com/watch?v=koKE5dukjfk',
+  },
+  {
     id: 2,
     title: 'I Hate It Here, But You Are Here, And I Love You',
     url: IHIH_THUMBNAIL,
-    src: 'https://www.youtube.com/embed/6K1YG8RefHo?enablejsapi=1&version=3&playerapiid=ytplayer',
+    src: 'https://www.youtube.com/watch?v=S8zshLlD9Ck',
   },
   {
     id: 1,
     title: 'On A Stage Single',
     url: OAS_THUMBNAIL,
-    src: 'https://www.youtube.com/embed/y65x-Zlhom8?enablejsapi=1&version=3&playerapiid=ytplayer',
+    src: 'https://www.youtube.com/watch?v=GIX5lhbnidU',
   },
 ];
