@@ -40,7 +40,8 @@ export const albums: Album[] = [
       albumArtBy: 'Elijah James',
     },
     links: {
-      smartLink: 'https://ditto.fm/the-hellish-bending-towards-the-light',
+      smartLink:
+        'https://ditto.fm/the-hellish-bending-towards-the-light-ej-hallows',
       bandcamp:
         'https://ejhallows.bandcamp.com/album/the-hellish-bending-towards-the-light',
     },
@@ -70,7 +71,7 @@ export const albums: Album[] = [
     links: {
       smartLink: 'https://ditto.fm/its-too-late-now-to-say-two-songs',
       bandcamp:
-        'https://ejandtn.bandcamp.com/album/its-too-late-now-to-say-two-songs',
+        'https://ejhallows.bandcamp.com/album/its-too-late-now-to-say-two-songs',
     },
   },
   {
@@ -125,8 +126,8 @@ export const albums: Album[] = [
       albumArtBy: 'Jonathon Tottey',
     },
     links: {
-      smartLink: 'https://ditto.fm/because-im-a-giant',
-      bandcamp: 'https://ejandtn.bandcamp.com/album/because-im-a-giant',
+      smartLink: 'https://ditto.fm/because-im-a-giant-ej-hallows',
+      bandcamp: 'https://ejhallows.bandcamp.com/album/because-im-a-giant',
     },
   },
 
@@ -164,7 +165,8 @@ export const albums: Album[] = [
     },
     links: {
       smartLink: 'https://ditto.fm/live-from-elevator-studios',
-      bandcamp: 'https://ejandtn.bandcamp.com/album/live-from-elevator-studios',
+      bandcamp:
+        'https://ejhallows.bandcamp.com/album/live-from-elevator-studios',
     },
   },
 ];
