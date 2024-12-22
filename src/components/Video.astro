@@ -1,0 +1,9 @@
+---
+import UnderConstruction from '../layouts/UnderConstruction.astro';
+
+type Props = Video;
+
+const { id, title, url, src } = Astro.props;
+---
+
+<UnderConstruction title={title} description="Pending..." />

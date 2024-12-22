@@ -9,7 +9,21 @@ import { videos } from '../data/videos';
   <div class="video-gallery grid--2-cols">
     {
       videos.map(video => (
-        <VideoBox title={video.title} img={video.url} id={video.id} />
+        <div class="video-with-more">
+          <h4>{video.title}</h4>
+          <VideoBox title={video.title} img={video.url} id={video.id} />
+          <a
+            class="link find-more-video"
+            href={`/videos/${video.title
+              .replace(/\s+/g, '-')
+              .replace(':', '')
+              .replaceAll("'", '')
+              .toLocaleLowerCase()}`}
+          >
+            Find out more{' '}
+            <Icon pack="cil" name="arrow-right" class="right-arrow" />
+          </a>
+        </div>
       ))
     }
   </div>
@@ -25,7 +39,13 @@ import { videos } from '../data/videos';
         name="baseline-close"
       />
     </div>
-    {videos.map(video => <YouTubeModal src={video.src} id={video.id} />)}
+    {
+      videos.map(video => (
+        <div>
+          <YouTubeModal src={video.src} id={video.id} />
+        </div>
+      ))
+    }
   </div>
 </aside>
 
@@ -167,31 +187,26 @@ import { videos } from '../data/videos';
   }
 
   [astro-icon] {
-    height: 4rem;
-    position: absolute;
-    top: -4rem;
-    right: -4rem;
+    height: 2rem;
     cursor: pointer;
     background-color: #090d16;
-
-    @media (max-width: 59em) {
-      right: 0;
-    }
-
-    @media (max-width: 50em) {
-      right: 10rem;
-    }
-
-    @media (max-width: 36em) {
-      right: 15rem;
-    }
-
-    @media (max-width: 29em) {
-      right: 20rem;
-    }
   }
 
   .close-video-icon {
     color: inherit;
+  }
+
+  .video-with-more {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .find-more-video {
+    display: flex !important;
+    align-items: center;
+    gap: 1rem;
   }
 </style>

@@ -27,6 +27,13 @@ declare type Album = {
   id: number;
 };
 
+declare type Video = {
+  url: ImageMetadata;
+  title: string;
+  src: string;
+  id: number;
+};
+
 declare type GigAttributes = {
   venue: string;
   date: string;

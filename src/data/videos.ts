@@ -9,21 +9,21 @@ import TEEATTY from '../assets/youtube-art/everything-else-thumb.png';
 export const videos = [
   {
     id: 6,
-    title: "The Coroner's Report Single",
+    title: "The Coroner's Report",
     url: TCR_THUMBNAIL,
-    src: 'https://www.youtube.com/watch?v=N_la7QV3F9o',
+    src: 'https://www.youtube.com/watch?v=AT7HFA2lgDQ',
   },
   {
     id: 5,
     title: 'Man In The Diner',
     url: MITD_THUMBNAIL,
-    src: 'https://www.youtube.com/watch?v=hVJwG3kjplA',
+    src: 'https://www.youtube.com/watch?v=435_oFpnRu0',
   },
   {
     id: 4,
-    title: "It's Too Late Now To Say: Two Songs EP",
+    title: "It's Too Late Now To Say: Two Songs",
     url: ITLNTS_THUMBNAIL,
-    src: 'https://www.youtube.com/embed/CMTG1q8EZ-M?enablejsapi=1&version=3&playerapiid=ytplayer',
+    src: 'https://www.youtube.com/watch?v=LxQKzPN7yYw',
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ export const videos = [
   },
   {
     id: 1,
-    title: 'On A Stage Single',
+    title: 'On A Stage',
     url: OAS_THUMBNAIL,
     src: 'https://www.youtube.com/watch?v=GIX5lhbnidU',
   },

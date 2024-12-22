@@ -1,0 +1,28 @@
+---
+import Video from '../../components/Video.astro';
+import { videos } from '../../data/videos';
+
+export async function getStaticPaths() {
+  return videos.map(video => ({
+    params: {
+      slug: `${video.title
+        .replace(/\s+/g, '-')
+        .replace(':', '')
+        .replaceAll("'", '')
+        .toLocaleLowerCase()}`,
+    },
+    props: video,
+  }));
+}
+
+type Props = Video;
+
+const videoData = Astro.props;
+---
+
+<Video
+  id={videoData.id}
+  src={videoData.src}
+  url={videoData.url}
+  title={videoData.title}
+/>
