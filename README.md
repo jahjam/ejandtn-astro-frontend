@@ -6,4 +6,4 @@ in good time.
 
 This is a website built using Astro.js for the band Elijah James And The Nightmares.
 
-You can view it live [HERE](https://www.elijahjamesandthenightmares.com/).
+You can view it live [HERE](https://www.ejhallows.com/).
