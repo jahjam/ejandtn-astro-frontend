@@ -5,22 +5,32 @@ type Props = {
   href: string;
   header: string;
   linkBack?: boolean;
+  linkBackTo?: string;
+  showBlinkingCursor?: boolean;
 };
 
-const { href, header, linkBack = false }: Props = Astro.props;
+const {
+  href,
+  header,
+  linkBack = false,
+  linkBackTo = 'homepage',
+  showBlinkingCursor = true,
+}: Props = Astro.props;
 ---
 
 <div class="container">
-  <h1><a href={href}>{header}</a></h1>
+  <h1 class={`${!showBlinkingCursor ? 'hideCursor' : null}`}>
+    <a href={href}>{header}</a>
+  </h1>
   {
     linkBack ? (
       <a
-        href="/"
+        href={href ?? '/'}
         class="link link-back"
-        aria-label="Link to take you back to the main website"
+        aria-label={`Link to take you back to ${linkBackTo}`}
       >
         <Icon pack="cil" name="arrow-left" />
-        Back to main website
+        Back to {linkBackTo}
       </a>
     ) : null
   }
@@ -38,11 +48,19 @@ const { href, header, linkBack = false }: Props = Astro.props;
     gap: 2rem;
     border: var(--border);
     padding: 2rem;
+    text-align: center;
   }
 
   @keyframes cursor-blink {
     0% {
       opacity: 0;
+    }
+  }
+
+  .hideCursor {
+    &::after {
+      content: '';
+      display: none !important;
     }
   }
 

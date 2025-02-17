@@ -1,9 +1,64 @@
 ---
 import UnderConstruction from '../layouts/UnderConstruction.astro';
+import { YouTube } from '@astro-community/astro-embed-youtube';
+import { videoData } from '../data/videos';
+import Header from './Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Subscribe from './Subscribe.astro';
 
 type Props = Video;
 
 const { id, title, url, src } = Astro.props;
 ---
 
-<UnderConstruction title={title} description="Pending..." />
+{
+  videoData.get(title) ? (
+    <BaseLayout
+      title={title}
+      description={`Find out more information about ${title}`}
+    >
+      <div class="video-container">
+        <Header
+          href="/videos"
+          linkBack
+          header={title}
+          linkBackTo="videos"
+          showBlinkingCursor={false}
+        />
+        <YouTube
+          params="enablejsapi=1&version=3&playerapiid=ytplayer"
+          id={src}
+          class="youtube-video"
+        />
+        <span>What?</span>
+        <p>{videoData.get(title)}</p>
+      </div>
+
+      <Subscribe />
+    </BaseLayout>
+  ) : (
+    <UnderConstruction title={title} description="Pending..." />
+  )
+}
+
+<style>
+  .video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .youtube-video {
+    height: 95%;
+    width: 95%;
+  }
+  span {
+    font-size: 3rem;
+  }
+  p {
+    max-width: 60rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+</style>
