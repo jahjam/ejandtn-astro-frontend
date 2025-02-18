@@ -74,7 +74,7 @@ export const videoData = new Map<string, string>([
   ],
   [
     'Man In The Diner',
-    'At this point I like one take videos, especially when your budget is non-existent. I bought a transparent plate from TK Maxx and called my dad up to eat some beans off of it with a camera beneath it (the trilby was his choice).',
+    'I like one take videos, especially when your budget is non-existent. I bought a transparent plate from TK Maxx and called my dad up to eat some beans off of it with a camera beneath it (the trilby was his choice).',
   ],
   [
     "The Coroner's Report",
