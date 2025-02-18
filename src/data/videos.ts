@@ -58,7 +58,7 @@ export const videoData = new Map<string, string>([
   ],
   [
     'I Hate It Here, But You Are Here, And I Love You',
-    "We set out to make a one take video driving around Liverpool whilst I wrote the lyrics on the window. We did five takes in total but the first one (the one you can view now) was the only one where we didn't get caught it traffic and ended up at the docks. It's not perfect and I spell 'vain' wrong (I crumbled under the 'one take' pressure) but it's a cool little video that reminds me of the ramshackle making of this album.",
+    "We set out to make a one take video driving around Liverpool whilst I wrote the lyrics on the window. We did five takes in total but the first one (the one you can view now) was the only one where we didn't get caught in traffic and ended up at the docks. It's not perfect and I spell 'vain' wrong (I crumbled under the 'one take' pressure) but it's a cool little video that reminds me of the ramshackle making of this album.",
   ],
   [
     'Movie In Your Eyes',
@@ -70,6 +70,14 @@ export const videoData = new Map<string, string>([
   ],
   [
     "It's Too Late Now To Say: Two Songs",
-    "This is my favourite video I've filmed to date. The projected images are stock footage that I assembled into a loose narrative and then layered the lyrics on top of. I was say in front of the project playing the songs through so that my shadow distorted the projection. What you can't see is the projector and camera are balanced precariously on loads of cushions. It was filmed on an IPad and in the same flat as the video for There's Everything Else And Then There's You. Not long after filming this one, we moved out of there because the upstairs neighbour had super loud parties and threw a gigantic flesh coloured dildo onto this secluded, inaccessible balcony thing right in front of our living room window. So for the remaining few months, everytime we looked out of our window, we saw that. Unfortunately, the next flat we moved into wasn't much better, but that's a tale for another time.",
+    "This is my favourite video I've filmed to date. The projected images are stock footage that I assembled into a loose narrative and then layered the lyrics on top of. I was say in front of the project playing the songs through so that my shadow distorted the projection. What you can't see is the projector and camera are balanced precariously on loads of cushions. It was filmed on an IPad and in the same flat as the video for There's Everything Else And Then There's You. Not long after filming this one, we moved out of there because the upstairs neighbour had super loud parties and threw a gigantic flesh coloured dildo onto this secluded, inaccessible balcony thing right in front of our living room window. So for the remaining few months, every time we looked out of our window, we saw that. Unfortunately, the next flat we moved into wasn't much better, but that's a tale for another time.",
+  ],
+  [
+    'Man In The Diner',
+    'At this point I like one take videos, especially when your budget is non-existent. I bought a transparent plate from TK Maxx and called my dad up to eat some beans off of it with a camera beneath it (the trilby was his choice).',
+  ],
+  [
+    "The Coroner's Report",
+    "I used to live in a flat in Liverpool that had this huge window that looked out over the city. It was a pretty great flat except for when my girlfriend was sat on the couch one day and a mouse appeared in the kitchen. This led to us taking the kick board off the kitchen and finding very unsettling amounts of rat/mouse shit all under the kitchen counter along with a few (thankfully unsuccessful) traps (so someone knew but didn't tell us, yay!). Anyway, you could pull the blind down and at night I used to love watching the cars lights just wiz by. Just before we got non-fault evicted I took a video of those cars, hoping to use it one day. And this is it.",
   ],
 ]);
