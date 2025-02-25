@@ -89,6 +89,6 @@ export const videoData = new Map<string, string>([
   ],
   [
     'This Love',
-    "This was a quick one, but one that is still quite special. This is all footage shot by a friend of mine's Grandad in the 60s. He was an amature filmmaker, and one day me and my friend went through a load of his old film footage, projected it on a wall, and I shot a bunch of it to use in a video. This is that video.",
+    "This was a quick one, but one that is still quite special. This is all footage shot by a friend of mine's Grandad (Thomas Webster) in the 60s. He was a filmmaker, and one day me and my friend went through a load of his old film footage, projected it on a wall, and I shot a bunch of it to use in a video. This is that video.",
   ],
 ]);
