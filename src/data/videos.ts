@@ -5,8 +5,15 @@ import OAS_THUMBNAIL from '../assets/youtube-art/on-a-stage-thumb-reduce.jpg';
 import ITLNTS_THUMBNAIL from '../assets/youtube-art/EP-thumb-reduce.jpg';
 import MIYE from '../assets/youtube-art/movie-in-your-eyes-thumbnail.png';
 import TEEATTY from '../assets/youtube-art/everything-else-thumb.png';
+import TL from '../assets/youtube-art/this-love-thumbnail.webp';
 
 export const videos = [
+  {
+    id: 7,
+    title: 'This Love',
+    url: TL,
+    src: 'https://www.youtube.com/watch?v=60lArNxXXAA',
+  },
   {
     id: 6,
     title: "The Coroner's Report",
@@ -79,5 +86,9 @@ export const videoData = new Map<string, string>([
   [
     "The Coroner's Report",
     "I used to live in a flat in Liverpool that had this huge window that looked out over the city. It was a pretty great flat except for when my girlfriend was sat on the couch one day and a mouse appeared in the kitchen. This led to us taking the kick board off the kitchen and finding very unsettling amounts of rat/mouse shit all under the kitchen counter along with a few (thankfully unsuccessful) traps (so someone knew but didn't tell us, yay!). Anyway, you could pull the blind down and at night I used to love watching the cars lights just wiz by. Just before we got non-fault evicted I took a video of those cars, hoping to use it one day. And this is it.",
+  ],
+  [
+    'This Love',
+    "This was a quick one, but one that is still quite special. This is all footage shot by a friend of mine's Grandad in the 60s. He was an amature filmmaker, and one day me and my friend went through a load of his old film footage, projected it on a wall, and I shot a bunch of it to use in a video. This is that video.",
   ],
 ]);
