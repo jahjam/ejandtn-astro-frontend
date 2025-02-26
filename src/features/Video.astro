@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import VideoBox from '../components/VideoBox.astro';
 import YouTubeModal from '../components/YouTubeModal.astro';
 import { videos } from '../data/videos';
@@ -20,8 +20,7 @@ import { videos } from '../data/videos';
               .replaceAll("'", '')
               .toLocaleLowerCase()}`}
           >
-            Find out more{' '}
-            <Icon pack="cil" name="arrow-right" class="right-arrow" />
+            Find out more <Icon name="cil:arrow-right" class="right-arrow" />
           </a>
         </div>
       ))
@@ -34,9 +33,8 @@ import { videos } from '../data/videos';
     <div class="close-modal close-video-modal">
       <Icon
         tabindex="0"
-        pack="ic"
         class="icon-mobile-nav close-video-icon"
-        name="baseline-close"
+        name="ic:baseline-close"
       />
     </div>
     {
@@ -186,7 +184,7 @@ import { videos } from '../data/videos';
     cursor: pointer;
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 2rem;
     cursor: pointer;
     background-color: #090d16;

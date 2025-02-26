@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DAY_TICKETS_TITLE, DAY_TICKETS_DESCRIPTION } from '../../consts';
 import { sortTicketsByDateFn } from '../../utils';
 import TicketBody from '../../components/day-tickets/TicketBody.astro';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import Header from '../../components/Header.astro';
 const API = import.meta.env.API;
 
@@ -30,7 +30,7 @@ const mostRecentTicket = (sortedTicketsByDateArr[0][1][0] as DayTicket)
       class="link"
       href="/day-tickets/archive"
       aria-label="Link to take you to the archive"
-      >Archive<Icon pack="cil" name="arrow-right" /></a
+      >Archive<Icon name="cil:arrow-right" /></a
     >
 
     <TicketBody
@@ -81,7 +81,7 @@ const mostRecentTicket = (sortedTicketsByDateArr[0][1][0] as DayTicket)
     gap: 1rem;
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 2rem;
     width: 2rem;
     color: var(--primary-color);

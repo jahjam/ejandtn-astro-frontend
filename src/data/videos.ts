@@ -12,7 +12,7 @@ export const videos = [
     id: 7,
     title: 'This Love',
     url: TL,
-    src: 'https://www.youtube.com/watch?v=60lArNxXXAA',
+    src: 'https://www.youtube.com/watch?v=vQrdZStqtDc',
   },
   {
     id: 6,

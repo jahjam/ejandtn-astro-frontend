@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 
 type Props = {
   iconHeight: string;
@@ -16,9 +16,9 @@ const { iconHeight, iconWidth }: Props = Astro.props;
       href="https://www.facebook.com/ejhallows"
       target="_blank"
       rel="noreferrer noopener"
-      aria-label="Link to take you to the bands facebook page"
+      aria-label="Link to take you to facebook page"
     >
-      <Icon pack="ic" class="icon" name="baseline-facebook" />
+      <Icon class="icon" name="ic:baseline-facebook" />
     </a>
   </li>
   <li>
@@ -27,9 +27,20 @@ const { iconHeight, iconWidth }: Props = Astro.props;
       href="https://www.youtube.com/@ejhallows"
       target="_blank"
       rel="noreferrer noopener"
-      aria-label="Link to take you to the bands youtube page"
+      aria-label="Link to take you to youtube page"
     >
-      <Icon pack="bi" class="icon" name="youtube" />
+      <Icon class="icon" name="bi:youtube" />
+    </a>
+  </li>
+  <li>
+    <a
+      class="icon-link"
+      href="https://www.tiktok.com/@ejhallows"
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label="Link to take you to tiktok page"
+    >
+      <Icon class="icon" name="ic:baseline-tiktok" />
     </a>
   </li>
   <li>
@@ -38,20 +49,20 @@ const { iconHeight, iconWidth }: Props = Astro.props;
       href="https://www.instagram.com/ejhallows/"
       target="_blank"
       rel="noreferrer noopener"
-      aria-label="Link to take you to the bands instagram page"
+      aria-label="Link to take you to instagram page"
     >
-      <Icon pack="mdi" class="icon" name="instagram" />
+      <Icon class="icon" name="mdi:instagram" />
     </a>
   </li>
   <li>
     <a
       class="icon-link"
-      href="https://twitter.com/ejhallows"
+      href="https://bsky.app/profile/ejhallows.bsky.social"
       target="_blank"
       rel="noreferrer noopener"
-      aria-label="Link to take you to the bands twitter page"
+      aria-label="Link to take you to bluesky page"
     >
-      <Icon pack="mdi" class="icon" name="twitter" />
+      <Icon class="icon" name="ri:bluesky-fill" />
     </a>
   </li>
 </ul>
@@ -64,7 +75,7 @@ const { iconHeight, iconWidth }: Props = Astro.props;
     gap: 1.8rem;
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: var(--iconHeight);
     width: var(--iconWidth);
     cursor: pointer;

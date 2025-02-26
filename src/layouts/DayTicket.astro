@@ -1,7 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import TicketBody from '../components/day-tickets/TicketBody.astro';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import Header from '../components/Header.astro';
 
 type Props = DayTicketAttributes;
@@ -15,7 +15,7 @@ const { title, body, date_created, publishedAt } = Astro.props;
 
     <div class="tix-container">
       <a class="link" href="/day-tickets/archive"
-        ><Icon pack="cil" name="arrow-left" />Archive</a
+        ><Icon name="cil:arrow-left" />Archive</a
       >
 
       <TicketBody
@@ -56,7 +56,7 @@ const { title, body, date_created, publishedAt } = Astro.props;
     gap: 1rem;
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 2rem;
     width: 2rem;
     color: var(--primary-color);

@@ -1,6 +1,6 @@
 ---
 import { ImageMetadata } from 'astro';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 
 type Props = {
@@ -20,7 +20,7 @@ const { img, title, id } = Astro.props;
     width={img.width}
     alt={`Thumbnail for ${title} Video`}
     format="webp"
-  /><Icon pack="gg" class="video-icon" name="play-button-o" />
+  /><Icon class="video-icon" name="gg:play-button-o" />
 </div>
 
 <script define:vars={{ id }}>
@@ -48,7 +48,7 @@ const { img, title, id } = Astro.props;
     box-shadow: 2px 2px 12px -1px hsla(0, 0%, 0%, 0.774);
   }
 
-  [astro-icon] {
+  [data-icon] {
     display: inline-block;
     height: 6rem;
     width: 6rem;

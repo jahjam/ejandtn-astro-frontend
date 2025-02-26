@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 
 type Props = {
   href: string;
@@ -29,7 +29,7 @@ const {
         class="link link-back"
         aria-label={`Link to take you back to ${linkBackTo}`}
       >
-        <Icon pack="cil" name="arrow-left" />
+        <Icon name="cil:arrow-left" />
         Back to {linkBackTo}
       </a>
     ) : null
@@ -106,7 +106,7 @@ const {
     margin-top: -1rem;
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 2rem;
     width: 2rem;
     color: var(--primary-color);

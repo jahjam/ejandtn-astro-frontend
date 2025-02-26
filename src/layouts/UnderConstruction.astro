@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 
 type Props = {
   title: string;
@@ -18,7 +18,7 @@ const { title, description } = Astro.props;
       <Icon name="line-md:construction" />
     </div>
     <a href="/" class="link"
-      ><Icon pack="cil" name="arrow-left" />Back to E.J. Hallows Website</a
+      ><Icon name="cil:arrow-left" />Back to E.J. Hallows Website</a
     >
   </div>
 </BaseLayout>
@@ -55,7 +55,7 @@ const { title, description } = Astro.props;
     gap: 1rem;
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 4rem;
     width: 4rem;
 

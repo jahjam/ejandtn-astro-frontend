@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import LOGO from '../assets/ejandtn-logo.png';
 ---
 
@@ -57,12 +57,8 @@ import LOGO from '../assets/ejandtn-logo.png';
     </li>
   </ul>
   <button class="btn-mobile-nav">
-    <Icon pack="ic" class="icon-mobile-nav-menu" name="baseline-menu" />
-    <Icon
-      pack="ic"
-      class="icon-mobile-nav-close nodisplay"
-      name="baseline-close"
-    />
+    <Icon class="icon-mobile-nav-menu" name="ic:baseline-menu" />
+    <Icon class="icon-mobile-nav-close nodisplay" name="ic:baseline-close" />
   </button>
 </nav>
 
@@ -208,7 +204,7 @@ import LOGO from '../assets/ejandtn-logo.png';
     }
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 4.8rem;
     width: 4.8rem;
     color: #f0f2e6;

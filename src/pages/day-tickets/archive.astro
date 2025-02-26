@@ -6,7 +6,7 @@ import {
 } from '../../consts';
 import { sortTicketsByDateFn } from '../../utils';
 import { format } from 'date-fns';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import Header from '../../components/Header.astro';
 const API = import.meta.env.API;
 
@@ -29,7 +29,7 @@ const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
       class="link"
       aria-label="Link to take you back to day tickets"
     >
-      <Icon pack="cil" name="arrow-left" />
+      <Icon name="cil:arrow-left" />
       Back to day tickets
     </a>
 
@@ -126,7 +126,7 @@ const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
     gap: 1rem;
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 2rem;
     width: 2rem;
     color: var(--primary-color);

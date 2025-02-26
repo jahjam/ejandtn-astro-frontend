@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Gallery from '../../components/blog/Gallery.astro';
 import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import axios from 'axios';
 import Header from '../../components/Header.astro';
 
@@ -42,7 +42,7 @@ const subscribers = data.total;
         target="_blank"
         rel="noreferrer noopener"
         aria-label="Link to take you to the rss feed"
-        ><Icon pack="mdi" class="icon" name="rss" /></a
+        ><Icon class="icon" name="mdi:rss" /></a
       >
     </p>
 
@@ -102,12 +102,12 @@ const subscribers = data.total;
       color: var(--primary-color);
     }
 
-    &:hover [astro-icon] {
+    &:hover [data-icon] {
       color: var(--primary-color);
     }
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 3rem;
     width: 3rem;
     color: #f0f2e6;

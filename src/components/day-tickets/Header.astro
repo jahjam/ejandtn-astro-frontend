@@ -1,11 +1,14 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 ---
 
 <div class="container">
   <h1><a href="/day-tickets">Day Tickets</a></h1>
-  <a href="/" class="link" aria-label='Link to take you back to the main website'
-    ><Icon pack="cil" name="arrow-left" />Back to EJANDTN Website</a
+  <a
+    href="/"
+    class="link"
+    aria-label="Link to take you back to the main website"
+    ><Icon name="cil:arrow-left" />Back to EJANDTN Website</a
   >
 </div>
 
@@ -66,7 +69,7 @@ import { Icon } from 'astro-icon';
     gap: 1rem;
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 2rem;
     width: 2rem;
     color: var(--primary-color);

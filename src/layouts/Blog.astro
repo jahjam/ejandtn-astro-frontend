@@ -2,7 +2,7 @@
 import { marked } from 'marked';
 import BaseLayout from './BaseLayout.astro';
 import { format } from 'date-fns';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import SubscribeForm from '../components/SubscribeForm.astro';
 import { Image } from 'astro:assets';
 
@@ -24,9 +24,7 @@ const content = marked.parse(body, {
 
 <BaseLayout title={title} description=`${body.substring(0, 20)}...`>
   <div class="container">
-    <a href="/blog" class="link"
-      ><Icon pack="cil" name="arrow-left" />Back to blog</a
-    >
+    <a href="/blog" class="link"><Icon name="cil:arrow-left" />Back to blog</a>
 
     <h1>{title}</h1>
 
@@ -234,7 +232,7 @@ const content = marked.parse(body, {
     gap: 1rem;
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 2rem;
     width: 2rem;
     color: var(--primary-color);
