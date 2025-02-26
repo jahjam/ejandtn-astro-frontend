@@ -38,7 +38,7 @@ const content = marked.parse(body, {
           format="webp"
         />
         {
-          img_urls.map(img => (
+          img_urls?.map(img => (
             <Image
               src={img.img_url}
               alt="Photo"
