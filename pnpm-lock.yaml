@@ -20,6 +20,9 @@ importers:
       '@iconify-json/bi':
         specifier: ^1.2.2
         version: 1.2.2
+      '@iconify-json/cil':
+        specifier: ^1.2.2
+        version: 1.2.2
       '@iconify-json/ep':
         specifier: ^1.2.2
         version: 1.2.2
@@ -438,6 +441,9 @@ packages:
 
   '@iconify-json/bi@1.2.2':
     resolution: {integrity: sha512-f/Wm+RTdBosw3cI/gmg5uSFmdumkw2thUk4qVFS56jTerdal6wqWnWAbRTSJJ/vhH9/y16pRKnvE8F2+M23dzw==}
+
+  '@iconify-json/cil@1.2.2':
+    resolution: {integrity: sha512-DiIDcsmGQhzFuxprBI5KTUm4+k3NS9qVqihpsJe5PBAbRXwEfn6fUfcHcdAcFPgU3hIQ6zgQ4cuebXPuiWxbOg==}
 
   '@iconify-json/ep@1.2.2':
     resolution: {integrity: sha512-/IH1GjQKH5uK7lQAOjwPxdjkU98OWUWnHYCdg/EkeebBKEteotaOMeEz5pR1egqMcI7zPFdFBTcGyCHla1ddQw==}
@@ -2432,6 +2438,10 @@ snapshots:
     optional: true
 
   '@iconify-json/bi@1.2.2':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/cil@1.2.2':
     dependencies:
       '@iconify/types': 2.0.0
 
