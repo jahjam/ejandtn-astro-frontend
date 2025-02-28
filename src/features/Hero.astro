@@ -11,7 +11,7 @@ import { Image } from 'astro:assets';
   <div class="hero-container">
     <Image
       src={HEROIMAGE}
-      alt="Elijah James And The Nightmares Album Artwork as Hero Image"
+      alt="E.J. Hallows Album Artwork as Hero Image"
       class="hero-image"
       format="webp"
     />
@@ -79,8 +79,9 @@ import { Image } from 'astro:assets';
         </h3>
         <a
           class="link-scroll"
-          href="/music/the-hellish-bending-towards-the-light---lp"
+          href="https://ditto.fm/the-hellish-bending-towards-the-light-ej-hallows"
           aria-label="Link to take you to the music section"
+          rel="noreferrer noopener"
           ><button class="btn listen-btn">Listen</button></a
         >
         <a
@@ -271,10 +272,6 @@ import { Image } from 'astro:assets';
     left: 0;
 
     transition: all 0.3s;
-
-    @media (max-width: 27em) {
-      width: 6.9rem;
-    }
   }
 
   .listen-btn:hover::after {
