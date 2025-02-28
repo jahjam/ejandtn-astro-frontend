@@ -17,8 +17,11 @@ export const VIDEOS_DESCRIPTION = `A collection of all ${ARTIST_NAME} released m
 export const ABOUT_TITLE = `${ARTIST_NAME} | About`;
 export const ABOUT_DESCRIPTION = `Who is ${ARTIST_NAME}? Find out here`;
 
+export const STREAM_TITLE = `${ARTIST_NAME} | Stream`;
+export const STREAM_DESCRIPTION = `Want to stream ${ARTIST_NAME}? Find all the relevant links here`;
+
 export const SUBSCRIBE_TITLE = `Subscribe to ${ARTIST_NAME}`;
-export const SUBSCRIBE_DESCRIPTION = `Subcribe to ${ARTIST_NAME}'s newsletter for regular updates regarding new music, new gigs, and new merch!`;
+export const SUBSCRIBE_DESCRIPTION = `Subscribe to ${ARTIST_NAME}'s newsletter for regular updates regarding new music, new gigs, and new merch!`;
 
 export const DAY_TICKETS_TITLE = `${ARTIST_NAME} | Day Tickets`;
 export const DAY_TICKETS_DESCRIPTION =

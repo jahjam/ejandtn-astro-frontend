@@ -1,0 +1,83 @@
+---
+import Header from '../../components/Header.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StreamingLinks from '../../components/StreamingLinks.astro';
+import { STREAM_TITLE, STREAM_DESCRIPTION } from '../../consts';
+import { ARTIST_NAME } from '../../consts';
+import Subscribe from '../subscribe.astro';
+import SubscribeForm from '../../components/SubscribeForm.astro';
+---
+
+<BaseLayout title={STREAM_TITLE} description={STREAM_DESCRIPTION}>
+  <div class="container">
+    <Header header="Stream" href="/" linkBack />
+
+    <div class="music-section">
+      <span>Find out more about {ARTIST_NAME}' music:</span>
+      <a class="btn music-link-stream" href="/music">Music</a>
+      <span>Or click a link below to go stream on your desired platform</span>
+    </div>
+
+    <StreamingLinks />
+
+    <span class="divider"></span>
+
+    <span
+      >Subscribe to our mailing list to hear more new music as it's released.</span
+    >
+    <SubscribeForm direction="column" />
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 4rem;
+  }
+  .music-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    @media (max-width: 35em) {
+      font-size: 1.4rem;
+    }
+  }
+  @keyframes borderFade {
+    0% {
+      border-bottom: solid 0.2rem rgba(198, 47, 59, 0.8);
+    }
+
+    80% {
+      border-bottom: solid 0.2rem rgba(198, 47, 59, 0);
+    }
+
+    100% {
+      border-bottom: solid 0.2rem rgba(198, 47, 59, 0);
+    }
+  }
+  .music-link-stream {
+    cursor: pointer;
+    text-decoration: none;
+
+    font-size: 1.8rem;
+
+    animation: borderFade 1.6s alternate infinite;
+
+    &:hover {
+      color: rgba(198, 47, 59);
+    }
+  }
+  .divider {
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--light-color);
+  }
+</style>

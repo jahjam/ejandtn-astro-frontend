@@ -1,0 +1,134 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="streaming">
+  <ul>
+    <li>
+      <a
+        class="link"
+        href="https://open.spotify.com/artist/5ufbNhKDxqW1iVhMBwodSr"
+      >
+        <Icon name="jam:spotify" /> Spotify</a
+      >
+    </li>
+    <li>
+      <a
+        class="link"
+        href="https://music.apple.com/gb/artist/e-j-hallows/1756292157"
+      >
+        <Icon name="simple-icons:applemusic" /> Apple Music</a
+      >
+    </li>
+    <li>
+      <a class="link" href="https://www.deezer.com/en/artist/272888032"
+        ><Icon name="jam:deezer" /> Deezer</a
+      >
+    </li>
+    <li>
+      <a
+        class="link"
+        href="https://music.amazon.com/artists/B0D94H97XW/e-j-hallows"
+        ><Icon name="simple-icons:tidal" /> Tidal</a
+      >
+    </li>
+    <li>
+      <a
+        class="link"
+        href="https://music.amazon.com/artists/B0D94H97XW/e-j-hallows"
+      >
+        <Icon name="arcticons:amazon-music" /> Amazon Music</a
+      >
+    </li>
+  </ul>
+</section>
+
+<style lang="scss">
+  .streaming {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & ul {
+      width: 50%;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 1rem;
+
+      @media (max-width: 60em) {
+        width: 80%;
+      }
+
+      @media (max-width: 26em) {
+        width: 90%;
+      }
+
+      & li {
+        width: 100%;
+        height: 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & a {
+          width: 100%;
+          height: 10rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 2rem;
+
+          border: 2px solid var(--primary-color);
+
+          font-size: 6rem;
+
+          @media (max-width: 81em) {
+            font-size: 4rem;
+          }
+
+          @media (max-width: 60em) {
+            font-size: 3rem;
+          }
+
+          @media (max-width: 35em) {
+            font-size: 2rem;
+          }
+
+          @media (max-width: 20em) {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+
+  [data-icon] {
+    height: 8rem;
+    width: 8rem;
+
+    @media (max-width: 81em) {
+      height: 7rem;
+      width: 7rem;
+    }
+
+    @media (max-width: 60em) {
+      height: 6rem;
+      width: 6rem;
+    }
+
+    @media (max-width: 35em) {
+      height: 5rem;
+      width: 5rem;
+    }
+
+    @media (max-width: 20em) {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+</style>
