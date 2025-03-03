@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss';
 import { ARTIST_NAME } from '../../consts';
 
-export async function get(context) {
+export async function GET(context) {
   const items = [];
 
   const API = import.meta.env.API;
