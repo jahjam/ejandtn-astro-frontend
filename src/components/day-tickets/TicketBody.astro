@@ -25,15 +25,15 @@ const content = marked.parse(body, {
   </div>
 </div>
 
-<style is:inline>
+<style lang="scss" is:inline>
   div {
-    width: 30rem;
     padding: 0 0.4rem;
     font-family: sinter, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 1rem;
+    white-space: nowrap;
   }
 
   h3 {
@@ -46,6 +46,10 @@ const content = marked.parse(body, {
     line-height: 2rem;
 
     margin-bottom: 0.5rem;
+
+    @media (max-width: 25em) {
+      font-size: 1.2rem;
+    }
   }
 
   .info {
