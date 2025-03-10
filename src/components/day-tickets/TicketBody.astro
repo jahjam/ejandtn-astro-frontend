@@ -9,13 +9,10 @@ const content = marked.parse(body, {
   mangle: false,
   headerIds: false,
 });
-const wrap = content.startsWith('-wrap-');
-const newContent = wrap
-  ? content
-      .replace(new RegExp('\\b' + '-wrap-' + '\\b', 'gi'), '')
-      .replace(/\s{2,}/g, '')
-      .trim()
-  : content;
+const wrap = content.startsWith('<p>-wrap-');
+const newContent = wrap ? content.replace('-wrap-', '').trim() : content;
+
+console.log(newContent);
 ---
 
 <div>
