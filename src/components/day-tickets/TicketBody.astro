@@ -9,12 +9,19 @@ const content = marked.parse(body, {
   mangle: false,
   headerIds: false,
 });
+const wrap = content.startsWith('-wrap-');
+const newContent = wrap
+  ? content
+      .replace(new RegExp('\\b' + '-wrap-' + '\\b', 'gi'), '')
+      .replace(/\s{2,}/g, '')
+      .trim()
+  : content;
 ---
 
 <div>
   <h3>{title}</h3>
 
-  <article set:html={content} />
+  <article set:html={newContent} class={wrap ? 'wrap' : 'nowrap'} />
 
   <div class="info">
     <span>- Elijah James</span>
@@ -33,6 +40,13 @@ const content = marked.parse(body, {
     flex-direction: column;
     justify-content: flex-start;
     gap: 1rem;
+  }
+
+  .wrap {
+    white-space: wrap;
+  }
+
+  .nowrap {
     white-space: nowrap;
   }
 
