@@ -11,8 +11,6 @@ const content = marked.parse(body, {
 });
 const wrap = content.startsWith('<p>-wrap-');
 const newContent = wrap ? content.replace('-wrap-', '').trim() : content;
-
-console.log(newContent);
 ---
 
 <div>
