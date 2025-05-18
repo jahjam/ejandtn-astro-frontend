@@ -33,9 +33,7 @@ export const BLOG_TITLE = `${ARTIST_NAME} | Blog`;
 export const BLOG_DESCRIPTION = `Welcome to ${ARTIST_NAME}' personal blog. Here is where you will find his most recent news and updates.`;
 
 export const PHOTOGRAPHY_TITLE = `${ARTIST_NAME} | Animals & Architecture`;
-export const PHOTOGRAPHY_DESCRIPTION =
-  "Welcome to Animals & Architecture. Here you will find all of Elijah James's street photography in no particular order.";
+export const PHOTOGRAPHY_DESCRIPTION = `Welcome to Animals & Architecture. Here you will find all of ${ARTIST_NAME}' street photography in no particular order.`;
 
 export const SOUNDSCAPES_TITLE = `${ARTIST_NAME} | Eli's Little Dictaphone`;
-export const SOUNDSCAPES_DESCRIPTION =
-  "Welcome to Eli's Little Dictaphone. Here you will find daily soundscapes recorded by Elijah James.";
+export const SOUNDSCAPES_DESCRIPTION = `Welcome to Eli's Little Dictaphone. Here you will find daily soundscapes recorded by ${ARTIST_NAME}.`;

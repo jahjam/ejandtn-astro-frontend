@@ -1,9 +1,248 @@
 ---
-import UnderConstruction from '../../layouts/UnderConstruction.astro';
+import Header from '../../components/Header.astro';
 import { PHOTOGRAPHY_TITLE, PHOTOGRAPHY_DESCRIPTION } from '../../consts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import SubscribeForm from '../../components/SubscribeForm.astro';
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/photography/*',
+  { eager: true }
+);
 ---
 
-<UnderConstruction
-  title={PHOTOGRAPHY_TITLE}
-  description={PHOTOGRAPHY_DESCRIPTION}
-/>
+<BaseLayout title={PHOTOGRAPHY_TITLE} description={PHOTOGRAPHY_DESCRIPTION}>
+  <div class="container">
+    <Header
+      href="/"
+      header="Animals And Architecture"
+      linkBack
+      showBlinkingCursor={false}
+    />
+
+    <p>
+      {PHOTOGRAPHY_DESCRIPTION.slice(0, -1)}.
+    </p>
+
+    <h4>How to:</h4>
+    <p>Please click on a small images to view one large</p>
+    <p>
+      Please click on the large image to hide it or another image to replace it
+    </p>
+
+    <div class="enlarged-image no-display"></div>
+
+    <div class="image-container">
+      {
+        Object.entries(images).map(([path, src], i) => {
+          return (
+            <button
+              type="button"
+              class={`image-button image-${i}`}
+              style={{ display: i < 3 ? 'block' : 'none' }}
+              data-rendered={i < 3 ? 'true' : 'false'}
+            >
+              <Image src={src.default} alt={path.split('/').pop()} />
+            </button>
+          );
+        })
+      }
+    </div>
+
+    <div class="dir-buttons">
+      <button class="btn prev-btn">Prev</button>
+      <button class="btn next-btn">Next</button>
+    </div>
+
+    <span class="divider"></span>
+
+    <SubscribeForm direction="column" />
+  </div>
+</BaseLayout>
+
+<script>
+  const imgBtns = document.querySelectorAll('.image-button');
+  const enlargedImage = document.querySelector('.enlarged-image');
+  const nextBtn = document.querySelector('.next-btn');
+  const prevBtn = document.querySelector('.prev-btn');
+
+  const blowUpImg = (i: number) => {
+    enlargedImage.innerHTML = '';
+    imgBtns.forEach((btn: HTMLButtonElement) => {
+      btn.classList.remove('show-selected');
+      btn.disabled = false;
+    });
+    const imgBtn: HTMLButtonElement = document.querySelector(`.image-${i}`);
+
+    let clonedElement = imgBtn.cloneNode(true) as HTMLButtonElement; // 'true' means deep clone
+
+    clonedElement.style.height = '100%';
+    clonedElement.style.width = '100%';
+
+    enlargedImage.appendChild(clonedElement);
+    enlargedImage.classList.remove('no-display');
+    enlargedImage.classList.add('display');
+    imgBtn.classList.add('show-selected');
+    imgBtn.disabled = true;
+
+    clonedElement.addEventListener('click', () => {
+      imgBtn.classList.remove('show-selected');
+      enlargedImage.removeChild(clonedElement);
+      imgBtn.disabled = false;
+    });
+  };
+
+  imgBtns.forEach((btn, i) => {
+    btn.addEventListener('click', () => blowUpImg(i));
+  });
+
+  let curI = 0;
+  const numImgPerPage = 3;
+  const totalImages = imgBtns.length;
+
+  nextBtn.addEventListener('click', () => {
+    imgBtns.forEach((btn: HTMLButtonElement, i) => {
+      btn.style.display = 'none';
+    });
+
+    curI += numImgPerPage;
+    if (curI >= totalImages) {
+      curI = 0;
+    }
+
+    for (let i = curI; i < curI + numImgPerPage && i < totalImages; i++) {
+      const btnEl = imgBtns[i] as HTMLButtonElement;
+      btnEl.style.display = 'block';
+
+      if (btnEl.dataset.rendered === 'false') {
+        const img = btnEl.firstElementChild as HTMLImageElement;
+        const ratio = img.naturalHeight / img.naturalWidth;
+        const containerWidth = btnEl.offsetWidth;
+        btnEl.style.height = containerWidth * ratio + 'px';
+
+        btnEl.dataset.rendered = 'true';
+      }
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    imgBtns.forEach((btn: HTMLButtonElement, i) => {
+      btn.style.display = 'none';
+    });
+
+    if (curI === 0) {
+      curI = totalImages;
+    }
+    curI -= numImgPerPage;
+
+    for (let i = curI; i < curI + numImgPerPage && i < totalImages; i++) {
+      const btnEl = imgBtns[i] as HTMLButtonElement;
+      btnEl.style.display = 'block';
+
+      if (btnEl.dataset.rendered === 'false') {
+        const img = btnEl.firstElementChild as HTMLImageElement;
+        const ratio = img.naturalHeight / img.naturalWidth;
+        const containerWidth = btnEl.offsetWidth;
+        btnEl.style.height = containerWidth * ratio + 'px';
+
+        btnEl.dataset.rendered = 'true';
+      }
+    }
+  });
+</script>
+
+<style lang="scss">
+  .container {
+    height: 100%;
+    max-width: 80rem;
+    font-family: sinter, sans-serif;
+    position: relative;
+    color: #f0f2e6;
+    background-color: #090d16;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.4rem;
+  }
+
+  p {
+    max-width: 50rem;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    padding: 0 1rem;
+  }
+
+  .image-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    gap: 20px;
+
+    @media (max-width: 50em) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .image-container :global(img) {
+    width: 100%; /* fill the grid column */
+    height: 100%; /* keep native aspect ratio */
+
+    display: block;
+
+    object-fit: cover;
+  }
+
+  .image-button {
+    all: unset;
+    display: block;
+    height: 370px;
+    width: 100%;
+    cursor: pointer;
+    border: 2px solid white;
+    cursor: pointer;
+  }
+
+  .enlarged-image {
+    width: 100%;
+
+    & button {
+      all: unset;
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      border: 2px solid white;
+      cursor: pointer;
+    }
+
+    & img {
+      width: 100%; /* fill the grid column */
+      height: 100%; /* keep native aspect ratio */
+
+      object-fit: contain;
+    }
+  }
+
+  .display {
+    display: block;
+  }
+
+  .no-display {
+    display: none;
+  }
+
+  .show-selected {
+    border: 2px solid var(--primary-color);
+  }
+
+  .divider {
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--light-color);
+  }
+
+  .dir-buttons {
+    display: flex;
+  }
+</style>
