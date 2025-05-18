@@ -141,10 +141,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       btn.style.display = 'none';
     });
 
-    if (curI === 0) {
-      curI = totalImages;
-    }
     curI -= numImgPerPage;
+    if (curI < 0) {
+      curI = totalImages - (totalImages % numImgPerPage);
+      if (curI === totalImages) curI -= numImgPerPage;
+    }
 
     for (let i = curI; i < curI + numImgPerPage && i < totalImages; i++) {
       const btnEl = imgBtns[i] as HTMLButtonElement;
