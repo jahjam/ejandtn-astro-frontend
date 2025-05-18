@@ -100,6 +100,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   const numImgPerPage = 3;
   const totalImages = imgBtns.length;
 
+  const adjustHeight = (btnEl: HTMLButtonElement, img: HTMLImageElement) => {
+    console.log(img);
+    const ratio = img.naturalHeight / img.naturalWidth;
+    console.log(img.naturalHeight, '/', img.naturalWidth, '=', ratio);
+    const containerWidth = btnEl.offsetWidth;
+    btnEl.style.height = containerWidth * ratio + 'px';
+
+    btnEl.dataset.rendered = 'true';
+  };
+
   nextBtn.addEventListener('click', () => {
     imgBtns.forEach((btn: HTMLButtonElement, i) => {
       btn.style.display = 'none';
@@ -116,11 +126,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
       if (btnEl.dataset.rendered === 'false') {
         const img = btnEl.firstElementChild as HTMLImageElement;
-        const ratio = img.naturalHeight / img.naturalWidth;
-        const containerWidth = btnEl.offsetWidth;
-        btnEl.style.height = containerWidth * ratio + 'px';
 
-        btnEl.dataset.rendered = 'true';
+        if (img.complete && img.naturalHeight !== 0) {
+          adjustHeight(btnEl, img);
+        } else {
+          img.addEventListener('load', () => adjustHeight(btnEl, img));
+        }
       }
     }
   });
@@ -141,11 +152,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
       if (btnEl.dataset.rendered === 'false') {
         const img = btnEl.firstElementChild as HTMLImageElement;
-        const ratio = img.naturalHeight / img.naturalWidth;
-        const containerWidth = btnEl.offsetWidth;
-        btnEl.style.height = containerWidth * ratio + 'px';
 
-        btnEl.dataset.rendered = 'true';
+        if (img.complete && img.naturalHeight !== 0) {
+          adjustHeight(btnEl, img);
+        } else {
+          img.addEventListener('load', () => adjustHeight(btnEl, img));
+        }
       }
     }
   });
