@@ -76,8 +76,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
     let clonedElement = imgBtn.cloneNode(true) as HTMLButtonElement; // 'true' means deep clone
 
-    clonedElement.style.height = '100%';
-    clonedElement.style.width = '100%';
+    clonedElement.style.height = '100vh';
+    clonedElement.style.width = 'auto';
 
     enlargedImage.appendChild(clonedElement);
     enlargedImage.classList.remove('no-display');
@@ -220,6 +220,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   .enlarged-image {
     width: 100%;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     & button {
       all: unset;
       display: block;
@@ -238,7 +242,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   }
 
   .display {
-    display: block;
+    display: flex;
   }
 
   .no-display {
