@@ -74,9 +74,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     });
     const imgBtn: HTMLButtonElement = document.querySelector(`.image-${i}`);
 
-    let clonedElement = imgBtn.cloneNode(true) as HTMLButtonElement; // 'true' means deep clone
+    let clonedElement = imgBtn.cloneNode(true) as HTMLButtonElement; // 'true' means deep clonedElement
 
-    clonedElement.style.height = '100vh';
+    const img = clonedElement.firstElementChild as HTMLImageElement;
+
+    if (img.naturalWidth > img.naturalHeight) {
+      clonedElement.style.height = '100%';
+    } else {
+      clonedElement.style.height = 'calc(100vh - 80px)';
+    }
+
     clonedElement.style.width = 'auto';
 
     enlargedImage.appendChild(clonedElement);
@@ -92,8 +99,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     });
   };
 
-  imgBtns.forEach((btn, i) => {
-    btn.addEventListener('click', () => blowUpImg(i));
+  imgBtns.forEach((btn: HTMLButtonElement, i) => {
+    if (window.innerWidth < 800) {
+      btn.disabled = true;
+    } else {
+      btn.addEventListener('click', () => blowUpImg(i));
+    }
   });
 
   let curI = 0;
