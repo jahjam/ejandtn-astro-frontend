@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 
 type Props = {
-  href: string;
+  href?: string;
   header: string;
   linkBack?: boolean;
   linkBackTo?: string;
@@ -20,7 +20,7 @@ const {
 
 <div class="container">
   <h1 class={`${!showBlinkingCursor ? 'hideCursor' : null}`}>
-    <a href={href}>{header}</a>
+    {header}
   </h1>
   {
     linkBack ? (

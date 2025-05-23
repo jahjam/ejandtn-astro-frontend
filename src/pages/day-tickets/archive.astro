@@ -22,7 +22,12 @@ const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
   description={DAY_TICKETS_ARCHIVE_DESCRIPTION}
 >
   <div class="container">
-    <Header href="/day-tickets/archive" header="Archive" linkBack />
+    <Header
+      header="Archive"
+      linkBack
+      href="/day-tickets"
+      linkBackTo="Day Tickets"
+    />
 
     <a
       href="/day-tickets"
