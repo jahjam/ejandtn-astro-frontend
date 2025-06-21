@@ -1,23 +1,31 @@
 ---
+import { getCollection, getEntry } from 'astro:content';
 import Blog from '../../layouts/Blog.astro';
 
 export async function getStaticPaths() {
-  const API: string = import.meta.env.API;
-  const res = await fetch(`${API}/blogs`);
-  const { data: blogs } = await res.json();
-  return blogs?.map(blog => ({
-    params: { slug: blog.attributes.slug },
-    props: blog.attributes,
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { id: post.id },
   }));
 }
 
-const post = Astro.props;
+const { id } = Astro.props;
+const { slug } = Astro.params;
+
+const post = await getEntry('blog', slug);
+
+if (!post) {
+  throw new Error(`Post not found for slug: ${slug}`);
+}
+
+const { title, pubDate, image, images } = post.data;
 ---
 
 <Blog
-  title={post.title}
+  title={title}
   body={post.body}
-  main_img={post.main_img[0]}
-  img_urls={post.img_urls}
-  datePublished={post.publishedAt}
+  image={image}
+  images={images}
+  datePublished={pubDate}
 />

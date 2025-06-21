@@ -6,15 +6,15 @@ import { Icon } from 'astro-icon/components';
 import SubscribeForm from '../components/SubscribeForm.astro';
 import { Image } from 'astro:assets';
 
-// type Props = {
-//   img_url: string;
-//   img_urls: string[];
-//   title: string;
-//   body: string;
-//   datePublished: Date;
-// };
+type Props = {
+  image: string;
+  images?: string[];
+  title: string;
+  body: string;
+  datePublished: Date;
+};
 
-const { title, body, datePublished, main_img, img_urls } = Astro.props;
+const { title, body, datePublished, image, images } = Astro.props;
 
 const content = marked.parse(body, {
   mangle: false,
@@ -31,21 +31,15 @@ const content = marked.parse(body, {
     <div class="slider-container">
       <div class="my-slider">
         <Image
-          src={main_img.img_url}
+          src={image}
           alt={`Photo for blog post connected to ${title}`}
           width={550}
           height={550}
           format="webp"
         />
         {
-          img_urls?.map(img => (
-            <Image
-              src={img.img_url}
-              alt="Photo"
-              width={img.width}
-              height={img.height}
-              format="webp"
-            />
+          images?.map(img => (
+            <Image src={img} alt="Photo" width="10" height="10" format="webp" />
           ))
         }
       </div>
@@ -69,7 +63,8 @@ const content = marked.parse(body, {
     <span class="divider"></span>
 
     <span
-      >Subscribe to our mailing list to receive more posts like this one.</span
+      >Subscribe to E.J. Hallows' mailing list to receive more posts like this
+      one.</span
     >
     <SubscribeForm direction="column" />
   </div>
@@ -109,6 +104,12 @@ const content = marked.parse(body, {
     align-items: center;
     justify-content: center;
     gap: 2rem;
+
+    & img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
   }
 
   h1 {

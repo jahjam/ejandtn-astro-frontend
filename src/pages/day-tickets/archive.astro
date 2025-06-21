@@ -8,11 +8,9 @@ import { sortTicketsByDateFn } from '../../utils';
 import { format } from 'date-fns';
 import { Icon } from 'astro-icon/components';
 import Header from '../../components/Header.astro';
-const API = import.meta.env.API;
+import { getCollection } from 'astro:content';
 
-const res = await fetch(`${API}/day-tickets`);
-
-const { data: dayTickets }: { data: DayTicket[] } = await res.json();
+const dayTickets = await getCollection('day-tickets');
 
 const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
 ---

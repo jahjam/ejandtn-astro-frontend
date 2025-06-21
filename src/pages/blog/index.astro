@@ -6,6 +6,7 @@ import { Icon } from 'astro-icon/components';
 import axios from 'axios';
 import Header from '../../components/Header.astro';
 
+// GETS THE MAILING LIST SUBSCRIBER COUNT
 const API: string = import.meta.env.API;
 const { data } = await axios.get(`${API}/sub-count`);
 const subscribers = data.total;
@@ -23,7 +24,7 @@ const subscribers = data.total;
 
     <div class="sub-box">
       <div class="cur-subs">
-        <span>Current Subs:</span><span class="sub-num">{subscribers}</span>
+        <!-- <span>Current Subs:</span><span class="sub-num">{subscribers}</span> -->
       </div>
 
       <a

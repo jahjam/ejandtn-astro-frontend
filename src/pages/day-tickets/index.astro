@@ -1,20 +1,21 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { DAY_TICKETS_TITLE, DAY_TICKETS_DESCRIPTION } from '../../consts';
 import { sortTicketsByDateFn } from '../../utils';
 import TicketBody from '../../components/day-tickets/TicketBody.astro';
 import { Icon } from 'astro-icon/components';
 import Header from '../../components/Header.astro';
-const API = import.meta.env.API;
 
-const res = await fetch(`${API}/day-tickets`);
-
-const { data: dayTickets }: { data: DayTicket[] } = await res.json();
+const dayTickets = await getCollection('day-tickets');
 
 const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
 
-const mostRecentTicket = (sortedTicketsByDateArr[0][1][0] as DayTicket)
-  .attributes as DayTicketAttributes;
+const {
+  data: { title, pubDate, writtenDate },
+  body,
+  slug,
+} = sortedTicketsByDateArr[0][1][0];
 ---
 
 <BaseLayout title={DAY_TICKETS_TITLE} description={DAY_TICKETS_DESCRIPTION}>
@@ -34,11 +35,11 @@ const mostRecentTicket = (sortedTicketsByDateArr[0][1][0] as DayTicket)
     >
 
     <TicketBody
-      title={mostRecentTicket.title}
-      body={mostRecentTicket.body}
-      date_created={mostRecentTicket.date_created}
-      publishedAt={new Date(mostRecentTicket.publishedAt)}
-      slug={mostRecentTicket.slug}
+      title={title}
+      body={body}
+      createdDate={pubDate}
+      writtenDate={writtenDate}
+      slug={slug}
     />
   </div>
 </BaseLayout>

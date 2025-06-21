@@ -1,21 +1,25 @@
 ---
 import { Image } from 'astro:assets';
-const API = import.meta.env.API;
-const res = await fetch(`${API}/blogs`);
-const { data: blogs } = await res.json();
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
 ---
 
 <div class="container">
   {
-    blogs.map(blog => {
+    posts.map(({ id, slug, data: { title, image } }) => {
       return (
-        <a class="img-box" href={`/blog/${blog.attributes.slug}`} aria-label=`Link to take you to a blog post for ${blog.attributes.title}`>
+        <a
+          class="img-box"
+          href={`/blog/${slug}`}
+          aria-label={`Link to take you to a blog post for ${title}`}
+        >
           <Image
             class="main-img"
-            src={blog.attributes.main_img[0].img_url}
-            alt={`Photo for blog post connected to ${blog.attributes.title}`}
-            height={blog.attributes.main_img[0].height}
-            width={blog.attributes.main_img[0].width}
+            src={image}
+            alt={`Photo for blog post connected to ${title}`}
+            height="10"
+            width="10"
             format="webp"
           />
         </a>
@@ -23,7 +27,6 @@ const { data: blogs } = await res.json();
     })
   }
 </div>
-
 <style lang="scss">
   .container {
     height: auto;

@@ -1,14 +1,22 @@
 ---
 import { format } from 'date-fns';
 import { marked } from 'marked';
-type Props = DayTicketAttributes;
+type Props = {
+  title: string;
+  body: string;
+  createdDate: Date;
+  writtenDate: Date;
+  slug: string;
+};
 
-const { title, body, date_created, publishedAt } = Astro.props;
+const { title, body, createdDate, writtenDate } = Astro.props;
 
 const content = marked.parse(body, {
+  breaks: true,
   mangle: false,
   headerIds: false,
 });
+
 const wrap = content.startsWith('<p>-wrap-');
 const newContent = wrap ? content.replace('-wrap-', '').trim() : content;
 ---
@@ -21,8 +29,8 @@ const newContent = wrap ? content.replace('-wrap-', '').trim() : content;
   <div class="info">
     <span>- Elijah James</span>
     <div>
-      <span>Written: {format(new Date(date_created), 'dd/MM/yyyy')}</span>
-      <span>Published: {format(new Date(publishedAt), 'dd/MM/yyyy')}</span>
+      <span>Written: {format(new Date(writtenDate), 'dd/MM/yyyy')}</span>
+      <span>Published: {format(new Date(createdDate), 'dd/MM/yyyy')}</span>
     </div>
   </div>
 </div>
@@ -55,7 +63,7 @@ const newContent = wrap ? content.replace('-wrap-', '').trim() : content;
     font-size: 1.4rem;
     line-height: 2rem;
 
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 
     @media (max-width: 25em) {
       font-size: 1.2rem;
