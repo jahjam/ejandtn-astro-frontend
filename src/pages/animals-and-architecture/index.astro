@@ -113,9 +113,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   const totalImages = imgBtns.length;
 
   const adjustHeight = (btnEl: HTMLButtonElement, img: HTMLImageElement) => {
-    console.log(img);
     const ratio = img.naturalHeight / img.naturalWidth;
-    console.log(img.naturalHeight, '/', img.naturalWidth, '=', ratio);
     const containerWidth = btnEl.offsetWidth;
     btnEl.style.height = containerWidth * ratio + 'px';
 
