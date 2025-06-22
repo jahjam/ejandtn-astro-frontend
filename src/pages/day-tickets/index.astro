@@ -14,7 +14,6 @@ const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
 const {
   data: { title, pubDate, writtenDate },
   body,
-  slug,
 } = sortedTicketsByDateArr[0][1][0];
 ---
 
@@ -39,7 +38,6 @@ const {
       body={body}
       createdDate={pubDate}
       writtenDate={writtenDate}
-      slug={slug}
     />
   </div>
 </BaseLayout>

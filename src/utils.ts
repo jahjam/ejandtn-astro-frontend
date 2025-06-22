@@ -101,14 +101,14 @@ export const sortTicketsByDateFn = (ticketArr: DayTickets) => {
     sortedObj[fk].push(e);
   });
 
-  Object.values(sortedObj).forEach((group: DayTicket[]) => {
+  Object.values(sortedObj).forEach((group: DayTickets) => {
     group.sort((a, b) => {
       const formattedDateA = format(
-        new Date(a.attributes.date_created),
+        new Date(a.data.pubDate),
         'dd/MM/yyyy',
       ).split('/');
       const formattedDateB = format(
-        new Date(b.attributes.date_created),
+        new Date(b.data.pubDate),
         'dd/MM/yyyy',
       ).split('/');
       return (
@@ -133,5 +133,5 @@ export const sortTicketsByDateFn = (ticketArr: DayTickets) => {
       +new Date(new Date(+bDateArray[2], +bDateArray[1] - 1, +bDateArray[0])) -
       +new Date(new Date(+aDateArray[2], +aDateArray[1] - 1, +aDateArray[0]))
     );
-  }) as Array<Array<DayTickets>>;
+  }) as Array<[string, DayTickets]>;
 };

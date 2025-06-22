@@ -6,13 +6,12 @@ import {
 } from '../../consts';
 import { sortTicketsByDateFn } from '../../utils';
 import { format } from 'date-fns';
-import { Icon } from 'astro-icon/components';
 import Header from '../../components/Header.astro';
 import { getCollection } from 'astro:content';
 
 const dayTickets = await getCollection('day-tickets');
 
-const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
+const sortedTicketsByDateArr = sortTicketsByDateFn(dayTickets);
 ---
 
 <BaseLayout
@@ -38,22 +37,22 @@ const sortedTicketsByDateArr = dayTickets && sortTicketsByDateFn(dayTickets);
                 <span class="title-block-date">
                   {format(
                     new Date(
-                      +(group[0] as string).split('/')[2],
-                      +(group[0] as string).split('/')[1] - 1,
-                      +(group[0] as string).split('/')[0]
+                      +group[0].split('/')[2],
+                      +group[0].split('/')[1] - 1,
+                      +group[0].split('/')[0]
                     ),
                     'MMM-yyyy'
                   ).replace('-', ' ')}
                 </span>
 
-                {(group[1] as DayTicket[]).map(ticket => {
+                {group[1].map(ticket => {
                   return (
                     <a
                       class="link"
-                      href={`/day-tickets/${ticket.attributes.slug}`}
+                      href={`/day-tickets/${ticket.slug}`}
                       aria-label="Link to take you to the specific ticket"
                     >
-                      {ticket.attributes.title}
+                      {ticket.data.title}
                     </a>
                   );
                 })}

@@ -1,28 +1,29 @@
 ---
+import { getCollection } from 'astro:content';
 import DayTicket from '../../layouts/DayTicket.astro';
+import { getEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const API: string = import.meta.env.API;
-
-  const res = await fetch(`${API}/day-tickets`);
-
-  const { data: dayTickets }: { data: DayTicket[] } = await res.json();
-
-  return dayTickets?.map(ticket => ({
-    params: { slug: ticket.attributes.slug },
-    props: ticket.attributes,
+  const dayTickets = await getCollection('day-tickets');
+  return dayTickets.map(post => ({
+    params: { slug: post.slug },
   }));
 }
 
-type Props = DayTicketAttributes;
+const { slug } = Astro.params;
 
-const ticket = Astro.props;
+const post = await getEntry('day-tickets', slug);
+
+if (!post) {
+  throw new Error(`Post not found for slug: ${slug}`);
+}
+
+const { title, pubDate, writtenDate, tags } = post.data;
 ---
 
 <DayTicket
-  title={ticket.title}
-  body={ticket.body}
-  date_created={ticket.date_created}
-  publishedAt={ticket.publishedAt}
-  slug={ticket.slug}
+  title={title}
+  body={post.body}
+  createdDate={pubDate}
+  writtenDate={writtenDate}
 />
