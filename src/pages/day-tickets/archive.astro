@@ -4,10 +4,10 @@ import {
   DAY_TICKETS_TITLE,
   DAY_TICKETS_ARCHIVE_DESCRIPTION,
 } from '../../consts';
-import { sortTicketsByDateFn } from '../../utils';
 import { format } from 'date-fns';
 import Header from '../../components/Header.astro';
 import { getCollection } from 'astro:content';
+import { sortTicketsByDateFn } from '../../server-utils';
 
 const dayTickets = await getCollection('day-tickets');
 
