@@ -1,19 +1,18 @@
 import rss from '@astrojs/rss';
+import { getCollection } from 'astro:content';
 import { ARTIST_NAME } from '../../consts';
 
 export async function GET(context) {
   const items = [];
 
-  const API = import.meta.env.API;
-  const res = await fetch(`${API}/blogs`);
-  const { data: blogs } = await res.json();
-
-  blogs?.forEach(blog => {
+  const blogs = await getCollection('blog');
+  console.log(blogs);
+  blogs.forEach(blog => {
     items.push({
-      link: `${context.site}/blog/${blog.attributes.slug}`,
-      title: blog.attributes.title,
-      pubDate: blog.attributes.publishedAt,
-      description: blog.attributes.description || '',
+      link: `${context.site}/blog/${blog.slug}`,
+      title: blog.data.title,
+      pubDate: blog.data.pubDate,
+      description: blog.data.description || '',
     });
   });
 
