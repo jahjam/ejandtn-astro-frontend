@@ -2,14 +2,14 @@
 import { ARTIST_NAME } from '../consts';
 import GigCard from './GigCard.astro';
 
-const API = import.meta.env.API;
-const res = await fetch(`${API}/gigs`);
-const { data }: { data: Gig[] } = await res.json();
+// const API = import.meta.env.API;
+// const res = await fetch(`${API}/gigs`);
+// const { data }: { data: Gig[] } = await res.json();
 ---
 
 <section class="tour-section section-seperator" id="tour">
   <div class="gig-cards">
-    {
+    <!-- {
       data?.length ? (
         data.map(gig => {
           const { venue, date, ticket_url, city, country }: GigAttributes =
@@ -25,10 +25,10 @@ const { data }: { data: Gig[] } = await res.json();
             />
           );
         })
-      ) : (
-        <span>No upcoming gigs... yet!</span>
-      )
-    }
+      ) : ( -->
+    <span>No upcoming gigs... yet!</span>
+    <!-- ) -->
+    <!-- } -->
   </div>
 
   <div class="message">
