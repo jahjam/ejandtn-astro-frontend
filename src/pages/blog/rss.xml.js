@@ -8,7 +8,7 @@ export async function GET(context) {
   const res = await fetch(`${API}/blogs`);
   const { data: blogs } = await res.json();
 
-  blogs.forEach(blog => {
+  blogs?.forEach(blog => {
     items.push({
       link: `${context.site}/blog/${blog.attributes.slug}`,
       title: blog.attributes.title,
