@@ -3,6 +3,7 @@ import SocialIconNav from '../components/SocialIconNav.astro';
 import HEROIMAGE from '../assets/the-hellish-bending-towards-the-light-web-banner-black.webp';
 import BubbleNav from '../components/BubbleNav.astro';
 import { Image } from 'astro:assets';
+import { ARTIST_NAME } from '../consts';
 ---
 
 <header class="hero">
@@ -11,7 +12,7 @@ import { Image } from 'astro:assets';
   <div class="hero-container">
     <Image
       src={HEROIMAGE}
-      alt="E.J. Hallows Album Artwork as Hero Image"
+      alt="EJ Hallows Album Artwork as Hero Image"
       class="hero-image"
       format="webp"
     />
@@ -24,7 +25,7 @@ import { Image } from 'astro:assets';
         class="link-scroll header-logo-link"
         aria-label="Link to take you to top of page"
       >
-        <h1 class="header-logo">E.J. Hallows</h1>
+        <h1 class="header-logo">{ARTIST_NAME}</h1>
       </a>
       <ul class="nav-pages">
         <li>

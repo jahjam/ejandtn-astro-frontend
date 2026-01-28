@@ -1,6 +1,6 @@
 // Place any global data in this file.
 
-export const ARTIST_NAME = 'E.J. Hallows';
+export const ARTIST_NAME = 'EJ Hallows';
 
 export const SITE_TITLE = `${ARTIST_NAME} | Official Website`;
 export const SITE_DESCRIPTION = `The official website for ${ARTIST_NAME}, an alt-folk singer/songwriter from Liverpool, United Kindom.`;
