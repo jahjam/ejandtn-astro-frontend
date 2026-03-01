@@ -25,9 +25,9 @@ export const albums: Album[] = [
     about:
       "This album was never meant to be made. It was cobbled together in desperation due to another album I was working on proving close to impossible to make over the last three years (2020, 2021, 2022). That said, I'm happy with how it turned out. It's got no bells or whistles, but the things it has got, whatever they may be, it's got in spades. Call it what you will. I call it The Hellish Bending Towards The Light.",
     credits: {
-      writtenBy: 'Elijah James',
-      arrangedBy: 'Elijah James',
-      producedBy: 'Elijah James',
+      writtenBy: 'Elijah James-Hallows',
+      arrangedBy: 'Elijah James-Hallows',
+      producedBy: 'Elijah James-Hallows',
       mixedBy: 'Tom Roach',
       masteredBy: 'Tom Woodhead',
       recordedAt: ['AMS&V'],
@@ -36,8 +36,8 @@ export const albums: Album[] = [
         'Gareth Dawson - Percussion',
         'Emily Vanlint - Violin/Viola',
       ],
-      albumArtDesignedBy: 'Elijah James',
-      albumArtBy: 'Elijah James',
+      albumArtDesignedBy: 'Elijah James-Hallows',
+      albumArtBy: 'Elijah James-Hallows',
     },
     links: {
       smartLink:
@@ -58,15 +58,15 @@ export const albums: Album[] = [
     about:
       "In May 2020, I was set to record another LP. Alas, due to the Covid-19 pandemic, my plans (and everybody else's) were put on hold. Instead, I took to creating this short film, featuring two acoustic versions of songs from said upcoming LP: 1. Who'll Be Here Tomorrow? 2. Enough Rope The two songs were recorded in my flat in Liverpool, with the virtual help of Tom Roach, whom engineered, mixed and mastered the two song EP.",
     credits: {
-      writtenBy: 'Elijah James',
-      arrangedBy: 'Elijah James',
-      producedBy: 'Elijah James',
+      writtenBy: 'Elijah James-Hallows',
+      arrangedBy: 'Elijah James-Hallows',
+      producedBy: 'Elijah James-Hallows',
       mixedBy: 'Tom Roach',
       masteredBy: 'Tom Roach',
       recordedAt: ['AMS&V'],
       personel: [],
-      albumArtDesignedBy: 'Elijah James',
-      albumArtBy: 'Elijah James',
+      albumArtDesignedBy: 'Elijah James-Hallows',
+      albumArtBy: 'Elijah James-Hallows',
     },
     links: {
       smartLink: 'https://ditto.fm/its-too-late-now-to-say-two-songs',
@@ -102,9 +102,9 @@ export const albums: Album[] = [
     about:
       "Because I'm A Giant is an album that from its original conception was ambitious in scope. It features 18 songs, was recorded over a period of three and a half years between 2015-2018, and is the product of travelling around the UK (mostly Liverpool) with a backpack full of borrowed microphones to various musicians/friends houses to track the parts I’d written. Although there's no overriding concept to the album, I was focussing on writing songs with narratives and creating characters with rich personalities and backgrounds. Its intent is an atmospheric and poignant journey through the magnificent highs and the necessary lows of growing up.",
     credits: {
-      writtenBy: 'Elijah James',
-      arrangedBy: 'Elijah James',
-      producedBy: 'Elijah James',
+      writtenBy: 'Elijah James-Hallows',
+      arrangedBy: 'Elijah James-Hallows',
+      producedBy: 'Elijah James-Hallows',
       mixedBy: 'Tom Roach',
       masteredBy: 'Tom Woodhead',
       recordedAt: ['AMS&V', 'Elevator Studios', 'Canvas Sound'],
@@ -122,7 +122,7 @@ export const albums: Album[] = [
         'John Mac - Bass on track 4',
         'Jenny Coyle - Backing Vocals on tracks 3, 5, 13, 14, 15',
       ],
-      albumArtDesignedBy: 'Elijah James',
+      albumArtDesignedBy: 'Elijah James-Hallows',
       albumArtBy: 'Jonathon Tottey',
     },
     links: {
@@ -143,11 +143,11 @@ export const albums: Album[] = [
       4: 'Man-Made Masquerade',
     },
     about:
-      'On June 10th 2017, Elijah James And The Nightmares stepped into Elevator Studios with Tom Roach at the mixing desk to track their first set of recordings as a band. Performing totally live, the EP captures the energy, intensity and excitement created by the eight piece, encapsulating their live sound.',
+      'On June 10th 2017, Elijah James-Hallows And The Nightmares stepped into Elevator Studios with Tom Roach at the mixing desk to track their first set of recordings as a band. Performing totally live, the EP captures the energy, intensity and excitement created by the eight piece, encapsulating their live sound.',
     credits: {
-      writtenBy: 'Elijah James',
-      arrangedBy: 'Elijah James',
-      producedBy: 'Elijah James',
+      writtenBy: 'Elijah James-Hallows',
+      arrangedBy: 'Elijah James-Hallows',
+      producedBy: 'Elijah James-Hallows',
       mixedBy: 'Tom Roach',
       masteredBy: 'Tom Woodhead',
       recordedAt: ['Elevator Studios'],
@@ -160,8 +160,8 @@ export const albums: Album[] = [
         'Emily Claire - Violin',
         'Rachel Wharton - Tenor Horn',
       ],
-      albumArtDesignedBy: 'Elijah James',
-      albumArtBy: 'Elijah James',
+      albumArtDesignedBy: 'Elijah James-Hallows',
+      albumArtBy: 'Elijah James-Hallows',
     },
     links: {
       smartLink: 'https://ditto.fm/live-from-elevator-studios',

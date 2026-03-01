@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import LOGO from '../assets/ejandtn-logo.png';
+import { ARTIST_NAME } from '../consts';
 ---
 
 <nav class="sticky-nav">
@@ -12,7 +13,7 @@ import LOGO from '../assets/ejandtn-logo.png';
   >
     <Image
       src={LOGO}
-      alt="Elijah James And The Nightmares logo"
+      alt={`${ARTIST_NAME} logo`}
       class="sticky-nav-logo"
       format="webp"
     />
@@ -85,7 +86,7 @@ import LOGO from '../assets/ejandtn-logo.png';
         stickyNav.style.transform = `translateX(-2000px)`;
       }
     },
-    { root: null, threshold: 0, rootMargin: `-${stickyNavHeight}px` }
+    { root: null, threshold: 0, rootMargin: `-${stickyNavHeight}px` },
   );
 
   headerObserver.observe(header!);
