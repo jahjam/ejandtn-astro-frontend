@@ -17,7 +17,10 @@ import { Icon } from 'astro-icon/components';
     </div>
   </a>
 
-  <a href="/blog" aria-label="Link to take you to the bands blog webpage">
+  <a
+    href="https://ejhallows.substack.com/"
+    aria-label="Link to take you to the bands blog webpage"
+  >
     <div class="icon pen-icon">
       <Icon name="mdi:pen" />
     </div>
@@ -51,7 +54,7 @@ import { Icon } from 'astro-icon/components';
   const penIcon = document.querySelector('.pen-icon') as HTMLElement;
   const cameraIcon = document.querySelector('.camera-icon') as HTMLElement;
   const soundWaveIcon = document.querySelector(
-    '.sound-wave-icon'
+    '.sound-wave-icon',
   ) as HTMLElement;
 
   const toggleIcons = () => {
