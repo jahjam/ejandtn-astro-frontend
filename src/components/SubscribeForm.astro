@@ -4,6 +4,8 @@ type Props = {
 };
 
 const { direction } = Astro.props;
+
+// need to implement sign up form!!
 ---
 
 <form class="subscribe-form" name="subscribe">
@@ -35,41 +37,22 @@ const { direction } = Astro.props;
   <span class="thank-you-msg"></span>
 </div>
 
-<script>
+<script type="module">
   import axios from 'axios';
-  const firstNameInput = document.querySelector(
-    '.first-name-input'
-  ) as HTMLInputElement;
-  const emailInput = document.querySelector('.email-input') as HTMLInputElement;
+  const firstNameInput = document.querySelector('.first-name-input');
+  const emailInput = document.querySelector('.email-input');
   const subscribeForm = document.querySelector('.subscribe-form');
   const errorMsg = document.querySelector('.error-msg');
   const thankYouDiv = document.querySelector('.thank-you-div');
   const thankYouMsg = document.querySelector('.thank-you-msg');
 
-  async function handleSignUp(e: FormDataEvent) {
+  async function handleSignUp(e) {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        import.meta.env.MODE === 'development'
-          ? 'https://localhost:8888/api/signup'
-          : `https://ejandtn-strapi-backend-production.up.railway.app/api/sign-up`,
-        {
-          email: emailInput.value,
-          firstName: firstNameInput.value,
-        }
-      );
-
-      if (res.data.error) {
-        errorMsg.textContent = res.data.error;
-        return;
-      }
-
-      subscribeForm.classList.add('no-display');
-      thankYouMsg.textContent = res.data.message;
-      thankYouDiv.classList.remove('no-display');
+      // do something here
     } catch (err) {
-      console.log('Error');
+      console.log('Error...');
     }
   }
 

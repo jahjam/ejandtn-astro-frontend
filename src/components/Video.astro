@@ -34,7 +34,7 @@ const { id, title, url, src } = Astro.props;
         <p>{videoData.get(title)}</p>
       </div>
 
-      <Subscribe />
+      {/* <Subscribe /> */}
     </BaseLayout>
   ) : (
     <UnderConstruction title={title} description="Pending..." />
