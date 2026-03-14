@@ -16,14 +16,53 @@ const content = marked.parse(body, {
   headerIds: false,
 });
 
-const wrap = content.startsWith('<p>-wrap-');
-const newContent = wrap ? content.replace('-wrap-', '').trim() : content;
+type NewContent = {
+  finalContent: string;
+  hasIndents: boolean;
+  needsWrapping: boolean;
+};
+
+const createContent = (content: string): NewContent => {
+  let finalContent = content;
+
+  // from what I can foresee you'll never need wrapping
+  // as well as indents, as the whole point of wrapping
+  // is you're creating a block of text, but who knows
+  const needsWrapping = content.startsWith('<p>-wrap-');
+  if (needsWrapping) {
+    finalContent = content.replace('-wrap-', '').trim();
+  }
+
+  const hasIndents = content.startsWith('<p>-indents-');
+  if (hasIndents) {
+    finalContent = content.replace('-indents-', '').trim();
+  }
+
+  return { finalContent, hasIndents, needsWrapping };
+};
+
+const createFinalClasses = (content: NewContent) => {
+  let classes = '';
+
+  if (content.needsWrapping) {
+    classes += 'wrap';
+  } else if (content.hasIndents) {
+    classes += 'poem';
+  } else {
+    classes += 'nowrap';
+  }
+
+  return classes;
+};
+
+const newContent = createContent(content);
+const finalClasses = createFinalClasses(newContent);
 ---
 
 <div>
   <h3>{title}</h3>
 
-  <article set:html={newContent} class={wrap ? 'wrap' : 'nowrap'} />
+  <article set:html={newContent.finalContent} class={finalClasses} />
 
   <div class="info">
     <span>- Elijah James-Hallows</span>
@@ -43,6 +82,10 @@ const newContent = wrap ? content.replace('-wrap-', '').trim() : content;
     justify-content: flex-start;
     gap: 1rem;
     max-width: 40rem;
+  }
+
+  .poem {
+    white-space: pre-wrap;
   }
 
   .wrap {
