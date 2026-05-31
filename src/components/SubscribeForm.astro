@@ -4,16 +4,14 @@ type Props = {
 };
 
 const { direction } = Astro.props;
-
-// need to implement sign up form!!
 ---
 
-<form class="subscribe-form" name="subscribe">
+<form class="subscribe-form" name="subscribe" netlify>
   <ul class="form">
     <li>
       <input
         type="text"
-        name="first-name"
+        name="name"
         placeholder="First Name"
         class="form-input first-name-input"
         required
@@ -32,31 +30,25 @@ const { direction } = Astro.props;
     <li><button type="submit" class="btn subscribe-btn">Subscribe</button></li>
   </ul>
 </form>
-<span class="error-msg"></span>
 <div class="thank-you-div no-display">
-  <span class="thank-you-msg"></span>
+  <span class="thank-you-msg"
+    >Thank you for wanting to know more about my musical escapades!
+  </span>
+  <span>Keep an eye out for some very important mail from me.</span>
 </div>
 
-<script type="module">
-  import axios from 'axios';
-  const firstNameInput = document.querySelector('.first-name-input');
-  const emailInput = document.querySelector('.email-input');
-  const subscribeForm = document.querySelector('.subscribe-form');
-  const errorMsg = document.querySelector('.error-msg');
-  const thankYouDiv = document.querySelector('.thank-you-div');
-  const thankYouMsg = document.querySelector('.thank-you-msg');
+<script>
+  const thankYou = document.querySelector('.thank-you-div');
+  const form = document.querySelector('.subscribe-form');
+  const submitButton = document.querySelector('.subscribe-btn');
 
-  async function handleSignUp(e) {
+  submitButton?.addEventListener('click', e => {
+    console.log('here');
     e.preventDefault();
 
-    try {
-      // do something here
-    } catch (err) {
-      console.log('Error...');
-    }
-  }
-
-  subscribeForm.addEventListener('submit', handleSignUp);
+    thankYou?.classList.remove('no-display');
+    form?.classList.add('no-display');
+  });
 </script>
 
 <style lang="scss" define:vars={{ direction }}>
@@ -117,6 +109,14 @@ const { direction } = Astro.props;
 
   .form-input::placeholder {
     color: rgba(9, 13, 22, 0.377);
+  }
+
+  .thank-you-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .subscribe-btn {
