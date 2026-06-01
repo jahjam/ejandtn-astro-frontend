@@ -27,8 +27,10 @@ const { direction } = Astro.props;
         required
       />
     </li>
+    <li>
+      <button type="submit" class="btn subscribe-btn">Subscribe</button>
+    </li>
   </ul>
-  <button type="submit" class="btn subscribe-btn">Subscribe</button>
 </form>
 <div class="thank-you-div no-display">
   <span class="thank-you-msg"
@@ -42,12 +44,30 @@ const { direction } = Astro.props;
   const form = document.querySelector('.subscribe-form');
   const submitButton = document.querySelector('.subscribe-btn');
 
-  submitButton?.addEventListener('click', e => {
-    e.preventDefault();
+  // submitButton?.addEventListener('click', e => {
+  //   e.preventDefault();
+
+  // });
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => console.log('Form successfully submitted'))
+      .catch(error => alert(error));
 
     thankYou?.classList.remove('no-display');
-    //  form?.classList.add('no-display');
-  });
+    form?.classList.add('no-display');
+  };
+
+  form?.addEventListener('submit', handleSubmit);
 </script>
 
 <style lang="scss" define:vars={{ direction }}>
