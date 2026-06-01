@@ -6,7 +6,7 @@ type Props = {
 const { direction } = Astro.props;
 ---
 
-<form class="subscribe-form" name="subscribe" netlify>
+<form class="subscribe-form" name="subscribe" data-netlify="true">
   <input type="hidden" name="subscribe" value="subscribe" />
   <ul class="form">
     <li>
@@ -27,9 +27,8 @@ const { direction } = Astro.props;
         required
       />
     </li>
-
-    <li><button type="submit" class="btn subscribe-btn">Subscribe</button></li>
   </ul>
+  <button type="submit" class="btn subscribe-btn">Subscribe</button>
 </form>
 <div class="thank-you-div no-display">
   <span class="thank-you-msg"
