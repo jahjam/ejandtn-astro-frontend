@@ -43,6 +43,8 @@ const { direction } = Astro.props;
   const submitButton = document.querySelector('.subscribe-btn');
 
   submitButton?.addEventListener('click', e => {
+    e.preventDefault();
+
     thankYou?.classList.remove('no-display');
     //  form?.classList.add('no-display');
   });
