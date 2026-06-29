@@ -1,0 +1,97 @@
+---
+import Header from '../../components/Header.astro';
+import { ARTIST_NAME, SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { linkTree } from '../../data/linktree';
+import Subscribe from '../../components/Subscribe.astro';
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <Header header="Links" href="/" linkBack />
+  <section class="linktree-section section-seperator" id="linktree">
+    <div class="links-container">
+      <span class="at">@ejhallows</span>
+      <span class="desc"
+        >An amalgamation of folk, brit-pop, country,<br /> Merseybeat, and Americana</span
+      >
+      {
+        linkTree.map(({ title, link }, i) => {
+          return (
+            <div class="link-container">
+              <a
+                class="link linktree-link"
+                href={link}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {title}
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <h1 class="header-logo">{ARTIST_NAME}</h1>
+  </section>
+  <div class="divider"></div>
+  <Subscribe />
+</BaseLayout>
+
+<style lang="scss">
+  .links-container {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin: 0 auto;
+  }
+
+  .link-container {
+  }
+
+  .divider {
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--light-color);
+  }
+
+  .linktree-link {
+    height: 6rem;
+    width: 30rem;
+    border: 1px solid var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .linktree-section {
+    padding-bottom: 2rem;
+  }
+
+  .header-logo {
+    color: white;
+    text-align: center;
+  }
+
+  .at {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .desc {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: -1rem;
+  }
+</style>
