@@ -52,7 +52,7 @@ import SubscribeForm from '../../components/SubscribeForm.astro';
   }
   @keyframes borderFade {
     0% {
-      border-bottom: solid 0.2rem rgba(198, 47, 59, 0.8);
+      border-bottom: solid 0.2rem var(--primary-color);
     }
 
     80% {
@@ -72,7 +72,7 @@ import SubscribeForm from '../../components/SubscribeForm.astro';
     animation: borderFade 1.6s alternate infinite;
 
     &:hover {
-      color: rgba(198, 47, 59);
+      color: var(--primary-color);
     }
   }
   .divider {
