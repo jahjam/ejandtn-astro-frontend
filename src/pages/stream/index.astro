@@ -4,8 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import StreamingLinks from '../../components/StreamingLinks.astro';
 import { STREAM_TITLE, STREAM_DESCRIPTION } from '../../consts';
 import { ARTIST_NAME } from '../../consts';
-import Subscribe from '../subscribe.astro';
-import SubscribeForm from '../../components/SubscribeForm.astro';
+import Subscribe from '../../components/Subscribe.astro';
 ---
 
 <BaseLayout title={STREAM_TITLE} description={STREAM_DESCRIPTION}>
@@ -21,12 +20,8 @@ import SubscribeForm from '../../components/SubscribeForm.astro';
     <StreamingLinks />
 
     <span class="divider"></span>
-
-    <span
-      >Subscribe to our mailing list to hear more new music as it's released.</span
-    >
-    <SubscribeForm direction="column" />
   </div>
+  <Subscribe />
 </BaseLayout>
 
 <style lang="scss">
