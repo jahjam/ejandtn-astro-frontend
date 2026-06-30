@@ -16,8 +16,8 @@ import EJIMAGE from '../../assets/5-edit-square.png';
         <Image
           src={EJIMAGE}
           alt="Avatar image of EJ Hallows"
-          height={100}
-          width={100}
+          height={1000}
+          width={1000}
         />
       </div>
       <span class="at">@ejhallows</span>
@@ -56,6 +56,12 @@ import EJIMAGE from '../../assets/5-edit-square.png';
     width: 10rem;
     border-radius: 50rem;
     overflow: hidden;
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
   }
 
   .links-container {
