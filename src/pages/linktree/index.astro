@@ -4,12 +4,22 @@ import { ARTIST_NAME, SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { linkTree } from '../../data/linktree';
 import Subscribe from '../../components/Subscribe.astro';
+import { Image } from 'astro:assets';
+import EJIMAGE from '../../assets/5-edit-square.png';
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <Header header="Links" href="/" linkBack />
-  <section class="linktree-section section-seperator" id="linktree">
+  <section class="linktree-section" id="linktree">
     <div class="links-container">
+      <div class="avatar">
+        <Image
+          src={EJIMAGE}
+          alt="Avatar image of EJ Hallows"
+          height={100}
+          width={100}
+        />
+      </div>
       <span class="at">@ejhallows</span>
       <span class="desc"
         >An amalgamation of folk, brit-pop, country,<br /> Merseybeat, and Americana</span
@@ -17,9 +27,11 @@ import Subscribe from '../../components/Subscribe.astro';
       {
         linkTree.map(({ title, link }, i) => {
           return (
-            <div class="link-container">
+            <div
+              class={`${i !== 0 && 'link-container'} ${i === 0 && 'highlight'}`}
+            >
               <a
-                class="link linktree-link"
+                class={`link linktree-link`}
                 href={link}
                 rel="noreferrer"
                 target="_blank"
@@ -39,6 +51,13 @@ import Subscribe from '../../components/Subscribe.astro';
 </BaseLayout>
 
 <style lang="scss">
+  .avatar {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50rem;
+    overflow: hidden;
+  }
+
   .links-container {
     height: 100%;
     width: 30%;
@@ -93,5 +112,79 @@ import Subscribe from '../../components/Subscribe.astro';
     width: 100%;
     text-align: center;
     margin-top: -1rem;
+  }
+
+  :root {
+    --highlight-border: 1vh;
+    --highlight-radius: 75vh;
+  }
+
+  .highlight {
+    padding: 3rem 16rem;
+    background: var(--dark-color);
+    color: var(--light-color);
+    border-radius: var(--highlight-radius);
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+
+    animation: glow linear 2s infinite;
+
+    position: relative;
+  }
+
+  .highlight::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1/1;
+    width: 150%;
+    height: auto;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--light-color) 0%,
+      var(--dark-color) 3%,
+      var(--primary-color) 60%,
+      var(--light-color) 100%
+    );
+    animation: spin linear 2s infinite;
+    transform: translate(-50%, -50%);
+  }
+
+  .highlight::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% - var(--highlight-border));
+    height: calc(100% - var(--highlight-border));
+    background: var(--dark-color);
+    transform: translate(-50%, -50%);
+    border-radius: var(--highlight-radius);
+    backdrop-filter: blur(10vh);
+  }
+
+  .highlight a {
+    display: block;
+    position: absolute;
+    text-wrap: nowrap;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    border: none;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
   }
 </style>
